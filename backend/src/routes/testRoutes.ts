@@ -1,5 +1,5 @@
 import express, {Express, Response} from "express";
-import {db} from "../db/db";
+import {db} from "../dataAccessLayer/formRepository/db";
 
 export const getTestRouter = () => {
     const router = express.Router();

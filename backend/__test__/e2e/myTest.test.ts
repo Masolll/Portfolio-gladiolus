@@ -1,5 +1,5 @@
 import request from 'supertest'
-import {response} from "express";
+import {response, Response} from "express";
 import {FormCreatureModel} from "../../src/models/FormCreatureModel";
 import {FormViewModel} from "../../src/models/FormViewModel";
 import {app} from "../../src/app";
@@ -14,41 +14,41 @@ describe('/myTest', ()=>{
             .get('/form')
             .expect(200)
     })
-    it('POST/form should be BadRequest if uccorrect body', async()=>{
+    it('POST/form should be BadRequest if unccorrect body', async()=>{
         let postData : FormCreatureModel = {title: ""};
         await request(app)
             .post('/form')
             .send(postData)
-            .expect(codeMessage.BadRequest, [])
+            .expect(codeMessage.BadRequest)
         await request(app)
             .get('/form')
-            .expect(codeMessage.OK, [])
+            .expect(codeMessage.OK)
     })
-    let arrayCreatureForm : FormViewModel[];
+    let arrayCreatureForms : FormViewModel[] = [];
     it('POST/form create normal form', async()=>{
         let postData : FormCreatureModel = {title: 'Sasha'};
-        const response = await request(app)
+        await request(app)
             .post('/form')
             .send(postData)
-        arrayCreatureForm = response.body;
-        expect(arrayCreatureForm)
-            .toEqual([{'id': expect.any(Number), 'name': 'Sasha'}])
-
-        await request(app)
-            .get('/form')
-            .expect(200, arrayCreatureForm)
+            .expect(codeMessage.NoContent)
+        let response = await request(app)
+            .get("/form");
+        arrayCreatureForms = response.body;
+        expect(arrayCreatureForms).toEqual([{"id": expect.any(Number), "name": "Sasha"}])
     })
     it('PUT/form correct form', async()=>{
-        arrayCreatureForm  = [{'id': arrayCreatureForm[0].id, 'name': 'Georgiy'}]
-
         await request(app)
-            .put('/form/'+arrayCreatureForm[0].id)
+            .put('/form/'+arrayCreatureForms[0].id)
             .send({'title': 'Georgiy'})
-            .expect(200, arrayCreatureForm);
+            .expect(codeMessage.NoContent);
+        let response = await request(app)
+            .get("/form");
+        arrayCreatureForms = response.body;
+        expect(arrayCreatureForms).toEqual([{"id": arrayCreatureForms[0].id, "name": "Georgiy"}])
     })
     it('PUT/form uncorrect title', async()=>{
         await request(app)
-            .put('/form/'+arrayCreatureForm[0].id)
+            .put('/form/'+arrayCreatureForms[0].id)
             .send({'title': ''})
             .expect(codeMessage.BadRequest);
     })
@@ -60,19 +60,21 @@ describe('/myTest', ()=>{
     })
     it('GET/URI correct form', async()=>{
         await request(app)
-            .get('/form/'+arrayCreatureForm[0].id)
-            .expect(200, arrayCreatureForm[0])
+            .get('/form/'+arrayCreatureForms[0].id)
+            .expect(200, arrayCreatureForms[0])
     })
     //предварительно можно добавить еще одну форму
     it('DELETE/URI', async()=>{
         await request(app)
-            .delete('/form/'+arrayCreatureForm[0].id)
+            .delete('/form/'+arrayCreatureForms[0].id)
             .expect(codeMessage.NoContent)
+        let response = request(app)
+            .get("/form")
+            .expect(codeMessage.OK, [])
     })
     it('GET/URI get delete form', async()=>{
         await request(app)
-            .get('/form/'+arrayCreatureForm[0].id)
+            .get('/form/'+arrayCreatureForms[0].id)
             .expect(codeMessage.NotFound)
     })
-
 })

@@ -6,54 +6,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getFormRouter = void 0;
 const express_1 = __importDefault(require("express"));
 const codeMessage_1 = require("../codeMessage");
-const db_1 = require("../db/db");
+const formRepository_1 = require("../dataAccessLayer/formRepository/formRepository");
 const getFormRouter = () => {
     const router = express_1.default.Router();
     router.get('/', (req, res) => {
-        if (req.query.name) { //проверяю передали ли query параметр
-            res.json(db_1.db.forms.filter(e => e.name === req.query.name));
-            return;
-        }
-        res.json(db_1.db.forms);
+        res.json(formRepository_1.formRepository.findFormByName(req.query.name));
     });
     router.get("/:id", (req, res) => {
-        let findForm = db_1.db.forms.find(c => c.id === +req.params.id);
-        if (!findForm) {
-            res.sendStatus(codeMessage_1.codeMessage.NotFound);
-            return;
-        }
-        return res.json(findForm);
+        let findForm = formRepository_1.formRepository.findFormById(req.params.id);
+        return findForm ? res.json(findForm) : res.sendStatus(codeMessage_1.codeMessage.NotFound);
     });
     router.post('/', (req, res) => {
-        if (req.body.title) {
-            db_1.db.forms.push({ "id": Math.random(), "name": req.body.title });
-            return res.status(codeMessage_1.codeMessage.Created).json(db_1.db.forms);
-        }
-        res.status(codeMessage_1.codeMessage.BadRequest).json(db_1.db.forms);
+        let isCreated = formRepository_1.formRepository.creatureForm(req.body.title);
+        return isCreated ? res.sendStatus(codeMessage_1.codeMessage.NoContent) : res.sendStatus(codeMessage_1.codeMessage.BadRequest);
     });
     router.put('/:id', (req, res) => {
-        let foundItem = db_1.db.forms.find(c => c.id === +req.params.id);
-        if (!foundItem) {
-            res.sendStatus(codeMessage_1.codeMessage.BadRequest);
-            return;
-        }
-        const newName = req.body.title;
-        if (!newName) {
-            res.sendStatus(codeMessage_1.codeMessage.BadRequest);
-        }
-        else {
-            foundItem.name = newName;
-        }
-        res.json(db_1.db.forms);
+        let isUpdate = formRepository_1.formRepository.updateForm(req.params.id, req.body.title);
+        return isUpdate ? res.sendStatus(codeMessage_1.codeMessage.NoContent) : res.sendStatus(codeMessage_1.codeMessage.BadRequest);
     });
     router.delete('/:id', (req, res) => {
-        let deleteItem = db_1.db.forms.find(f => f.id === +req.params.id);
-        if (!deleteItem) {
-            res.send(codeMessage_1.codeMessage.BadRequest);
-            return;
-        }
-        db_1.db.forms = db_1.db.forms.filter(f => f.id != +req.params.id);
-        res.sendStatus(codeMessage_1.codeMessage.NoContent);
+        let isDeleted = formRepository_1.formRepository.deleteForm(req.params.id);
+        return isDeleted ? res.sendStatus(codeMessage_1.codeMessage.NoContent) : res.sendStatus(codeMessage_1.codeMessage.BadRequest);
     });
     return router;
 };
