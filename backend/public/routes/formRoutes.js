@@ -10,7 +10,7 @@ const formRepository_1 = require("../dataAccessLayer/formRepository/formReposito
 const getFormRouter = () => {
     const router = express_1.default.Router();
     router.get('/', (req, res) => {
-        res.json(formRepository_1.formRepository.findFormByName(req.query.name));
+        res.json(formRepository_1.formRepository.findFormsByName(req.query.name));
     });
     router.get("/:id", (req, res) => {
         let findForm = formRepository_1.formRepository.findFormById(req.params.id);

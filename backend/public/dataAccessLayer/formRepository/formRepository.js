@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.formRepository = void 0;
 const db_1 = require("./db");
 exports.formRepository = {
-    findFormByName: (name) => {
+    findFormsByName: (name) => {
         if (name) {
             return db_1.db.forms.filter(e => e.name === name);
         }
@@ -15,7 +15,7 @@ exports.formRepository = {
     creatureForm: (title) => {
         if (title) {
             let creatureItem = {
-                "id": Math.random(),
+                "id": Math.trunc(Math.random() * 10 ** 6),
                 "name": title
             };
             db_1.db.forms.push(creatureItem);

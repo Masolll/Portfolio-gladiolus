@@ -24,39 +24,41 @@ describe('/myTest', () => {
             .get('/form')
             .expect(200);
     }));
-    it('POST/form should be BadRequest if uccorrect body', () => __awaiter(void 0, void 0, void 0, function* () {
+    it('POST/form should be BadRequest if unccorrect body', () => __awaiter(void 0, void 0, void 0, function* () {
         let postData = { title: "" };
         yield (0, supertest_1.default)(app_1.app)
             .post('/form')
             .send(postData)
-            .expect(codeMessage_1.codeMessage.BadRequest, []);
+            .expect(codeMessage_1.codeMessage.BadRequest);
         yield (0, supertest_1.default)(app_1.app)
             .get('/form')
-            .expect(codeMessage_1.codeMessage.OK, []);
+            .expect(codeMessage_1.codeMessage.OK);
     }));
-    let arrayCreatureForm;
+    let arrayCreatureForms = [];
     it('POST/form create normal form', () => __awaiter(void 0, void 0, void 0, function* () {
         let postData = { title: 'Sasha' };
-        const response = yield (0, supertest_1.default)(app_1.app)
-            .post('/form')
-            .send(postData);
-        arrayCreatureForm = response.body;
-        expect(arrayCreatureForm)
-            .toEqual([{ 'id': expect.any(Number), 'name': 'Sasha' }]);
         yield (0, supertest_1.default)(app_1.app)
-            .get('/form')
-            .expect(200, arrayCreatureForm);
+            .post('/form')
+            .send(postData)
+            .expect(codeMessage_1.codeMessage.NoContent);
+        let response = yield (0, supertest_1.default)(app_1.app)
+            .get("/form");
+        arrayCreatureForms = response.body;
+        expect(arrayCreatureForms).toEqual([{ "id": expect.any(Number), "name": "Sasha" }]);
     }));
     it('PUT/form correct form', () => __awaiter(void 0, void 0, void 0, function* () {
-        arrayCreatureForm = [{ 'id': arrayCreatureForm[0].id, 'name': 'Georgiy' }];
         yield (0, supertest_1.default)(app_1.app)
-            .put('/form/' + arrayCreatureForm[0].id)
+            .put('/form/' + arrayCreatureForms[0].id)
             .send({ 'title': 'Georgiy' })
-            .expect(200, arrayCreatureForm);
+            .expect(codeMessage_1.codeMessage.NoContent);
+        let response = yield (0, supertest_1.default)(app_1.app)
+            .get("/form");
+        arrayCreatureForms = response.body;
+        expect(arrayCreatureForms).toEqual([{ "id": arrayCreatureForms[0].id, "name": "Georgiy" }]);
     }));
     it('PUT/form uncorrect title', () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.app)
-            .put('/form/' + arrayCreatureForm[0].id)
+            .put('/form/' + arrayCreatureForms[0].id)
             .send({ 'title': '' })
             .expect(codeMessage_1.codeMessage.BadRequest);
     }));
@@ -68,18 +70,21 @@ describe('/myTest', () => {
     }));
     it('GET/URI correct form', () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.app)
-            .get('/form/' + arrayCreatureForm[0].id)
-            .expect(200, arrayCreatureForm[0]);
+            .get('/form/' + arrayCreatureForms[0].id)
+            .expect(200, arrayCreatureForms[0]);
     }));
     //предварительно можно добавить еще одну форму
     it('DELETE/URI', () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.app)
-            .delete('/form/' + arrayCreatureForm[0].id)
+            .delete('/form/' + arrayCreatureForms[0].id)
             .expect(codeMessage_1.codeMessage.NoContent);
+        let response = (0, supertest_1.default)(app_1.app)
+            .get("/form")
+            .expect(codeMessage_1.codeMessage.OK, []);
     }));
     it('GET/URI get delete form', () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.app)
-            .get('/form/' + arrayCreatureForm[0].id)
+            .get('/form/' + arrayCreatureForms[0].id)
             .expect(codeMessage_1.codeMessage.NotFound);
     }));
 });
