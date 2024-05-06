@@ -17,7 +17,7 @@ const app_1 = require("../../src/app");
 const codeMessage_1 = require("../../src/codeMessage");
 describe('/myTest', () => {
     beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.app).delete('/test');
+        yield (0, supertest_1.default)(app_1.app).delete('/form');
     }));
     it('GET/form should be ok and empty array', () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.app)
@@ -44,7 +44,7 @@ describe('/myTest', () => {
         let response = yield (0, supertest_1.default)(app_1.app)
             .get("/form");
         arrayCreatureForms = response.body;
-        expect(arrayCreatureForms).toEqual([{ "id": expect.any(Number), "name": "Sasha" }]);
+        expect(arrayCreatureForms).toEqual([{ "_id": expect.any(String), "id": expect.any(Number), "name": "Sasha" }]);
     }));
     it('PUT/form correct form', () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.app)
@@ -54,7 +54,7 @@ describe('/myTest', () => {
         let response = yield (0, supertest_1.default)(app_1.app)
             .get("/form");
         arrayCreatureForms = response.body;
-        expect(arrayCreatureForms).toEqual([{ "id": arrayCreatureForms[0].id, "name": "Georgiy" }]);
+        expect(arrayCreatureForms).toEqual([{ "_id": expect.any(String), "id": arrayCreatureForms[0].id, "name": "Georgiy" }]);
     }));
     it('PUT/form uncorrect title', () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.app)

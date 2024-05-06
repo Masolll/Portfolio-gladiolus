@@ -1,9 +1,6 @@
-type formType = {
-    "id": number,
-    "name": string
-}
+import {FormViewModel} from "../../models/FormViewModel";
 
-export let db: { forms: formType[] } = {
+export let db: { forms: FormViewModel[] } = {
     forms: [
         {"id": 2, "name": "Alex"},
         {'id': 3, 'name': "Andrew"}

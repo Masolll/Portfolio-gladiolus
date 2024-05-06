@@ -6,7 +6,7 @@ import {app} from "../../src/app";
 import {codeMessage} from "../../src/codeMessage"
 describe('/myTest', ()=>{
     beforeAll(async()=>{
-        await request(app).delete('/test')
+        await request(app).delete('/form')
     })
 
     it('GET/form should be ok and empty array', async()=>{
@@ -34,7 +34,7 @@ describe('/myTest', ()=>{
         let response = await request(app)
             .get("/form");
         arrayCreatureForms = response.body;
-        expect(arrayCreatureForms).toEqual([{"id": expect.any(Number), "name": "Sasha"}])
+        expect(arrayCreatureForms).toEqual([{"_id": expect.any(String), "id": expect.any(Number), "name": "Sasha"}])
     })
     it('PUT/form correct form', async()=>{
         await request(app)
@@ -44,7 +44,7 @@ describe('/myTest', ()=>{
         let response = await request(app)
             .get("/form");
         arrayCreatureForms = response.body;
-        expect(arrayCreatureForms).toEqual([{"id": arrayCreatureForms[0].id, "name": "Georgiy"}])
+        expect(arrayCreatureForms).toEqual([{"_id": expect.any(String), "id": arrayCreatureForms[0].id, "name": "Georgiy"}])
     })
     it('PUT/form uncorrect title', async()=>{
         await request(app)
