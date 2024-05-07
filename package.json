@@ -1,0 +1,14 @@
+{
+  "name": "portfolio-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "backend/public/index.js",
+  "scripts": {
+    "start": "node backend/public/index.js --port=3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Masolll/Portfolio-gladiolus.git"
+  },
+  "private": true
+}

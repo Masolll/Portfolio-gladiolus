@@ -63,14 +63,26 @@ describe('/myTest', ()=>{
             .get('/form/'+arrayCreatureForms[0].id)
             .expect(200, arrayCreatureForms[0])
     })
-    //предварительно можно добавить еще одну форму
+    it('POST/form create normal form', async()=>{
+        let postData : FormCreatureModel = {title: 'вова'};
+        await request(app)
+            .post('/form')
+            .send(postData)
+            .expect(codeMessage.NoContent)
+        let response = await request(app)
+            .get("/form");
+        arrayCreatureForms = response.body;
+        expect(arrayCreatureForms).toEqual([
+            {"_id": expect.any(String), "id": expect.any(Number), "name": "Georgiy"},
+            {"_id": expect.any(String), "id": expect.any(Number), "name": "вова"}])
+    })
     it('DELETE/URI', async()=>{
         await request(app)
             .delete('/form/'+arrayCreatureForms[0].id)
             .expect(codeMessage.NoContent)
         let response = request(app)
             .get("/form")
-            .expect(codeMessage.OK, [])
+            .expect(codeMessage.OK, [{"_id": expect.any(String), "id": expect.any(Number), "name": "вова"}])
     })
     it('GET/URI get delete form', async()=>{
         await request(app)
