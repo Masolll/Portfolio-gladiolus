@@ -73,14 +73,27 @@ describe('/myTest', () => {
             .get('/form/' + arrayCreatureForms[0].id)
             .expect(200, arrayCreatureForms[0]);
     }));
-    //предварительно можно добавить еще одну форму
+    it('POST/form create normal form', () => __awaiter(void 0, void 0, void 0, function* () {
+        let postData = { title: 'вова' };
+        yield (0, supertest_1.default)(app_1.app)
+            .post('/form')
+            .send(postData)
+            .expect(codeMessage_1.codeMessage.NoContent);
+        let response = yield (0, supertest_1.default)(app_1.app)
+            .get("/form");
+        arrayCreatureForms = response.body;
+        expect(arrayCreatureForms).toEqual([
+            { "_id": expect.any(String), "id": expect.any(Number), "name": "Georgiy" },
+            { "_id": expect.any(String), "id": expect.any(Number), "name": "вова" }
+        ]);
+    }));
     it('DELETE/URI', () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.app)
             .delete('/form/' + arrayCreatureForms[0].id)
             .expect(codeMessage_1.codeMessage.NoContent);
         let response = (0, supertest_1.default)(app_1.app)
             .get("/form")
-            .expect(codeMessage_1.codeMessage.OK, []);
+            .expect(codeMessage_1.codeMessage.OK, [{ "_id": expect.any(String), "id": expect.any(Number), "name": "вова" }]);
     }));
     it('GET/URI get delete form', () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.app)
