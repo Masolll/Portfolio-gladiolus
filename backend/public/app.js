@@ -5,8 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.bodyMiddleWare = exports.app = void 0;
 const express_1 = __importDefault(require("express"));
-const formRoutes_1 = require("./routes/formRoutes");
-const testRoutes_1 = require("./routes/testRoutes");
+const usersRoutes_1 = require("./routes/usersRoutes");
 const mainRoutes_1 = require("./routes/mainRoutes");
 const path_1 = __importDefault(require("path"));
 exports.app = (0, express_1.default)();
@@ -15,5 +14,4 @@ exports.bodyMiddleWare = express_1.default.json();
 exports.app.use(exports.bodyMiddleWare);
 exports.app.use(express_1.default.static(path_1.default.join(__dirname, "../../portfolio")));
 exports.app.use('/', (0, mainRoutes_1.getMainRouter)());
-exports.app.use('/form', (0, formRoutes_1.getFormRouter)());
-exports.app.use('/test', (0, testRoutes_1.getTestRouter)());
+exports.app.use('/users', (0, usersRoutes_1.getUsersRouter)());

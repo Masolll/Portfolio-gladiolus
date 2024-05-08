@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = require("./app");
-const claster_1 = require("./dataAccessLayer/formRepository/claster");
+const claster_1 = require("./dataAccessLayer/usersRepository/claster");
 const port = process.env.PORT || 3000;
 const startApp = () => __awaiter(void 0, void 0, void 0, function* () {
     yield (0, claster_1.runDb)();

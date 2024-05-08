@@ -17,70 +17,70 @@ const app_1 = require("../../src/app");
 const codeMessage_1 = require("../../src/codeMessage");
 describe('/myTest', () => {
     beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.app).delete('/form');
+        yield (0, supertest_1.default)(app_1.app).delete('/users');
     }));
     it('GET/form should be ok and empty array', () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.app)
-            .get('/form')
+            .get('/users')
             .expect(200);
     }));
     it('POST/form should be BadRequest if unccorrect body', () => __awaiter(void 0, void 0, void 0, function* () {
         let postData = { title: "" };
         yield (0, supertest_1.default)(app_1.app)
-            .post('/form')
+            .post('/users')
             .send(postData)
             .expect(codeMessage_1.codeMessage.BadRequest);
         yield (0, supertest_1.default)(app_1.app)
-            .get('/form')
+            .get('/users')
             .expect(codeMessage_1.codeMessage.OK);
     }));
     let arrayCreatureForms = [];
     it('POST/form create normal form', () => __awaiter(void 0, void 0, void 0, function* () {
         let postData = { title: 'Sasha' };
         yield (0, supertest_1.default)(app_1.app)
-            .post('/form')
+            .post('/users')
             .send(postData)
             .expect(codeMessage_1.codeMessage.NoContent);
         let response = yield (0, supertest_1.default)(app_1.app)
-            .get("/form");
+            .get("/users");
         arrayCreatureForms = response.body;
         expect(arrayCreatureForms).toEqual([{ "_id": expect.any(String), "id": expect.any(Number), "name": "Sasha" }]);
     }));
     it('PUT/form correct form', () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.app)
-            .put('/form/' + arrayCreatureForms[0].id)
+            .put('/users/' + arrayCreatureForms[0].id)
             .send({ 'title': 'Georgiy' })
             .expect(codeMessage_1.codeMessage.NoContent);
         let response = yield (0, supertest_1.default)(app_1.app)
-            .get("/form");
+            .get("/users");
         arrayCreatureForms = response.body;
         expect(arrayCreatureForms).toEqual([{ "_id": expect.any(String), "id": arrayCreatureForms[0].id, "name": "Georgiy" }]);
     }));
     it('PUT/form uncorrect title', () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.app)
-            .put('/form/' + arrayCreatureForms[0].id)
+            .put('/users/' + arrayCreatureForms[0].id)
             .send({ 'title': '' })
             .expect(codeMessage_1.codeMessage.BadRequest);
     }));
     it('PUT/form uncorrect id', () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.app)
-            .put('/form/-100')
+            .put('/users/-100')
             .send({ 'title': 'Vanya' })
             .expect(codeMessage_1.codeMessage.BadRequest);
     }));
     it('GET/URI correct form', () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.app)
-            .get('/form/' + arrayCreatureForms[0].id)
+            .get('/users/' + arrayCreatureForms[0].id)
             .expect(200, arrayCreatureForms[0]);
     }));
     it('POST/form create normal form', () => __awaiter(void 0, void 0, void 0, function* () {
         let postData = { title: 'вова' };
         yield (0, supertest_1.default)(app_1.app)
-            .post('/form')
+            .post('/users')
             .send(postData)
             .expect(codeMessage_1.codeMessage.NoContent);
         let response = yield (0, supertest_1.default)(app_1.app)
-            .get("/form");
+            .get("/users");
         arrayCreatureForms = response.body;
         expect(arrayCreatureForms).toEqual([
             { "_id": expect.any(String), "id": expect.any(Number), "name": "Georgiy" },
@@ -89,15 +89,15 @@ describe('/myTest', () => {
     }));
     it('DELETE/URI', () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.app)
-            .delete('/form/' + arrayCreatureForms[0].id)
+            .delete('/users/' + arrayCreatureForms[0].id)
             .expect(codeMessage_1.codeMessage.NoContent);
         let response = (0, supertest_1.default)(app_1.app)
-            .get("/form")
+            .get("/users")
             .expect(codeMessage_1.codeMessage.OK, [{ "_id": expect.any(String), "id": expect.any(Number), "name": "вова" }]);
     }));
     it('GET/URI get delete form', () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.app)
-            .get('/form/' + arrayCreatureForms[0].id)
+            .get('/users/' + arrayCreatureForms[0].id)
             .expect(codeMessage_1.codeMessage.NotFound);
     }));
 });

@@ -1,6 +1,5 @@
 import express, {Response, Request, NextFunction} from "express";
-import {getFormRouter} from "./routes/formRoutes";
-import {getTestRouter} from './routes/testRoutes';
+import {getUsersRouter} from "./routes/usersRoutes";
 import {getMainRouter} from "./routes/mainRoutes";
 import {codeMessage} from "./codeMessage";
 import path from "path";
@@ -13,8 +12,7 @@ app.use(bodyMiddleWare);
 app.use(express.static(path.join(__dirname, "../../portfolio")))
 
 app.use('/', getMainRouter())
-app.use('/form', getFormRouter());
-app.use('/test', getTestRouter());
+app.use('/users', getUsersRouter());
 
 
 
