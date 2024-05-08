@@ -1,7 +1,6 @@
 import express, {Response, Request, NextFunction} from "express";
 import {getUsersRouter} from "./routes/usersRoutes";
 import {getMainRouter} from "./routes/mainRoutes";
-import {codeMessage} from "./codeMessage";
 import path from "path";
 
 export const app = express();
