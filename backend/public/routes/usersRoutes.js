@@ -16,10 +16,13 @@ exports.getUsersRouter = void 0;
 const express_1 = __importDefault(require("express"));
 const codeMessage_1 = require("../codeMessage");
 const MongoDbUsersRepository_1 = require("../dataAccessLayer/usersRepository/MongoDbUsersRepository");
+const path_1 = __importDefault(require("path"));
 const getUsersRouter = () => {
     const router = express_1.default.Router();
     router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        res.json(yield MongoDbUsersRepository_1.UsersRepository.findUserByName(req.query.name));
+        // res.json(await UsersRepository.findUserByName(req.query.name));
+        let users = yield MongoDbUsersRepository_1.UsersRepository.findUserByName(req.query.name);
+        res.render(path_1.default.join(__dirname, "../../ejs-pages/users.ejs"), { users: users });
     }));
     router.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         let findForm = yield MongoDbUsersRepository_1.UsersRepository.findUserById(+req.params.id);

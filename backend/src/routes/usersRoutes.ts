@@ -7,12 +7,15 @@ import {UserCreatureModel} from "../models/UserCreatureModel";
 import {UserUpdateModel} from "../models/UserUpdateModel";
 import {codeMessage} from "../codeMessage";
 import {UsersRepository} from "../dataAccessLayer/usersRepository/MongoDbUsersRepository";
+import path from "path";
 
 export const getUsersRouter = () => {
     const router = express.Router();
 
     router.get('/', async (req:RequestWithQuery<GetUserQueryModel>, res:Response<UserViewModel[]>) => {
-        res.json(await UsersRepository.findUserByName(req.query.name));
+        // res.json(await UsersRepository.findUserByName(req.query.name));
+        let users = await UsersRepository.findUserByName(req.query.name);
+        res.render(path.join(__dirname, "../../ejs-pages/users.ejs"), {users: users});
     })
     router.get("/:id", async (req:RequestWithUri<UserUriModel>, res: Response<UserViewModel>) => {
         let findForm = await UsersRepository.findUserById(+req.params.id);
