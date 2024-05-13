@@ -1,12 +1,32 @@
 import path from "path";
 import express from "express";
+import {UsersRepository} from "../dataAccessLayer/usersRepository/MongoDbUsersRepository";
+import {codeMessage} from "../models/codeMessage";
+import {body, validationResult} from 'express-validator';
+import * as bcrypt from 'bcrypt';
+import {jwtService} from "../jwtService/jwtService";
 export const getEnterRouter = () => {
     const router = express.Router();
 
     router.get('/', (req, res) => {
-        res.render(path.join(__dirname, "../../ejs-pages/enter.ejs"))
+        res.sendFile(path.join(__dirname, "../../../portfolio/enter.html"))
     })
-    router.get('/phone', (req, res) =>{
+    router.post('/',
+        body('email').notEmpty(),
+        body('password').notEmpty(),
+        async (req, res) => {
+        const findUser = await UsersRepository.findUserByEmail(req.body.email);
+        if (!findUser){
+            return res.status(codeMessage.BadRequest).send('Пользователь с таким email не найден');
+        }
+        const validPassword = bcrypt.compareSync(req.body.password, findUser!.password);
+        if (!validPassword){
+            return res.status(codeMessage.BadRequest).send('Введен неверный пароль');
+        }
+        const token = await jwtService.createJWT(findUser);
+        return res.json({token: token});
+    })
+    router.get('/email', (req, res) =>{
         res.render(path.join(__dirname, "../../ejs-pages/enter-1.ejs"))
     })
 

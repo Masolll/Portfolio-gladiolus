@@ -5,32 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6739e396-ac11-4e31-ad52-dbf32cb7f91c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/public/dataAccessLayer/UsersRepository/MongoDbUsersRepository.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/dataAccessLayer/UsersRepository/claster.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/dataAccessLayer/formRepository/MemoryUsersRepository.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/dataAccessLayer/formRepository/MongoDbUsersRepository.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/routes/usersRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/createUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/ejs-pages/createUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/ejs-pages/parts/header.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/__test__/e2e/myTest.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/__test__/e2e/myTest.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/__test__/e2e/myTest.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/__test__/e2e/myTest.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/dataAccessLayer/formRepository/MemoryFormRepository.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/dataAccessLayer/formRepository/MongoDbFormRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/MongoDbUsersRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/dataAccessLayer/formRepository/claster.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/claster.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/dataAccessLayer/formRepository/db.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/FormCreatureModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/UserCreatureModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/FormUpdateModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/UserUpdateModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/FormUriModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/UserUriModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/FormViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/UserViewModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/GetFormQueryModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/GetUserQueryModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/formRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/usersRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/testRoutes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/requestTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/menu.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/ejs-pages/menu.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/registr.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/ejs-pages/registr.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/users.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/ejs-pages/users.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/MongoDbUsersRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/MongoDbUsersRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/claster.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/claster.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/routes/enterRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/enterRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/routes/registrationRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/registrationRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/routes/usersRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/usersRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/MongoDbUsersRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/MongoDbUsersRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/claster.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/claster.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/enterRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/enterRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/registrationRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/registrationRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/usersRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/usersRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/createUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/createUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/enter-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/enter-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/enter.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/enter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/profil.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/profil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/registr-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/registr-1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/registr.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/registr.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,9 +40,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="package.json" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -62,32 +61,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Jest.myTest.test.ts.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Maksim/WebstormProjects/portfolio-project/backend/src/dataAccessLayer/formRepository",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "C:/Users/Maksim/WebstormProjects/portfolio-project/backend/node_modules/jest",
-    "nodejs_package_manager_path": "yarn",
-    "npm.js_watch.executor": "Run",
-    "npm.ts_watch.executor": "Run",
-    "settings.editor.selected.configurable": "editor.preferences.tabs",
-    "ts.external.directory.path": "C:\\Users\\Maksim\\WebstormProjects\\portfolio-project\\backend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Jest.myTest.test.ts.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Maksim/WebstormProjects/portfolio-project/backend/ejs-pages&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;C:/Users/Maksim/WebstormProjects/portfolio-project/backend/node_modules/jest&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;npm.js_watch.executor&quot;: &quot;Run&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;npm.ts_watch.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Maksim\\WebstormProjects\\portfolio-project\\backend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\ejs-pages" />
       <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\src\dataAccessLayer\formRepository" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend" />
+      <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\portfolio" />
       <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project" />
     </key>
   </component>
@@ -111,6 +114,16 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="ts_watch" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/backend/package.json" />
       <command value="run" />
@@ -123,8 +136,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.js_watch" />
         <item itemvalue="npm.ts_watch" />
+        <item itemvalue="npm.js_watch" />
+        <item itemvalue="npm.start" />
         <item itemvalue="Jest.myTest.test.ts" />
       </list>
     </recent_temporary>
@@ -147,6 +161,8 @@
       <workItem from="1715067132974" duration="5695000" />
       <workItem from="1715074065313" duration="1939000" />
       <workItem from="1715184037209" duration="7616000" />
+      <workItem from="1715442187367" duration="1719000" />
+      <workItem from="1715533721710" duration="11944000" />
     </task>
     <servers />
   </component>

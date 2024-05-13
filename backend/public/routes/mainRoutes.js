@@ -9,7 +9,7 @@ const express_1 = __importDefault(require("express"));
 const getMainRouter = () => {
     const router = express_1.default.Router();
     router.get('/', (req, res) => {
-        res.render(path_1.default.join(__dirname, "../../ejs-pages/index.ejs"));
+        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/main.html"));
     });
     return router;
 };

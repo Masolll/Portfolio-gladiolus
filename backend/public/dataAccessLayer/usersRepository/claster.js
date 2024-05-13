@@ -11,8 +11,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.runDb = exports.client = void 0;
 const mongodb_1 = require("mongodb");
-// const uri = process.env.mongoURI || "mongodb://0.0.0.0:27017";
-const uri = "mongodb+srv://yastey:WeRtY.F.A.@cluster0.6culwax.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env.mongoURI || "mongodb://0.0.0.0:27017";
+// const uri = "mongodb+srv://yastey:WeRtY.F.A.@cluster0.6culwax.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 exports.client = new mongodb_1.MongoClient(uri, {
     serverApi: {
@@ -27,7 +27,7 @@ function runDb() {
             // Connect the client to the server	(optional starting in v4.7)
             yield exports.client.connect();
             // Send a ping to confirm a successful connection
-            yield exports.client.db("admin").command({ ping: 1 });
+            yield exports.client.db("usersbox").command({ ping: 1 });
             console.log("Pinged your deployment. You successfully connected to MongoDB!");
         }
         catch (_a) {

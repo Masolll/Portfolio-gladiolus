@@ -14,23 +14,30 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getUsersRouter = void 0;
 const express_1 = __importDefault(require("express"));
-const codeMessage_1 = require("../codeMessage");
+const codeMessage_1 = require("../models/codeMessage");
 const MongoDbUsersRepository_1 = require("../dataAccessLayer/usersRepository/MongoDbUsersRepository");
 const path_1 = __importDefault(require("path"));
 const getUsersRouter = () => {
     const router = express_1.default.Router();
     router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        // res.json(await UsersRepository.findUserByName(req.query.name));
-        let users = yield MongoDbUsersRepository_1.UsersRepository.findUserByName(req.query.name);
-        res.render(path_1.default.join(__dirname, "../../ejs-pages/users.ejs"), { users: users });
+        if (req.query.name) {
+            let user = yield MongoDbUsersRepository_1.UsersRepository.findUserByName(req.query.name);
+            return user
+                ? res.render(path_1.default.join(__dirname, "../../ejs-pages/users.ejs"), { users: [user] })
+                : res.sendStatus(codeMessage_1.codeMessage.BadRequest);
+        }
+        else {
+            let users = yield MongoDbUsersRepository_1.UsersRepository.findAllUsers();
+            res.render(path_1.default.join(__dirname, "../../ejs-pages/users.ejs"), { users: users });
+        }
     }));
     router.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         let findForm = yield MongoDbUsersRepository_1.UsersRepository.findUserById(+req.params.id);
         return findForm ? res.json(findForm) : res.sendStatus(codeMessage_1.codeMessage.NotFound);
     }));
     router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        let isCreated = yield MongoDbUsersRepository_1.UsersRepository.creatureUser(req.body);
-        return isCreated ? res.sendStatus(codeMessage_1.codeMessage.NoContent) : res.sendStatus(codeMessage_1.codeMessage.BadRequest);
+        yield MongoDbUsersRepository_1.UsersRepository.creatureUser(req.body);
+        return res.sendStatus(codeMessage_1.codeMessage.NoContent);
     }));
     router.put('/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         let isUpdate = yield MongoDbUsersRepository_1.UsersRepository.updateUser(+req.params.id, req.body);

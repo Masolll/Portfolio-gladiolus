@@ -4,7 +4,7 @@ export const getMainRouter = () => {
     const router = express.Router();
 
     router.get('/', (req, res) => {
-        res.render(path.join(__dirname, "../../ejs-pages/index.ejs"))
+        res.sendFile(path.join(__dirname, "../../../portfolio/main.html"))
     })
 
     return router;

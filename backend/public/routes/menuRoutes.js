@@ -9,7 +9,7 @@ const express_1 = __importDefault(require("express"));
 const getMenuRouter = () => {
     const router = express_1.default.Router();
     router.get('/', (req, res) => {
-        res.render(path_1.default.join(__dirname, "../../ejs-pages/menu.ejs"));
+        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/menu.html"));
     });
     return router;
 };

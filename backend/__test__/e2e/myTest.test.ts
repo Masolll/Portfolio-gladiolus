@@ -3,7 +3,7 @@ import {response, Response} from "express";
 import {UserCreatureModel} from "../../src/models/UserCreatureModel";
 import {UserViewModel} from "../../src/models/UserViewModel";
 import {app} from "../../src/app";
-import {codeMessage} from "../../src/codeMessage"
+import {codeMessage} from "../../src/models/codeMessage"
 describe('/myTest', ()=>{
     beforeAll(async()=>{
         await request(app).delete('/users')
@@ -15,7 +15,7 @@ describe('/myTest', ()=>{
             .expect(200)
     })
     it('POST/form should be BadRequest if unccorrect body', async()=>{
-        let postData : UserCreatureModel = {title: ""};
+        let postData : UserCreatureModel = {name: ""};
         await request(app)
             .post('/users')
             .send(postData)

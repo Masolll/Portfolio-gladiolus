@@ -1,5 +1,5 @@
 export type UserCreatureModel = {
     name: string,
-    phone: string,
+    email: string,
     password: string
 };

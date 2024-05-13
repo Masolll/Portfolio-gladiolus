@@ -1,4 +1,27 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -11,37 +34,35 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersRepository = void 0;
 const claster_1 = require("./claster");
+const bcrypt = __importStar(require("bcrypt"));
 const db = claster_1.client.db("usersbox").collection("users");
 exports.UsersRepository = {
+    findAllUsers: () => __awaiter(void 0, void 0, void 0, function* () {
+        return db.find({}).toArray();
+    }),
     findUserByName: (name) => __awaiter(void 0, void 0, void 0, function* () {
-        let findItem = {};
-        if (name) {
-            findItem = { "name": name };
-        }
-        return db.find(findItem).toArray();
+        return db.findOne({ 'name': name });
     }),
     findUserById: (id) => __awaiter(void 0, void 0, void 0, function* () {
         return db.findOne({ "id": id });
     }),
+    findUserByEmail: (email) => __awaiter(void 0, void 0, void 0, function* () {
+        return db.findOne({ 'email': email });
+    }),
     creatureUser: (body) => __awaiter(void 0, void 0, void 0, function* () {
-        //по хорошему здесь не должно быть проверки body, она должна быть в validator
-        if (body) {
-            yield db
-                .insertOne({
-                "id": +(new Date()),
-                "name": body.name,
-                'phone': body.phone,
-                'password': body.password
-            });
-            return true;
-        }
-        return false;
+        yield db
+            .insertOne({
+            "id": +(new Date()),
+            "name": body.name,
+            'email': body.email,
+            'password': yield bcrypt.hash(body.password, 7)
+        });
     }),
     updateUser: (id, body) => __awaiter(void 0, void 0, void 0, function* () {
         if (!body) {
             return false;
         }
-        const result = yield db.updateOne({ "id": id }, { $set: { "name": body.name, "phone": body.phone, 'password': body.password } });
+        const result = yield db.updateOne({ "id": id }, { $set: { "name": body.name, "email": body.email, 'password': body.password } });
         return result.matchedCount === 1;
     }),
     deleteUserById: (id) => __awaiter(void 0, void 0, void 0, function* () {

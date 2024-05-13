@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
 const app_1 = require("../../src/app");
-const codeMessage_1 = require("../../src/codeMessage");
+const codeMessage_1 = require("../../src/models/codeMessage");
 describe('/myTest', () => {
     beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.app).delete('/users');
@@ -25,7 +25,7 @@ describe('/myTest', () => {
             .expect(200);
     }));
     it('POST/form should be BadRequest if unccorrect body', () => __awaiter(void 0, void 0, void 0, function* () {
-        let postData = { title: "" };
+        let postData = { name: "" };
         yield (0, supertest_1.default)(app_1.app)
             .post('/users')
             .send(postData)
