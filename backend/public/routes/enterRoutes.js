@@ -49,6 +49,10 @@ const getEnterRouter = () => {
         res.sendFile(path_1.default.join(__dirname, "../../../portfolio/enter.html"));
     });
     router.post('/', (0, express_validator_1.body)('email').notEmpty(), (0, express_validator_1.body)('password').notEmpty(), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        let error = (0, express_validator_1.validationResult)(req);
+        if (!error.isEmpty()) {
+            return res.status(codeMessage_1.codeMessage.BadRequest).send('Не пройдена валидация');
+        }
         const findUser = yield MongoDbUsersRepository_1.UsersRepository.findUserByEmail(req.body.email);
         if (!findUser) {
             return res.status(codeMessage_1.codeMessage.BadRequest).send('Пользователь с таким email не найден');

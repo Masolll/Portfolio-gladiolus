@@ -16,7 +16,7 @@ export const UsersRepository = {
     findUserById : async (id: number) : Promise<UserViewModel | null> => {
         return db.findOne({"id": id});
     },
-    findUserByEmail: async(email: string)=>{
+    findUserByEmail: async(email: string) : Promise<UserViewModel | null>=>{
         return db.findOne({'email': email})
     },
     creatureUser : async (body: UserCreatureModel) : Promise<void> =>{
