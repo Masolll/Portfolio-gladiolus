@@ -16,11 +16,11 @@ export const getUsersRouter = () => {
         if (req.query.name){
             let user = await UsersRepository.findUserByName(req.query.name);
             return user
-                ? res.render(path.join(__dirname, "../../ejs-pages/users.ejs"), {users: [user]})
+                ? res.json([user])
                 : res.sendStatus(codeMessage.BadRequest);
         }else{
             let users = await UsersRepository.findAllUsers();
-            res.render(path.join(__dirname, "../../ejs-pages/users.ejs"), {users: users});
+            res.json(users);
         }
     })
     router.get("/:id", async (req:RequestWithUri<UserUriModel>, res: Response<UserViewModel>) => {

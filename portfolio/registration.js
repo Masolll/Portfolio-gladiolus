@@ -1,4 +1,4 @@
-document.getElementById('registerButton').addEventListener('click', function(e) {
+document.getElementById('registerButton').addEventListener('click', async function(e) {
     e.preventDefault();
 
     const username = document.getElementById('username').value;
@@ -43,9 +43,23 @@ document.getElementById('registerButton').addEventListener('click', function(e) 
   
       // Сохраняем email адрес в localStorage
       localStorage.setItem('userEmail', email);
-  
-      // Переходим на следующую страницу
-      window.location.href = 'registration/confirmEmail';
+        await fetch(
+            "/registration",
+            {
+                method: 'POST',
+                body: JSON.stringify({'name': username, 'email': email, 'password': password}),
+                headers: {'Content-Type': 'application/json'}
+            }
+        ).then(response => {
+            if (!response.ok){
+                throw new Error('Ошибка не сервере')
+            }else{
+                // Переходим на следующую страницу
+                window.location.href = 'registration/confirmEmail';
+            }
+        }).catch(error => {
+            alert('Введен неверный email или пользователь с таким email уже зарегестрирован');
+        })
     } else {
       // Показываем сообщение об ошибке, если есть незаполненные поля, пароль слишком короткий или пароли не совпадают
       alert('Пожалуйста, проверьте все поля и убедитесь, что пароль содержит минимум 8 символов и пароли совпадают.');

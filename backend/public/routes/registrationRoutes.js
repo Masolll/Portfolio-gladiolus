@@ -24,7 +24,7 @@ const getRegistrationRouter = () => {
         res.sendFile(path_1.default.join(__dirname, "../../../portfolio/registration.html"));
     });
     // @ts-ignore
-    router.post('/', (0, express_validator_1.body)('name').trim().notEmpty(), (0, express_validator_1.body)('email').trim().notEmpty(), (0, express_validator_1.body)('password').trim().notEmpty().withMessage('Error! Пароль не может быть пустым'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    router.post('/', (0, express_validator_1.body)('name').trim().notEmpty(), (0, express_validator_1.body)('email').trim().notEmpty().isEmail(), (0, express_validator_1.body)('password').trim().notEmpty().withMessage('Error! Пароль не может быть пустым'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         let error = (0, express_validator_1.validationResult)(req);
         if (!error.isEmpty()) {
             return res.status(codeMessage_1.codeMessage.BadRequest).send('Не пройдена валидация');

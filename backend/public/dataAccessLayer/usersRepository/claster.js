@@ -11,8 +11,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.runDb = exports.client = void 0;
 const mongodb_1 = require("mongodb");
-const uri = process.env.mongoURI || "mongodb://0.0.0.0:27017";
-// const uri = "mongodb+srv://yastey:WeRtY.F.A.@cluster0.6culwax.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+// const uri = process.env.mongoURI || "mongodb://0.0.0.0:27017";
+const uri = "mongodb+srv://yastey:WeRtY.F.A.@cluster0.6culwax.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 exports.client = new mongodb_1.MongoClient(uri, {
     serverApi: {

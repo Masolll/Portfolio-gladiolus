@@ -13,7 +13,7 @@ export const getRegistrationRouter = () => {
     // @ts-ignore
     router.post('/',
         body('name').trim().notEmpty(),
-        body('email').trim().notEmpty(),
+        body('email').trim().notEmpty().isEmail(),
         body('password').trim().notEmpty().withMessage('Error! Пароль не может быть пустым'),
         async (req, res) =>{
         let error = validationResult(req);

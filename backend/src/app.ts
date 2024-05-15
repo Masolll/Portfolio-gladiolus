@@ -4,7 +4,7 @@ import {getMainRouter} from "./routes/mainRoutes";
 import {getRegistrationRouter} from "./routes/registrationRoutes";
 import {getEnterRouter} from "./routes/enterRoutes";
 import {getPortfolioRouter} from "./routes/portfolioRouter";
-// import {getMenuRouter} from "./routes/menuRoutes";
+import {getAllFormsRouter} from "./routes/allFormsRouter";
 import path from "path";
 import {jwtMiddleware} from "./jwtService/jwtMiddleware";
 
@@ -20,13 +20,12 @@ app.use(express.static(path.join(__dirname, "/../../portfolio")))
 //страницы доступные всем пользователям
 app.use('/', getMainRouter());
 app.use('/registration', getRegistrationRouter());
-app.use('/portfolio', getPortfolioRouter())
+app.use('/portfolio', getPortfolioRouter());
 app.use('/enter', getEnterRouter());
-
+app.use('/allForms', getAllFormsRouter());
+app.use('/users', getUsersRouter())
 //страницы доступные только авторизованным полльзователям
 // app.use(jwtMiddleware);
-app.use('/users', getUsersRouter());
-// app.use('/menu/', getMenuRouter());
 
 
 
