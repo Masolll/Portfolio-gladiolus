@@ -8,7 +8,7 @@ export const getRegistrationRouter = () => {
     const router = express.Router();
 
     router.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname, "../../../portfolio/registr.html"))
+        res.sendFile(path.join(__dirname, "../../../portfolio/registration.html"))
     })
     // @ts-ignore
     router.post('/',
@@ -28,8 +28,8 @@ export const getRegistrationRouter = () => {
         return res.sendStatus(codeMessage.NoContent);
 
     })
-    router.get('/email', (req, res)=>{
-        res.render(path.join(__dirname, "../../ejs-pages/registr-1.ejs"))
+    router.get('/confirmEmail', (req, res)=>{
+        res.sendFile(path.join(__dirname, "../../../portfolio/registrationConfirmEmail.html"));
     })
 
     return router;

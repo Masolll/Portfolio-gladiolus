@@ -21,7 +21,7 @@ const express_validator_1 = require("express-validator");
 const getRegistrationRouter = () => {
     const router = express_1.default.Router();
     router.get('/', (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/registr.html"));
+        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/registration.html"));
     });
     // @ts-ignore
     router.post('/', (0, express_validator_1.body)('name').trim().notEmpty(), (0, express_validator_1.body)('email').trim().notEmpty(), (0, express_validator_1.body)('password').trim().notEmpty().withMessage('Error! Пароль не может быть пустым'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -36,8 +36,8 @@ const getRegistrationRouter = () => {
         yield MongoDbUsersRepository_1.UsersRepository.creatureUser(req.body);
         return res.sendStatus(codeMessage_1.codeMessage.NoContent);
     }));
-    router.get('/email', (req, res) => {
-        res.render(path_1.default.join(__dirname, "../../ejs-pages/registr-1.ejs"));
+    router.get('/confirmEmail', (req, res) => {
+        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/registrationConfirmEmail.html"));
     });
     return router;
 };

@@ -5,55 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6739e396-ac11-4e31-ad52-dbf32cb7f91c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/ejs-pages/parts/header.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/config/secrets.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/jwtService/jwtMiddleware.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/jwtService/jwtService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/jwtService/secrets.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/models/codeMessage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/models/requestTypes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/jwtService/secrets.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/__test__/e2e/myTest.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/__test__/e2e/myTest.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/__test__/e2e/myTest.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/__test__/e2e/myTest.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/enter.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/index.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/menu.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/profil.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/registr.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/search.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/users.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/ejs-pages/users.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/MongoDbUsersRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/MongoDbUsersRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/claster.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/claster.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/routes/enterRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/enterRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/routes/mainRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/mainRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/routes/menuRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/menuRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/routes/registrationRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/registrationRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/routes/usersRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/usersRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/codeMessage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/codeMessage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/MongoDbUsersRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/MongoDbUsersRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/claster.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/claster.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/jwtService/jwtMiddleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/jwtService/jwtMiddleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/UserCreatureModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/UserCreatureModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/UserUpdateModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/UserUpdateModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/UserViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/UserViewModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/requestTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/requestTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/enterRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/enterRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/mainRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/mainRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/menuRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/menuRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/registrationRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/registrationRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/usersRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/usersRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/createUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/createUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/enter-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/enter-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/enter.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/enter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/profil.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/profil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/registr-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/registr-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/registr.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/registr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,8 +112,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.ts_watch" />
         <item itemvalue="npm.js_watch" />
+        <item itemvalue="npm.ts_watch" />
         <item itemvalue="npm.start" />
         <item itemvalue="Jest.myTest.test.ts" />
       </list>
@@ -188,6 +140,7 @@
       <workItem from="1715442187367" duration="1719000" />
       <workItem from="1715533721710" duration="11944000" />
       <workItem from="1715618276488" duration="13537000" />
+      <workItem from="1715702872666" duration="11450000" />
     </task>
     <servers />
   </component>
@@ -202,17 +155,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/backend/src/jwtService/jwtMiddleware.ts</url>
-          <line>5</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
