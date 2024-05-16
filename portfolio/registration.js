@@ -47,7 +47,7 @@ document.getElementById('registerButton').addEventListener('click', async functi
             "/registration",
             {
                 method: 'POST',
-                body: JSON.stringify({'name': username, 'email': email, 'password': password}),
+                body: JSON.stringify({'name': username, 'email': email, 'password': password.value}),
                 headers: {'Content-Type': 'application/json'}
             }
         ).then(response => {
