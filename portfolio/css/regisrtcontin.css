@@ -11,6 +11,7 @@ body {
     max-width: 1274px;
     margin: 0 auto;
 }
+
 .navbar .container{
     height: inherit;
     display: flex;
