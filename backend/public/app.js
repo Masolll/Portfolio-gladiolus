@@ -18,6 +18,13 @@ exports.bodyMiddleWare = express_1.default.json();
 exports.app.use(exports.bodyMiddleWare);
 //подключаю шаблонизатор ejs
 exports.app.set('view engine', 'ejs');
+exports.app.use((req, res, next) => {
+    if (req.path.endsWith('.html')) {
+        return res.render(path_1.default.join(__dirname, "../ejs-pages/errorPage.ejs"), { error: "404",
+            message: "Страница не найдена :(" });
+    }
+    next();
+});
 exports.app.use(express_1.default.static(path_1.default.join(__dirname, "/../../portfolio")));
 //страницы доступные всем пользователям
 exports.app.use('/', (0, mainRoutes_1.getMainRouter)());
@@ -26,5 +33,8 @@ exports.app.use('/portfolio', (0, portfolioRouter_1.getPortfolioRouter)());
 exports.app.use('/enter', (0, enterRoutes_1.getEnterRouter)());
 exports.app.use('/allForms', (0, allFormsRouter_1.getAllFormsRouter)());
 exports.app.use('/users', (0, usersRoutes_1.getUsersRouter)());
-//страницы доступные только авторизованным полльзователям
-// app.use(jwtMiddleware);
+//ошибка если ни один маршрут не подошел
+exports.app.use((req, res) => {
+    return res.render(path_1.default.join(__dirname, "../ejs-pages/errorPage.ejs"), { error: "404",
+        message: "Страница не найдена :(" });
+});

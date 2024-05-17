@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Oops, something went wrong!</title>
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #fff; /* White background */
+            color: #333; /* Dark gray text */
+        }
+
+        .error-container {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            background-color: #f0f0f0; /* Slightly lighter gray */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            color: #007bff; /* Blue for error */
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            color: #004060; /* Darker blue for text */
+        }
+
+        a {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #ffa500; /* Orange for button */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #e69100; /* Darker orange for hover */
+        }
+    </style>
+</head>
+<body>
+<div class="error-container">
+    <h1><%=error%> - Упс, что-то пошло не так!</h1>
+    <p><%=message%></p>
+    <a href="/">Вернуться на главную</a>
+</div>
+</body>
+</html>

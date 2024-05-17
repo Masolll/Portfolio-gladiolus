@@ -3,6 +3,7 @@ import express from "express";
 import {UsersRepository} from "../dataAccessLayer/usersRepository/MongoDbUsersRepository";
 import {codeMessage} from "../models/codeMessage";
 import {body, validationResult} from 'express-validator';
+import {jwtMiddleware} from "../jwtService/jwtMiddleware";
 
 export const getRegistrationRouter = () => {
     const router = express.Router();
@@ -28,7 +29,9 @@ export const getRegistrationRouter = () => {
         return res.sendStatus(codeMessage.NoContent);
 
     })
-    router.get('/confirmEmail', (req, res)=>{
+    router.get('/confirmEmail',
+        jwtMiddleware,
+        (req, res)=>{
         res.sendFile(path.join(__dirname, "../../../portfolio/registrationConfirmEmail.html"));
     })
 

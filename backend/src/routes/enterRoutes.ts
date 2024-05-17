@@ -5,6 +5,7 @@ import {codeMessage} from "../models/codeMessage";
 import {body, validationResult} from 'express-validator';
 import * as bcrypt from 'bcrypt';
 import {jwtService} from "../jwtService/jwtService";
+import {jwtMiddleware} from "../jwtService/jwtMiddleware";
 
 export const getEnterRouter = () => {
     const router = express.Router();
@@ -31,7 +32,9 @@ export const getEnterRouter = () => {
         const token = await jwtService.createJWT(findUser);
         return res.json({token: token});
     })
-    router.get('/email', (req, res) =>{
+    router.get('/confirmEmail',
+        jwtMiddleware,
+        (req, res) =>{
         res.render(path.join(__dirname, "../../ejs-pages/enter-1.ejs"))
     })
 

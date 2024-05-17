@@ -43,6 +43,7 @@ const codeMessage_1 = require("../models/codeMessage");
 const express_validator_1 = require("express-validator");
 const bcrypt = __importStar(require("bcrypt"));
 const jwtService_1 = require("../jwtService/jwtService");
+const jwtMiddleware_1 = require("../jwtService/jwtMiddleware");
 const getEnterRouter = () => {
     const router = express_1.default.Router();
     router.get('/', (req, res) => {
@@ -64,7 +65,7 @@ const getEnterRouter = () => {
         const token = yield jwtService_1.jwtService.createJWT(findUser);
         return res.json({ token: token });
     }));
-    router.get('/email', (req, res) => {
+    router.get('/confirmEmail', jwtMiddleware_1.jwtMiddleware, (req, res) => {
         res.render(path_1.default.join(__dirname, "../../ejs-pages/enter-1.ejs"));
     });
     return router;

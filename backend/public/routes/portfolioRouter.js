@@ -6,18 +6,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getPortfolioRouter = void 0;
 const path_1 = __importDefault(require("path"));
 const express_1 = __importDefault(require("express"));
+const jwtMiddleware_1 = require("../jwtService/jwtMiddleware");
 const getPortfolioRouter = () => {
     const router = express_1.default.Router();
-    router.get('/', (req, res) => {
+    router.get('/', jwtMiddleware_1.jwtMiddleware, (req, res) => {
         res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolio.html"));
     });
-    router.get('/edit', (req, res) => {
+    router.get('/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
         res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioEdit.html"));
     });
-    router.get('/edit/contacts', (req, res) => {
+    router.get('/edit/contacts', jwtMiddleware_1.jwtMiddleware, (req, res) => {
         res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioEditContacts.html"));
     });
-    router.get('/edit/success', (req, res) => {
+    router.get('/edit/success', jwtMiddleware_1.jwtMiddleware, (req, res) => {
         res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioEditSuccess.html"));
     });
     return router;
