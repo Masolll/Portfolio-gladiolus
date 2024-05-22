@@ -9,16 +9,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- Подключение внешнего CSS-файла -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/enter.css" />
 </head>
 <body>
-    <header>
+    <header class="flow1">
         <nav  class="navbar">
             <div class="container">
-                <img src="img/Logotype.svg" alt="Логотип ITConnect" class="hero-img">
-                <a href="#" class="navbar-brand">ITConnect</a>
+                <a href="/portfolio/index.html"><img src="/img/Logotype.svg" alt="Логотип ITConnect" class="logotype-1"></a>
+                <a href="/" class="navbar-brand">ITConnect</a>
                 <div class="search-form">
-                    <button class="search-form_btn"><img class="search-form_img" src="img/Search.svg" alt="Search" ></button>
+                    <button class="search-form_btn"><img class="search-form_img" src="/img/Search.svg" alt="Search" ></button>
                     <input class="search-form_txt" type="text"> 
                 </div>
                 <div class="navbar-wrap">
@@ -26,63 +26,49 @@
                         <li><a href="/">Главная</a></li>
                         <li><a href="#">О нас</a></li>
                         <li><a href="#">Контакты</a></li>
-                        <li><a href="#">Портфолио</a></li> 
-                        <a href="/registration"><button class="registr"><span>Зарегестрироваться</span></button></a>
+                        <li><a href="/allForms">Список портфолио</a></li>
+                        <a href="/registration"><button class="enter"><span>Регистрация</span></button></a>
                     </ul>
-                </div>
+                </div>  
             </div>  
         </nav>
     </header>
-    <main>
-        <div class="circle-1">
-            <div class="enter-form-container">
-                <h1 class="form-title">
-                    Вход
-                </h1>
-                <div class="form-fields">
-                    <div class="form-field">
-                        <input type="text" placeholder="Введите свой телефон">
-                    </div>
-                    <div class="form-field">
-                        <input type="text" placeholder="Пароль">
-                    </div>
-                </div>
-                <div>
-                    <a href="/enter/email"><button class="enter"><span>Войти</span></button></a>
-                </div>
+        <main class="page-main">
+            <div class="form-container">
+                <h2 class="form-title">Вход</h2>
+                <form class="form" id="registrationForm">
+                  <input class="input" type="email" placeholder="Введите адрес электронной почты" id="email" required>
+                  <input class="input" type="password" placeholder="Пароль" id="password" required>
+                </form>
+                <a><button class="btn" id="enterButton"><span>Войти</span></button></a>
+              </div>
+              <script src="enter.js"></script>
+        </main>
+    <footer class="container_5">
+        <div class="flow1">
+            <div class="container_4">
+                <div ><h3 class="infor">Информация</h3></div>
+                <div ><h3 class="help">Центр помощи</h3></div>
+                <div ><h3 class="ysl">Условия</h3></div>
+                <div ><h3 class="sos">Социальные сети</h3></div>
+                <div ><a href="/" class="txt-3">Главная</a></div>
+                <div ><a href="#" class="txt-3">Центр помощи</a></div>
+                <div ><a href="https://www.rbc.ru/politics/" class="txt-3">Политика</a></div>
+                <div ><a href="https://t.me/uhdsgggd" class="txt-3">Telegram</a></div>
+                <div ><a href="#" class="txt-3">О нас</a></div>
+                <div ><a href="https://t.me/rezoo000" class="txt-3">Обратная связь</a></div>
+                <div ><a href="https://digital.gov.ru/ru/documents/3069/" class="txt-3">Конфиденциальность</a></div>
+                <div ><a href="https://vk.com/iddanya_yashenko" class="txt-3">Вконтакте</a></div>
+                <div ><a href="#" class="txt-3">Блог</a></div> 
             </div>
         </div>
-    </main>
-    <footer>
-        <nav class="navbar-1">
-            <div class="navbar-txt">
-                <ul>
-                    <h3>Информация</h3>
-                    <li><a href="/">Главная</a></li>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Блог</a></li>
-                </ul>
-                <ul>
-                    <h3>Центр помощи</h3>
-                    <li><a href="#">Центр помощи</a></li>
-                    <li><a href="#">Обратная связь</a></li>
-                </ul>
-                <ul>
-                    <h3>Условия</h3>
-                    <li><a href="#">Политика</a></li>
-                    <li><a href="#">Конфиденциальность</a></li>
-                </ul>
-                <ul>
-                    <h3>Социальные сети</h3>
-                    <li><a href="#">Telegram</a></li>
-                    <li><a href="#">Вконтакте</a></li>
-                </ul>
-                <img src="img/Line 7.svg">
+        <div class="flow1">
+           <div ><img src="/img/Line 7.svg" class="line7">  </div>
+            <div class="container_6">
+                <div class="item3 itemlog"><img src="/img/Logotype.svg" alt="Logotype" class="logotype-2"></div>
+                <div class="item3 itembrand"><h3 class="navbar-brand-1">ITConnect</h3></div>
+                <div class="item3 itemavtor"><p class="txt-4">Авторские права © ITConncect 2024. Все права защищены.</p></div>
             </div>
-        </nav>
-        
-        <img src="img/Logotype.svg" alt="Logotype">
-        <h3 class="Sait_Name">ITConnect</h3>
-        <p>Авторские права © ITConncect 2024. Все права защищены.</p>
+        </div>
     </footer>
-</body>
+</body> 

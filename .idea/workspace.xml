@@ -5,32 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6739e396-ac11-4e31-ad52-dbf32cb7f91c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/public/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/MongoDbUsersRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/MongoDbUsersRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/claster.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/claster.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/jwtService/JwtPayload.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/jwtService/JwtPayload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/jwtService/jwtMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/jwtService/jwtMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/jwtService/jwtSecretKey.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/jwtService/jwtSecretKey.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/jwtService/jwtService.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/jwtService/jwtService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/models/GetUserQueryModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/models/GetUserQueryModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/models/RequestWithUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/models/RequestWithUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/models/UserCreatureModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/models/UserCreatureModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/models/UserUpdateModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/models/UserUpdateModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/models/UserUriModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/models/UserUriModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/models/UserViewModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/models/UserViewModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/models/codeMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/models/codeMessage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/models/requestTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/models/requestTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/routes/allFormsRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/allFormsRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/routes/enterRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/enterRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/routes/mainRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/mainRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/routes/portfolioRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/portfolioRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/public/routes/registrationRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/registrationRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/routes/usersRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/usersRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/jwtService/jwtMiddleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/jwtService/jwtMiddleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/jwtService/jwtSecretKey.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/jwtService/jwtSecretKey.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/jwtService/jwtService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/jwtService/jwtService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/registrationRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/registrationRoutes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +21,7 @@
         <option value="package.json" />
         <option value="JavaScript File" />
         <option value="TypeScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -61,38 +40,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Jest.myTest.test.ts.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "backend",
-    "last_opened_file_path": "C:/Users/Maksim/WebstormProjects/portfolio-project/backend/ejs-pages",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "C:/Users/Maksim/WebstormProjects/portfolio-project/backend/node_modules/jest",
-    "nodejs_package_manager_path": "yarn",
-    "npm.js_watch.executor": "Run",
-    "npm.start.executor": "Run",
-    "npm.ts_watch.executor": "Run",
-    "settings.editor.selected.configurable": "editor.preferences.tabs",
-    "ts.external.directory.path": "C:\\Users\\Maksim\\WebstormProjects\\portfolio-project\\backend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Jest.myTest.test.ts.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;backend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Maksim/WebstormProjects/portfolio-project/backend/ejs-pages&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;C:/Users/Maksim/WebstormProjects/portfolio-project/backend/node_modules/jest&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;npm.js_watch.executor&quot;: &quot;Run&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;npm.ts_watch.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Maksim\\WebstormProjects\\portfolio-project\\backend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\ejs-pages" />
       <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\src\dataAccessLayer\formRepository" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\ejs-pages" />
+      <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\ejs-pages\errorPages" />
       <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\src\models" />
       <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend" />
       <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\portfolio" />
-      <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project" />
     </key>
   </component>
   <component name="RunManager" selected="Jest.myTest.test.ts">
@@ -167,17 +148,13 @@
       <workItem from="1715618276488" duration="13537000" />
       <workItem from="1715702872666" duration="11450000" />
       <workItem from="1715947900217" duration="3746000" />
+      <workItem from="1715955909591" duration="8038000" />
+      <workItem from="1716044058591" duration="446000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/backend/__test__/e2e/myTest.test.js" />
-        <option value="$PROJECT_DIR$/backend/src/routes/mainRoutes.js" />
-      </list>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

@@ -6,7 +6,6 @@ import {getEnterRouter} from "./routes/enterRoutes";
 import {getPortfolioRouter} from "./routes/portfolioRouter";
 import {getAllFormsRouter} from "./routes/allFormsRouter";
 import path from "path";
-import {jwtMiddleware} from "./jwtService/jwtMiddleware";
 
 export const app = express();
 
