@@ -14,29 +14,37 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.jwtMiddleware = void 0;
 const jwtService_1 = require("./jwtService");
+const codeMessage_1 = require("../models/codeMessage");
 const path_1 = __importDefault(require("path"));
 function jwtMiddleware(req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
         if (req.method === "OPTIONS") {
             next();
         }
+        let c = 0;
         try {
-            if (!req.headers.authorization) {
-                return res.render(path_1.default.join(__dirname, "../../ejs-pages/errorPage"), { error: "401",
-                    message: "Эта страница доступна только авторизованным пользователям :)" });
+            if (!req.headers.cookie) {
+                throw new Error();
             }
-            const token = req.headers.authorization.split(" ")[1]; //извлекаю токен вида "Bearer <тут токен>"
+            const cookieData = req.headers.cookie; //извлекаю токен вида "Bearer <тут токен>"
+            const tokenData = cookieData
+                .split(";")
+                .find(e => e.trim().startsWith("token="));
+            const bearerToken = tokenData ? tokenData.split("=")[1] : null;
+            const token = bearerToken ? bearerToken.split(" ")[1] : null;
+            if (!token) {
+                throw new Error();
+            }
             const findUser = yield jwtService_1.jwtService.getUserByToken(token);
             if (!findUser) {
-                return res.render(path_1.default.join(__dirname, "../../ejs-pages/errorPage"), { error: "401",
-                    message: "Эта страница доступна только авторизованным пользователям :)" });
+                throw new Error(`пользователь не найден по токену ${token}`);
             }
             req.user = findUser;
             next();
         }
         catch (error) {
-            return res.render(path_1.default.join(__dirname, "../../ejs-pages/errorPage"), { error: "401",
-                message: "Эта страница доступна только авторизованным пользователям :)" });
+            return res.status(codeMessage_1.codeMessage.Unauthorized).render(path_1.default.join(__dirname, "../../ejs-pages/errorPage"), { error: "401",
+                message: `Эта страница доступна толлько авторизованным пользователям)` });
         }
     });
 }

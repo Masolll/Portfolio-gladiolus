@@ -8,24 +8,29 @@ export async function jwtMiddleware(req : RequestWithUser, res : Response, next 
     if (req.method === "OPTIONS"){
         next()
     }
+    let c:any = 0;
     try{
-        if (!req.headers.authorization){
-            return res.render(path.join(__dirname, "../../ejs-pages/errorPage"),
-                {error: "401",
-                message: "Эта страница доступна только авторизованным пользователям :)"});
+        if (!req.headers.cookie){
+            throw new Error();
         }
-        const token = req.headers.authorization.split(" ")[1];//извлекаю токен вида "Bearer <тут токен>"
+        const cookieData = req.headers.cookie;//извлекаю токен вида "Bearer <тут токен>"
+        const tokenData = cookieData
+            .split(";")
+            .find(e => e.trim().startsWith("token="));
+        const bearerToken = tokenData ? tokenData.split("=")[1] : null;
+        const token = bearerToken ? bearerToken.split(" ")[1] : null;
+        if (!token){
+            throw new Error();
+        }
         const findUser = await jwtService.getUserByToken(token);
         if (!findUser){
-            return res.render(path.join(__dirname, "../../ejs-pages/errorPage"),
-                {error: "401",
-                    message: "Эта страница доступна только авторизованным пользователям :)"});
+            throw new Error(`пользователь не найден по токену ${token}`);
         }
         req.user = findUser;
         next()
     }catch(error){
-        return res.render(path.join(__dirname, "../../ejs-pages/errorPage"),
+        return res.status(codeMessage.Unauthorized).render(path.join(__dirname, "../../ejs-pages/errorPage"),
             {error: "401",
-                message: "Эта страница доступна только авторизованным пользователям :)"});
+                message: `Эта страница доступна толлько авторизованным пользователям)`});
     }
 }

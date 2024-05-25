@@ -16,31 +16,14 @@ document.getElementById('enterButton').addEventListener('click', async function(
         }else{
             return response.json();
         }
-    }).catch(error => {
+    }).then(json => json.token).catch(error => {
         alert('Введен неверный email или пароль');
     })
     if (token){
-        const bearerToken = 'Bearer ' + token.token
-        localStorage.setItem('token', bearerToken);
-        await fetch(
-            "/enter/confirmEmail",
-            {
-                method: 'GET',
-                headers: {
-                    'Authorization': bearerToken
-                }
-            }
-        ).then(response => {
-            if (!response.ok){
-                throw new Error('error');
-            }
-            return response.text();
-        }).then(html => {
-            document.body.innerHTML = html
-            }
-        ).catch(error => {
-            alert('ошибка при передаче токена на сервер')
-        })
+        const bearerToken = 'Bearer ' + token
+        document.cookie = "token=" + bearerToken;
+        alert('second');
+        window.location.href = "/portfolio";
     }
 });
     
