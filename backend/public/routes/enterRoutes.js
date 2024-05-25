@@ -66,7 +66,7 @@ const getEnterRouter = () => {
         return res.json({ token: token });
     }));
     router.get('/confirmEmail', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.render(path_1.default.join(__dirname, "../../ejs-pages/enter-1.ejs"));
+        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/enterConfirmEmail.html"));
     });
     return router;
 };

@@ -1,9 +1,9 @@
 document.getElementById('enterButton').addEventListener('click', async function(e) {
     e.preventDefault();
-
     const email = document.getElementById('email').value;
+    localStorage.setItem('userEmail', email);
     const password = document.getElementById('password').value;
-    const token = await fetch(
+    const token =  await fetch(
         "/enter",
         {
             method: 'POST',
@@ -22,8 +22,7 @@ document.getElementById('enterButton').addEventListener('click', async function(
     if (token){
         const bearerToken = 'Bearer ' + token
         document.cookie = "token=" + bearerToken;
-        alert('second');
-        window.location.href = "/portfolio";
+        window.location.href = "/enter/confirmEmail";
     }
 });
     

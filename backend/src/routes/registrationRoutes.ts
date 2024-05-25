@@ -30,6 +30,7 @@ export const getRegistrationRouter = () => {
 
     })
     router.get('/confirmEmail',
+        jwtMiddleware,
         (req, res)=>{
         res.sendFile(path.join(__dirname, "../../../portfolio/registrationConfirmEmail.html"));
     })

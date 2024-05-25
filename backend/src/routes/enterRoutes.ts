@@ -35,7 +35,7 @@ export const getEnterRouter = () => {
     router.get('/confirmEmail',
         jwtMiddleware,
         (req, res) =>{
-        res.render(path.join(__dirname, "../../ejs-pages/enter-1.ejs"))
+            res.sendFile(path.join(__dirname, "../../../portfolio/enterConfirmEmail.html"))
     })
 
     return router;
