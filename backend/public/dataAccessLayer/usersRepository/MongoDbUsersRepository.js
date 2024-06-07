@@ -31,6 +31,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersRepository = void 0;
 const claster_1 = require("./claster");
@@ -54,7 +65,24 @@ exports.UsersRepository = {
     },
     findUserByEmail(email) {
         return __awaiter(this, void 0, void 0, function* () {
-            return db.findOne({ 'email': email });
+            return db.findOne({ 'contacts.email': email });
+        });
+    },
+    findUsersByQueryParams(params) {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (params.maxAge !== undefined && params.minAge !== undefined) {
+                const { minAge, maxAge } = params, rest = __rest(params, ["minAge", "maxAge"]);
+                return db.find({
+                    $and: [
+                        { "description.age": { $gte: parseInt(minAge) } }, //gte это больше или равно
+                        { "description.age": { $lte: parseInt(maxAge) } },
+                        rest
+                    ]
+                }).toArray();
+            }
+            else {
+                return db.find(params).toArray();
+            }
         });
     },
     creatureUser(body) {
@@ -63,13 +91,15 @@ exports.UsersRepository = {
                 .insertOne({
                 id: +(new Date()),
                 name: body.name,
-                email: body.email,
                 password: yield bcrypt.hash(body.password, 7),
                 description: {
+                    age: 0,
+                    gender: "",
                     text: "",
                     skills: ""
                 },
                 contacts: {
+                    email: body.email,
                     phone: "",
                     address: "",
                     socialList: {

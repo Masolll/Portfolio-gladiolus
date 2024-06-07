@@ -19,10 +19,11 @@ const MongoDbUsersRepository_1 = require("../dataAccessLayer/usersRepository/Mon
 const getUsersRouter = () => {
     const router = express_1.default.Router();
     router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        if (req.query.name) {
-            let user = yield MongoDbUsersRepository_1.UsersRepository.findUserByName(req.query.name);
-            return user
-                ? res.json([user])
+        if (Object.keys(req.query).length > 0) {
+            // const {maxAge, minAge, ...rest} = req.query
+            let users = yield MongoDbUsersRepository_1.UsersRepository.findUsersByQueryParams(req.query);
+            return users
+                ? res.json(users)
                 : res.sendStatus(codeMessage_1.codeMessage.BadRequest);
         }
         else {

@@ -3,6 +3,8 @@ import {UserViewModel} from "../../models/UserViewModel";
 import {UserCreatureModel} from "../../models/UserCreatureModel";
 import {UserUpdateModel} from "../../models/UserUpdateModel";
 import * as bcrypt from "bcrypt";
+import {RequestWithQuery} from "../../models/requestTypes";
+import {GetUserQueryModel} from "../../models/GetUserQueryModel";
 
 
 const db = client.db("usersbox").collection<UserViewModel>("users");
@@ -17,20 +19,36 @@ export const UsersRepository = {
         return db.findOne({"id": id});
     },
     async findUserByEmail(email: string) : Promise<UserViewModel | null>{
-        return db.findOne({'email': email})
+        return db.findOne({'contacts.email': email})
+    },
+    async findUsersByQueryParams(params:any){
+        if(params.maxAge !== undefined && params.minAge !== undefined){
+            const {minAge, maxAge, ...rest} = params;
+            return db.find({
+                $and: [
+                    {"description.age": {$gte:parseInt(minAge)}},//gte это больше или равно
+                    {"description.age": {$lte: parseInt(maxAge)}},
+                    rest
+                ]
+            }).toArray();
+        }else {
+            return db.find(params).toArray();
+        }
     },
     async creatureUser(body: UserCreatureModel) : Promise<void>{
         await db
             .insertOne({
                 id: +(new Date()),
                 name: body.name,
-                email: body.email,
                 password: await bcrypt.hash(body.password, 7),
                 description: {
+                    age: 0,
+                    gender: "",
                     text: "",
                     skills: ""
                 },
                 contacts: {
+                    email: body.email,
                     phone: "",
                     address: "",
                     socialList: {
