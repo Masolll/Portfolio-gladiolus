@@ -18,7 +18,7 @@ const express_1 = __importDefault(require("express"));
 const MongoDbUsersRepository_1 = require("../dataAccessLayer/usersRepository/MongoDbUsersRepository");
 const codeMessage_1 = require("../models/codeMessage");
 const express_validator_1 = require("express-validator");
-const jwtMiddleware_1 = require("../jwtService/jwtMiddleware");
+const jwtMiddleware_1 = require("../businessLayer/jwtService/jwtMiddleware");
 const getRegistrationRouter = () => {
     const router = express_1.default.Router();
     router.get('/', (req, res) => {

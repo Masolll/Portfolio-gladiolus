@@ -42,8 +42,8 @@ const MongoDbUsersRepository_1 = require("../dataAccessLayer/usersRepository/Mon
 const codeMessage_1 = require("../models/codeMessage");
 const express_validator_1 = require("express-validator");
 const bcrypt = __importStar(require("bcrypt"));
-const jwtService_1 = require("../jwtService/jwtService");
-const jwtMiddleware_1 = require("../jwtService/jwtMiddleware");
+const jwtService_1 = require("../businessLayer/jwtService/jwtService");
+const jwtMiddleware_1 = require("../businessLayer/jwtService/jwtMiddleware");
 const getEnterRouter = () => {
     const router = express_1.default.Router();
     router.get('/', (req, res) => {

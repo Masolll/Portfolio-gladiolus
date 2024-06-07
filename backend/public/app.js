@@ -12,6 +12,8 @@ const enterRoutes_1 = require("./routes/enterRoutes");
 const portfolioRouter_1 = require("./routes/portfolioRouter");
 const allFormsRouter_1 = require("./routes/allFormsRouter");
 const path_1 = __importDefault(require("path"));
+const codeMessage_1 = require("./models/codeMessage");
+const nodemailerRouter_1 = require("./routes/nodemailerRouter");
 exports.app = (0, express_1.default)();
 //на этом шаге подключаем мидлвейер чтобы мы могли обрабатывать body у http запросов
 exports.bodyMiddleWare = express_1.default.json();
@@ -20,8 +22,12 @@ exports.app.use(exports.bodyMiddleWare);
 exports.app.set('view engine', 'ejs');
 exports.app.use((req, res, next) => {
     if (req.path.endsWith('.html')) {
-        return res.render(path_1.default.join(__dirname, "../ejs-pages/errorPage.ejs"), { error: "404",
-            message: "Страница не найдена :(" });
+        return res
+            .status(codeMessage_1.codeMessage.NotFound)
+            .render(path_1.default.join(__dirname, "../src/ejsPages/errorPage.ejs"), {
+            error: codeMessage_1.codeMessage.NotFound,
+            message: "Страница не найдена :("
+        });
     }
     next();
 });
@@ -33,8 +39,13 @@ exports.app.use('/portfolio', (0, portfolioRouter_1.getPortfolioRouter)());
 exports.app.use('/enter', (0, enterRoutes_1.getEnterRouter)());
 exports.app.use('/allForms', (0, allFormsRouter_1.getAllFormsRouter)());
 exports.app.use('/users', (0, usersRoutes_1.getUsersRouter)());
+exports.app.use('/email', (0, nodemailerRouter_1.getNodemailerRouter)());
 //ошибка если ни один маршрут не подошел
 exports.app.use((req, res) => {
-    return res.render(path_1.default.join(__dirname, "../ejs-pages/errorPage.ejs"), { error: "404",
-        message: "Страница не найдена :(" });
+    return res
+        .status(codeMessage_1.codeMessage.NotFound)
+        .render(path_1.default.join(__dirname, "../src/ejsPages/errorPage.ejs"), {
+        error: codeMessage_1.codeMessage.NotFound,
+        message: "Страница не найдена :("
+    });
 });

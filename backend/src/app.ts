@@ -6,6 +6,8 @@ import {getEnterRouter} from "./routes/enterRoutes";
 import {getPortfolioRouter} from "./routes/portfolioRouter";
 import {getAllFormsRouter} from "./routes/allFormsRouter";
 import path from "path";
+import {codeMessage} from "./models/codeMessage";
+import {getNodemailerRouter} from "./routes/nodemailerRouter";
 
 export const app = express();
 
@@ -16,9 +18,12 @@ app.use(bodyMiddleWare);
 app.set('view engine', 'ejs');
 app.use((req : Request, res : Response, next : NextFunction) => {
     if (req.path.endsWith('.html')) {
-        return res.render(path.join(__dirname, "../ejs-pages/errorPage.ejs"),
-            {error: "404",
-            message: "Страница не найдена :("});
+        return res
+            .status(codeMessage.NotFound)
+            .render(path.join(__dirname, "../src/ejsPages/errorPage.ejs"), {
+                error: codeMessage.NotFound,
+                message: "Страница не найдена :("
+            });
     }
     next();
 });
@@ -31,12 +36,16 @@ app.use('/registration', getRegistrationRouter());
 app.use('/portfolio', getPortfolioRouter());
 app.use('/enter', getEnterRouter());
 app.use('/allForms', getAllFormsRouter());
-app.use('/users', getUsersRouter())
+app.use('/users', getUsersRouter());
+app.use('/email', getNodemailerRouter());
 //ошибка если ни один маршрут не подошел
 app.use((req : Request, res : Response) => {
-    return res.render(path.join(__dirname, "../ejs-pages/errorPage.ejs"),
-            {error: "404",
-                message: "Страница не найдена :("});
+    return res
+        .status(codeMessage.NotFound)
+        .render(path.join(__dirname, "../src/ejsPages/errorPage.ejs"), {
+            error: codeMessage.NotFound,
+            message: "Страница не найдена :("
+        });
 });
 
 

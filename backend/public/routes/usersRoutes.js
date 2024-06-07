@@ -31,8 +31,8 @@ const getUsersRouter = () => {
         }
     }));
     router.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        let findForm = yield MongoDbUsersRepository_1.UsersRepository.findUserById(+req.params.id);
-        return findForm ? res.json(findForm) : res.sendStatus(codeMessage_1.codeMessage.NotFound);
+        let findUser = yield MongoDbUsersRepository_1.UsersRepository.findUserById(+req.params.id);
+        return findUser ? res.json(findUser) : res.sendStatus(codeMessage_1.codeMessage.NotFound);
     }));
     router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         yield MongoDbUsersRepository_1.UsersRepository.creatureUser(req.body);

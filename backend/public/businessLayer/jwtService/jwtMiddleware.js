@@ -14,14 +14,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.jwtMiddleware = void 0;
 const jwtService_1 = require("./jwtService");
-const codeMessage_1 = require("../models/codeMessage");
+const codeMessage_1 = require("../../models/codeMessage");
 const path_1 = __importDefault(require("path"));
 function jwtMiddleware(req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
         if (req.method === "OPTIONS") {
             next();
         }
-        let c = 0;
         try {
             if (!req.headers.cookie) {
                 throw new Error();
@@ -43,7 +42,7 @@ function jwtMiddleware(req, res, next) {
             next();
         }
         catch (error) {
-            return res.status(codeMessage_1.codeMessage.Unauthorized).render(path_1.default.join(__dirname, "../../ejs-pages/errorPage"), { error: "401",
+            return res.status(codeMessage_1.codeMessage.Unauthorized).render(path_1.default.join(__dirname, "../../../src/ejsPages/errorPage"), { error: codeMessage_1.codeMessage.Unauthorized,
                 message: `Эта страница доступна толлько авторизованным пользователям)` });
         }
     });

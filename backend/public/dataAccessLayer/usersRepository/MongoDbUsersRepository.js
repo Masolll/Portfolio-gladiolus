@@ -37,40 +37,75 @@ const claster_1 = require("./claster");
 const bcrypt = __importStar(require("bcrypt"));
 const db = claster_1.client.db("usersbox").collection("users");
 exports.UsersRepository = {
-    findAllUsers: () => __awaiter(void 0, void 0, void 0, function* () {
-        return db.find({}).toArray();
-    }),
-    findUserByName: (name) => __awaiter(void 0, void 0, void 0, function* () {
-        return db.findOne({ 'name': name });
-    }),
-    findUserById: (id) => __awaiter(void 0, void 0, void 0, function* () {
-        return db.findOne({ "id": id });
-    }),
-    findUserByEmail: (email) => __awaiter(void 0, void 0, void 0, function* () {
-        return db.findOne({ 'email': email });
-    }),
-    creatureUser: (body) => __awaiter(void 0, void 0, void 0, function* () {
-        yield db
-            .insertOne({
-            "id": +(new Date()),
-            "name": body.name,
-            'email': body.email,
-            'password': yield bcrypt.hash(body.password, 7)
+    findAllUsers() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return db.find({}).toArray();
         });
-    }),
-    updateUser: (id, body) => __awaiter(void 0, void 0, void 0, function* () {
-        if (!body) {
-            return false;
-        }
-        const result = yield db.updateOne({ "id": id }, { $set: { "name": body.name, "email": body.email, 'password': body.password } });
-        return result.matchedCount === 1;
-    }),
-    deleteUserById: (id) => __awaiter(void 0, void 0, void 0, function* () {
-        const result = yield db.deleteOne({ "id": id });
-        return result.deletedCount === 1;
-    }),
-    deleteAllUsers: () => __awaiter(void 0, void 0, void 0, function* () {
-        yield db.deleteMany({});
-        return true;
-    })
+    },
+    findUserByName(name) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return db.findOne({ 'name': name });
+        });
+    },
+    findUserById(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return db.findOne({ "id": id });
+        });
+    },
+    findUserByEmail(email) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return db.findOne({ 'email': email });
+        });
+    },
+    creatureUser(body) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield db
+                .insertOne({
+                id: +(new Date()),
+                name: body.name,
+                email: body.email,
+                password: yield bcrypt.hash(body.password, 7),
+                description: {
+                    text: "",
+                    skills: ""
+                },
+                contacts: {
+                    phone: "",
+                    address: "",
+                    socialList: {
+                        vk: "",
+                        github: "",
+                        telegram: ""
+                    }
+                }
+            });
+        });
+    },
+    updateUser(id, body) {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (!body) {
+                return false;
+            }
+            let updateObject = {};
+            for (const key in body) {
+                if (body[key] !== undefined) {
+                    updateObject[key] = body[key];
+                }
+            }
+            const result = yield db.updateOne({ "id": id }, { $set: updateObject });
+            return result.matchedCount === 1;
+        });
+    },
+    deleteUserById(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield db.deleteOne({ "id": id });
+            return result.deletedCount === 1;
+        });
+    },
+    deleteAllUsers() {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield db.deleteMany({});
+            return true;
+        });
+    }
 };

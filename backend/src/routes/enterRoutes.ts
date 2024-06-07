@@ -4,8 +4,8 @@ import {UsersRepository} from "../dataAccessLayer/usersRepository/MongoDbUsersRe
 import {codeMessage} from "../models/codeMessage";
 import {body, validationResult} from 'express-validator';
 import * as bcrypt from 'bcrypt';
-import {jwtService} from "../jwtService/jwtService";
-import {jwtMiddleware} from "../jwtService/jwtMiddleware";
+import {jwtService} from "../businessLayer/jwtService/jwtService";
+import {jwtMiddleware} from "../businessLayer/jwtService/jwtMiddleware";
 
 export const getEnterRouter = () => {
     const router = express.Router();

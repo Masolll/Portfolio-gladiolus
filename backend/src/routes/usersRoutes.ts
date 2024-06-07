@@ -24,8 +24,8 @@ export const getUsersRouter = () => {
         }
     })
     router.get("/:id", async (req:RequestWithUri<UserUriModel>, res: Response<UserViewModel>) => {
-        let findForm = await UsersRepository.findUserById(+req.params.id);
-        return findForm ? res.json(findForm) : res.sendStatus(codeMessage.NotFound);
+        let findUser = await UsersRepository.findUserById(+req.params.id);
+        return findUser ? res.json(findUser) : res.sendStatus(codeMessage.NotFound);
     })
     router.post('/', async (req:RequestWithBody<UserCreatureModel>, res) => {
         await UsersRepository.creatureUser(req.body);

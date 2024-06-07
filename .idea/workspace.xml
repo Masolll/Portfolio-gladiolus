@@ -5,9 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6739e396-ac11-4e31-ad52-dbf32cb7f91c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/portfolio/portfolioEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/portfolioEditContacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioEditContacts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/portfolioEditSuccess.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioEditSuccess.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/businessLayer/emailService/nodemailer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/routes/nodemailerRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/businessLayer/emailService/nodemailer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/ejsPages/allForms.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/ejsPages/errorPage.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/routes/nodemailerRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/allForms.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/errorPage.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/parts/footer.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/parts/header.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/jest.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/MongoDbUsersRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/MongoDbUsersRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/jwtService/JwtPayload.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/JwtPayload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/jwtService/jwtMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/jwtMiddleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/jwtService/jwtSecretKey.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/jwtSecretKey.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/jwtService/jwtService.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/jwtService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/routes/allFormsRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/allFormsRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/routes/enterRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/enterRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/routes/portfolioRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/portfolioRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/routes/registrationRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/registrationRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/MongoDbUsersRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/MongoDbUsersRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/jwtService/JwtPayload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/businessLayer/jwtService/JwtPayload.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/jwtService/jwtMiddleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/businessLayer/jwtService/jwtMiddleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/jwtService/jwtSecretKey.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/businessLayer/jwtService/jwtSecretKey.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/jwtService/jwtService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/businessLayer/jwtService/jwtService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/allFormsRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/allFormsRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/enterRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/enterRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/mainRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/mainRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/portfolioRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/portfolioRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/registrationRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/registrationRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +51,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package.json" />
-        <option value="TypeScript File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -46,8 +79,8 @@
     "Jest.myTest.test.ts.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Maksim/WebstormProjects/portfolio-project/backend/ejs-pages",
+    "git-widget-placeholder": "backend",
+    "last_opened_file_path": "C:/Users/Maksim/WebstormProjects/portfolio-project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -68,14 +101,14 @@
       <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\src\dataAccessLayer\formRepository" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\src\businessLayer" />
       <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\src" />
       <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\ejs-pages" />
       <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\ejs-pages\errorPages" />
       <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\src\models" />
-      <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.ts_watch">
+  <component name="RunManager" selected="npm.js_watch">
     <configuration name="myTest.test.ts" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/backend/node_modules/jest" />
@@ -117,8 +150,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.ts_watch" />
         <item itemvalue="npm.js_watch" />
+        <item itemvalue="npm.ts_watch" />
         <item itemvalue="npm.start" />
         <item itemvalue="Jest.myTest.test.ts" />
       </list>
@@ -149,6 +182,9 @@
       <workItem from="1715947900217" duration="3746000" />
       <workItem from="1715955909591" duration="8038000" />
       <workItem from="1716044058591" duration="446000" />
+      <workItem from="1716710926992" duration="17921000" />
+      <workItem from="1717000323393" duration="40000" />
+      <workItem from="1717663788834" duration="6068000" />
     </task>
     <servers />
   </component>

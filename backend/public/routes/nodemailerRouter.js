@@ -12,25 +12,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllFormsRouter = void 0;
-const path_1 = __importDefault(require("path"));
+exports.getNodemailerRouter = void 0;
 const express_1 = __importDefault(require("express"));
-const MongoDbUsersRepository_1 = require("../dataAccessLayer/usersRepository/MongoDbUsersRepository");
+const nodemailer_1 = require("../businessLayer/emailService/nodemailer");
 const codeMessage_1 = require("../models/codeMessage");
-const getAllFormsRouter = () => {
+const getNodemailerRouter = () => {
     const router = express_1.default.Router();
-    router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        if (req.query.name) {
-            let user = yield MongoDbUsersRepository_1.UsersRepository.findUserByName(req.query.name);
-            return user
-                ? res.render(path_1.default.join(__dirname, "../../src/ejsPages/allForms.ejs"), { users: [user] })
-                : res.sendStatus(codeMessage_1.codeMessage.BadRequest);
-        }
-        else {
-            let users = yield MongoDbUsersRepository_1.UsersRepository.findAllUsers();
-            res.render(path_1.default.join(__dirname, "../../src/ejsPages/allForms.ejs"), { users: users });
-        }
+    router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        yield (0, nodemailer_1.sendMessage)();
+        return res.sendStatus(codeMessage_1.codeMessage.OK);
     }));
     return router;
 };
-exports.getAllFormsRouter = getAllFormsRouter;
+exports.getNodemailerRouter = getNodemailerRouter;

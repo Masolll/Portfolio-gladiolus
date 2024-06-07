@@ -7,40 +7,59 @@ import * as bcrypt from "bcrypt";
 
 const db = client.db("usersbox").collection<UserViewModel>("users");
 export const UsersRepository = {
-    findAllUsers: async():Promise<UserViewModel[]>=>{
+    async findAllUsers() : Promise<UserViewModel[]>{
         return db.find({}).toArray();
     },
-    findUserByName : async (name: string) : Promise<UserViewModel | null>=>{
+    async findUserByName(name: string) : Promise<UserViewModel | null>{
         return db.findOne({'name': name});
     },
-    findUserById : async (id: number) : Promise<UserViewModel | null> => {
+    async findUserById(id: number) : Promise<UserViewModel | null>{
         return db.findOne({"id": id});
     },
-    findUserByEmail: async(email: string) : Promise<UserViewModel | null>=>{
+    async findUserByEmail(email: string) : Promise<UserViewModel | null>{
         return db.findOne({'email': email})
     },
-    creatureUser : async (body: UserCreatureModel) : Promise<void> =>{
+    async creatureUser(body: UserCreatureModel) : Promise<void>{
         await db
             .insertOne({
-                "id": +(new Date()),
-                "name": body.name,
-                'email': body.email,
-                'password': await bcrypt.hash(body.password, 7)
+                id: +(new Date()),
+                name: body.name,
+                email: body.email,
+                password: await bcrypt.hash(body.password, 7),
+                description: {
+                    text: "",
+                    skills: ""
+                },
+                contacts: {
+                    phone: "",
+                    address: "",
+                    socialList: {
+                        vk: "",
+                        github: "",
+                        telegram: ""
+                    }
+                }
             });
     },
-    updateUser : async (id: number, body: UserUpdateModel|null|undefined) : Promise<boolean> =>{
+    async updateUser(id: number, body: any) : Promise<boolean>{
         if (!body){
             return false;
         }
+        let updateObject : any = {};
+        for (const key in body){
+            if (body[key] !== undefined){
+                updateObject[key] = body[key];
+            }
+        }
         const result = await db.updateOne({"id": id},
-            {$set: {"name": body.name, "email": body.email, 'password': body.password}});
+            {$set: updateObject});
         return result.matchedCount === 1;
     },
-    deleteUserById :async (id: number) : Promise<boolean> =>{
+    async deleteUserById(id: number) : Promise<boolean>{
         const result = await db.deleteOne({"id": id});
         return result.deletedCount === 1;
     },
-    deleteAllUsers :async () : Promise<boolean> =>{
+    async deleteAllUsers() : Promise<boolean>{
         await db.deleteMany({});
         return true;
     }

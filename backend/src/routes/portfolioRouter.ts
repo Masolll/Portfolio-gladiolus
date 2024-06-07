@@ -1,6 +1,11 @@
 import path from "path";
 import express from "express";
-import {jwtMiddleware} from "../jwtService/jwtMiddleware";
+import {jwtMiddleware} from "../businessLayer/jwtService/jwtMiddleware";
+import {UsersRepository} from "../dataAccessLayer/usersRepository/MongoDbUsersRepository";
+import {RequestWithUriAndBody} from "../models/requestTypes";
+import {UserUriModel} from "../models/UserUriModel";
+import {UserUpdateModel} from "../models/UserUpdateModel";
+import {codeMessage} from "../models/codeMessage";
 
 export const getPortfolioRouter = () => {
     const router = express.Router();
@@ -9,6 +14,10 @@ export const getPortfolioRouter = () => {
         jwtMiddleware,
         (req, res) => {
         res.sendFile(path.join(__dirname, "../../../portfolio/portfolio.html"))
+    })
+    router.put('/:id', async (req:RequestWithUriAndBody<UserUriModel,UserUpdateModel>, res) => {
+        let isUpdate = await UsersRepository.updateUser(+req.params.id, req.body);
+        return isUpdate ? res.sendStatus(codeMessage.NoContent) : res.sendStatus(codeMessage.BadRequest);
     })
     router.get('/edit',
         jwtMiddleware,
@@ -25,6 +34,5 @@ export const getPortfolioRouter = () => {
         (req, res)=>{
         res.sendFile(path.join(__dirname, "../../../portfolio/portfolioEditSuccess.html"));
     })
-
     return router;
 }

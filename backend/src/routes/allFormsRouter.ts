@@ -12,11 +12,11 @@ export const getAllFormsRouter = () => {
         if (req.query.name){
             let user = await UsersRepository.findUserByName(req.query.name);
             return user
-                ? res.render(path.join(__dirname, "../../ejs-pages/allForms.ejs"), {users: [user]})
+                ? res.render(path.join(__dirname, "../../src/ejsPages/allForms.ejs"), {users: [user]})
                 : res.sendStatus(codeMessage.BadRequest);
         }else{
             let users = await UsersRepository.findAllUsers();
-            res.render(path.join(__dirname, "../../ejs-pages/allForms.ejs"), {users: users});
+            res.render(path.join(__dirname, "../../src/ejsPages/allForms.ejs"), {users: users});
         }
     })
 

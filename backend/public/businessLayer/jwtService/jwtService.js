@@ -15,12 +15,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.jwtService = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const jwtSecretKey_1 = require("./jwtSecretKey");
-const MongoDbUsersRepository_1 = require("../dataAccessLayer/usersRepository/MongoDbUsersRepository");
+const MongoDbUsersRepository_1 = require("../../dataAccessLayer/usersRepository/MongoDbUsersRepository");
 exports.jwtService = {
     createJWT(user) {
         return __awaiter(this, void 0, void 0, function* () {
             const payload = {
-                userEmail: user.email
+                userId: user.id
             };
             return jsonwebtoken_1.default.sign(payload, jwtSecretKey_1.secretKey.jwtSecret, { expiresIn: "1y" });
             //токен активен 1 год
@@ -30,9 +30,9 @@ exports.jwtService = {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const decodedData = jsonwebtoken_1.default.verify(token, jwtSecretKey_1.secretKey.jwtSecret); //если verify не проходит то падает ошибка
-                //в decodedData лежит payload, так как в payload я добавил только email то и здесь в объекте будет только email
-                const email = decodedData.userEmail;
-                const findUser = yield MongoDbUsersRepository_1.UsersRepository.findUserByEmail(email);
+                //в decodedData лежит payload, так как в payload я добавил только id то и здесь в объекте будет только id
+                const id = decodedData.userId;
+                const findUser = yield MongoDbUsersRepository_1.UsersRepository.findUserById(id);
                 return findUser ? findUser : null;
             }
             catch (error) {

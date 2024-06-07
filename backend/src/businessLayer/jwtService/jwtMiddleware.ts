@@ -1,14 +1,13 @@
 import express, {NextFunction, Request, Response} from "express";
 import {jwtService} from "./jwtService";
-import {RequestWithUser} from "../models/RequestWithUser";
-import {codeMessage} from "../models/codeMessage";
+import {RequestWithUser} from "../../models/RequestWithUser";
+import {codeMessage} from "../../models/codeMessage";
 import path from "path";
 
 export async function jwtMiddleware(req : RequestWithUser, res : Response, next : NextFunction){
     if (req.method === "OPTIONS"){
         next()
     }
-    let c:any = 0;
     try{
         if (!req.headers.cookie){
             throw new Error();
@@ -29,8 +28,8 @@ export async function jwtMiddleware(req : RequestWithUser, res : Response, next 
         req.user = findUser;
         next()
     }catch(error){
-        return res.status(codeMessage.Unauthorized).render(path.join(__dirname, "../../ejs-pages/errorPage"),
-            {error: "401",
+        return res.status(codeMessage.Unauthorized).render(path.join(__dirname, "../../../src/ejsPages/errorPage"),
+            {error: codeMessage.Unauthorized,
                 message: `Эта страница доступна толлько авторизованным пользователям)`});
     }
 }

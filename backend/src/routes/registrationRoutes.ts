@@ -3,7 +3,7 @@ import express from "express";
 import {UsersRepository} from "../dataAccessLayer/usersRepository/MongoDbUsersRepository";
 import {codeMessage} from "../models/codeMessage";
 import {body, validationResult} from 'express-validator';
-import {jwtMiddleware} from "../jwtService/jwtMiddleware";
+import {jwtMiddleware} from "../businessLayer/jwtService/jwtMiddleware";
 
 export const getRegistrationRouter = () => {
     const router = express.Router();
