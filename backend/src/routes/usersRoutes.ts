@@ -12,9 +12,8 @@ import path from "path";
 export const getUsersRouter = () => {
     const router = express.Router();
 
-    router.get('/', async (req:RequestWithQuery<GetUserQueryModel>, res )=> {
+    router.get('/', async (req:RequestWithQuery<GetUserQueryModel>, res:Response<UserViewModel[]> )=> {
         if (Object.keys(req.query).length > 0){
-            // const {maxAge, minAge, ...rest} = req.query
             let users = await UsersRepository.findUsersByQueryParams(req.query);
             return users
                 ? res.json(users)

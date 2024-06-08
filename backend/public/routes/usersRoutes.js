@@ -20,7 +20,6 @@ const getUsersRouter = () => {
     const router = express_1.default.Router();
     router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         if (Object.keys(req.query).length > 0) {
-            // const {maxAge, minAge, ...rest} = req.query
             let users = yield MongoDbUsersRepository_1.UsersRepository.findUsersByQueryParams(req.query);
             return users
                 ? res.json(users)

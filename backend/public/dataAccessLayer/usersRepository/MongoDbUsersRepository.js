@@ -70,19 +70,35 @@ exports.UsersRepository = {
     },
     findUsersByQueryParams(params) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (params.maxAge !== undefined && params.minAge !== undefined) {
-                const { minAge, maxAge } = params, rest = __rest(params, ["minAge", "maxAge"]);
-                return db.find({
+            let filter = {};
+            let resultRest = params;
+            if (resultRest.maxAge && resultRest.minAge) {
+                const { minAge, maxAge } = resultRest, rest = __rest(resultRest, ["minAge", "maxAge"]);
+                resultRest = rest;
+                Object.assign(filter, {
                     $and: [
                         { "description.age": { $gte: parseInt(minAge) } }, //gte это больше или равно
                         { "description.age": { $lte: parseInt(maxAge) } },
-                        rest
                     ]
-                }).toArray();
+                });
             }
-            else {
-                return db.find(params).toArray();
+            if (resultRest.skills) {
+                const { skills } = resultRest, rest = __rest(resultRest, ["skills"]);
+                resultRest = rest;
+                Object.assign(filter, { "description.skills": { $all: skills.split(',') } });
             }
+            if (resultRest.city) {
+                const { city } = resultRest, rest = __rest(resultRest, ["city"]);
+                resultRest = rest;
+                Object.assign(filter, { "contacts.address.city": city });
+            }
+            if (resultRest.gender) {
+                const { gender } = resultRest, rest = __rest(resultRest, ["gender"]);
+                resultRest = rest;
+                Object.assign(filter, { "description.gender": gender });
+            }
+            Object.assign(filter, resultRest); //копирую в объект filter все оставшиеся пары ключ-значение
+            return db.find(filter).toArray();
         });
     },
     creatureUser(body) {
@@ -96,12 +112,14 @@ exports.UsersRepository = {
                     age: 0,
                     gender: "",
                     text: "",
-                    skills: ""
+                    skills: []
                 },
                 contacts: {
                     email: body.email,
                     phone: "",
-                    address: "",
+                    address: {
+                        city: ""
+                    },
                     socialList: {
                         vk: "",
                         github: "",

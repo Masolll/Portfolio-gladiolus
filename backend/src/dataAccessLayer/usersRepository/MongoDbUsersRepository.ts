@@ -21,19 +21,36 @@ export const UsersRepository = {
     async findUserByEmail(email: string) : Promise<UserViewModel | null>{
         return db.findOne({'contacts.email': email})
     },
-    async findUsersByQueryParams(params:any){
-        if(params.maxAge !== undefined && params.minAge !== undefined){
-            const {minAge, maxAge, ...rest} = params;
-            return db.find({
+    async findUsersByQueryParams(params:Partial<GetUserQueryModel>):Promise<UserViewModel[]>{
+        let filter:any = {};
+        let resultRest = params;
+        if (resultRest.maxAge && resultRest.minAge){
+            const {minAge, maxAge, ...rest} = resultRest;
+            resultRest = rest;
+            Object.assign(filter, {
                 $and: [
                     {"description.age": {$gte:parseInt(minAge)}},//gte это больше или равно
                     {"description.age": {$lte: parseInt(maxAge)}},
-                    rest
                 ]
-            }).toArray();
-        }else {
-            return db.find(params).toArray();
+            })
         }
+        if(resultRest.skills){
+            const {skills, ...rest} = resultRest;
+            resultRest = rest;
+            Object.assign(filter, {"description.skills": {$all: skills.split(',')}});
+        }
+        if(resultRest.city){
+            const {city, ...rest} = resultRest;
+            resultRest = rest;
+            Object.assign(filter, {"contacts.address.city": city});
+        }
+        if(resultRest.gender){
+            const {gender, ...rest} = resultRest;
+            resultRest = rest;
+            Object.assign(filter, {"description.gender": gender});
+        }
+        Object.assign(filter, resultRest); //копирую в объект filter все оставшиеся пары ключ-значение
+        return db.find(filter).toArray();
     },
     async creatureUser(body: UserCreatureModel) : Promise<void>{
         await db
@@ -45,12 +62,14 @@ export const UsersRepository = {
                     age: 0,
                     gender: "",
                     text: "",
-                    skills: ""
+                    skills: []
                 },
                 contacts: {
                     email: body.email,
                     phone: "",
-                    address: "",
+                    address: {
+                        city: ""
+                    },
                     socialList: {
                         vk: "",
                         github: "",
