@@ -9,10 +9,10 @@ export const getAllFormsRouter = () => {
     const router = express.Router();
 
     router.get('/', async (req:RequestWithQuery<GetUserQueryModel>, res:Response<UserViewModel[]>) => {
-        if (req.query.name){
-            let user = await UsersRepository.findUserByName(req.query.name);
-            return user
-                ? res.render(path.join(__dirname, "../../src/ejsPages/allForms.ejs"), {users: [user]})
+        if (Object.keys(req.query).length > 0){
+            let users = await UsersRepository.findUsersByQueryParams(req.query);
+            return users
+                ? res.render(path.join(__dirname, "../../src/ejsPages/allForms.ejs"), {users: users})
                 : res.sendStatus(codeMessage.BadRequest);
         }else{
             let users = await UsersRepository.findAllUsers();

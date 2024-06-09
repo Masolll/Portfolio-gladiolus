@@ -20,10 +20,10 @@ const codeMessage_1 = require("../models/codeMessage");
 const getAllFormsRouter = () => {
     const router = express_1.default.Router();
     router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        if (req.query.name) {
-            let user = yield MongoDbUsersRepository_1.UsersRepository.findUserByName(req.query.name);
-            return user
-                ? res.render(path_1.default.join(__dirname, "../../src/ejsPages/allForms.ejs"), { users: [user] })
+        if (Object.keys(req.query).length > 0) {
+            let users = yield MongoDbUsersRepository_1.UsersRepository.findUsersByQueryParams(req.query);
+            return users
+                ? res.render(path_1.default.join(__dirname, "../../src/ejsPages/allForms.ejs"), { users: users })
                 : res.sendStatus(codeMessage_1.codeMessage.BadRequest);
         }
         else {

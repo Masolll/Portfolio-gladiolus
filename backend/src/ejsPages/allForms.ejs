@@ -42,12 +42,13 @@
     </div>
     <% if (users.length) { %>
         <ol>
-            <% users.forEach(({name, email})=>{ %>
+            <% users.forEach(({name, description, contacts})=>{ %>
                 <div class="list-user">
                     <div class="item-list item-img"><img src="/img/Rectangle.png"></div>
                     <div class="">
                         <div class="item-list item-name"><%= name %></div>
-                        <div class="item-list item-old">возраст не указан</div>
+                        <div class="item-list item-old">Возраст: <%= description.age %> Пол: <%= description.gender %> Город: <%= contacts.address.city%></div>
+                        <div class="item-list item-old">Навыки: <%= description.skills %></div>
                         <div class="item-list item-star"><img src="/img/Star.png" class="star">Добавить в избранное</div>
                     </div>
                     <div class="">
