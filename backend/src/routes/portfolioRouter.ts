@@ -7,14 +7,15 @@ import {UserUriModel} from "../models/UserUriModel";
 import {UserUpdateModel} from "../models/UserUpdateModel";
 import {codeMessage} from "../models/codeMessage";
 import jwt from "jsonwebtoken";
+import {RequestWithUser} from "../models/RequestWithUser";
 
 export const getPortfolioRouter = () => {
     const router = express.Router();
 
     router.get('/description',
         jwtMiddleware,
-        (req, res) => {
-        res.sendFile(path.join(__dirname, "../../../portfolio/portfolioDescription.html"))
+        (req:RequestWithUser, res) => {
+        res.render(path.join(__dirname, "../../src/ejsPages/portfolioDescription.ejs"), {user: req.user})
     })
     router.get('/contacts',
         jwtMiddleware,
@@ -33,8 +34,8 @@ export const getPortfolioRouter = () => {
         })
     router.get('/description/edit',
         jwtMiddleware,
-        (req, res) => {
-        res.sendFile(path.join(__dirname, "../../../portfolio/portfolioDescriptionEdit.html"))
+        (req:RequestWithUser, res) => {
+        res.render(path.join(__dirname, "../../src/ejsPages/portfolioDescriptionEdit.ejs"), {user: req.user})
     })
     router.get('/contacts/edit',
         jwtMiddleware,
@@ -51,9 +52,16 @@ export const getPortfolioRouter = () => {
         (req, res)=>{
             res.sendFile(path.join(__dirname, "../../../portfolio/portfolioProjectsEdit.html"));
         })
-    router.put('/:id', async (req:RequestWithUriAndBody<UserUriModel,UserUpdateModel>, res) => {
-        let isUpdate = await UsersRepository.updateUser(+req.params.id, req.body);
-        return isUpdate ? res.sendStatus(codeMessage.NoContent) : res.sendStatus(codeMessage.BadRequest);
+    router.put('/',
+        jwtMiddleware,
+        async(req:RequestWithUser, res) => {
+        if (req.user){
+            let isUpdate = await UsersRepository.updateUser(req.user.id, req.body);
+            return isUpdate ? res.sendStatus(codeMessage.NoContent) : res.sendStatus(codeMessage.BadRequest);
+        }else{
+            return res.sendStatus(codeMessage.BadRequest);
+        }
+
     })
 
     return router;

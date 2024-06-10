@@ -21,7 +21,7 @@ const codeMessage_1 = require("../models/codeMessage");
 const getPortfolioRouter = () => {
     const router = express_1.default.Router();
     router.get('/description', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioDescription.html"));
+        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioDescription.ejs"), { user: req.user });
     });
     router.get('/contacts', jwtMiddleware_1.jwtMiddleware, (req, res) => {
         res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioContacts.html"));
@@ -33,7 +33,7 @@ const getPortfolioRouter = () => {
         res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioProjects.html"));
     });
     router.get('/description/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioDescriptionEdit.html"));
+        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioDescriptionEdit.ejs"), { user: req.user });
     });
     router.get('/contacts/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
         res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioContactsEdit.html"));
@@ -44,9 +44,14 @@ const getPortfolioRouter = () => {
     router.get('/projects/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
         res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioProjectsEdit.html"));
     });
-    router.put('/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        let isUpdate = yield MongoDbUsersRepository_1.UsersRepository.updateUser(+req.params.id, req.body);
-        return isUpdate ? res.sendStatus(codeMessage_1.codeMessage.NoContent) : res.sendStatus(codeMessage_1.codeMessage.BadRequest);
+    router.put('/', jwtMiddleware_1.jwtMiddleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        if (req.user) {
+            let isUpdate = yield MongoDbUsersRepository_1.UsersRepository.updateUser(req.user.id, req.body);
+            return isUpdate ? res.sendStatus(codeMessage_1.codeMessage.NoContent) : res.sendStatus(codeMessage_1.codeMessage.BadRequest);
+        }
+        else {
+            return res.sendStatus(codeMessage_1.codeMessage.BadRequest);
+        }
     }));
     return router;
 };
