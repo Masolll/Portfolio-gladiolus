@@ -20,22 +20,34 @@ const MongoDbUsersRepository_1 = require("../dataAccessLayer/usersRepository/Mon
 const codeMessage_1 = require("../models/codeMessage");
 const getPortfolioRouter = () => {
     const router = express_1.default.Router();
-    router.get('/', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolio.html"));
+    router.get('/description', jwtMiddleware_1.jwtMiddleware, (req, res) => {
+        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioDescription.html"));
+    });
+    router.get('/contacts', jwtMiddleware_1.jwtMiddleware, (req, res) => {
+        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioContacts.html"));
+    });
+    router.get('/success', jwtMiddleware_1.jwtMiddleware, (req, res) => {
+        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioSuccess.html"));
+    });
+    router.get('/projects', jwtMiddleware_1.jwtMiddleware, (req, res) => {
+        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioProjects.html"));
+    });
+    router.get('/description/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
+        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioDescriptionEdit.html"));
+    });
+    router.get('/contacts/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
+        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioContactsEdit.html"));
+    });
+    router.get('/success/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
+        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioSuccessEdit.html"));
+    });
+    router.get('/projects/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
+        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioProjectsEdit.html"));
     });
     router.put('/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         let isUpdate = yield MongoDbUsersRepository_1.UsersRepository.updateUser(+req.params.id, req.body);
         return isUpdate ? res.sendStatus(codeMessage_1.codeMessage.NoContent) : res.sendStatus(codeMessage_1.codeMessage.BadRequest);
     }));
-    router.get('/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioEdit.html"));
-    });
-    router.get('/edit/contacts', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioEditContacts.html"));
-    });
-    router.get('/edit/success', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioEditSuccess.html"));
-    });
     return router;
 };
 exports.getPortfolioRouter = getPortfolioRouter;

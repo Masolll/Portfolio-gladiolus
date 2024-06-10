@@ -47,35 +47,36 @@ document.getElementById('registerButton').addEventListener('click', async functi
                 body: JSON.stringify({'name': username, 'email': email, 'password': password}),
                 headers: {'Content-Type': 'application/json'}
             }
-        ).then(response => {
+        ).then(async response => {
             if (!response.ok){
                 throw new Error('Ошибка не сервере')
+            }else{
+                //получаю токен с сервера
+                const token =  await fetch(
+                    "/enter",
+                    {
+                        method: 'POST',
+                        body: JSON.stringify({'email': email, 'password': password}),
+                        headers: {'Content-Type': 'application/json'}
+                    }
+                ).then(response => {
+                    if (!response.ok){
+                        throw new Error('Ошибка не сервере')
+                    }else{
+                        return response.json();
+                    }
+                }).then(json => json.token).catch(error => {
+                    alert('Введен неверный email или пароль');
+                })
+                if (token){
+                    const bearerToken = 'Bearer ' + token
+                    document.cookie = "token=" + bearerToken;
+                    window.location.href = "/registration/confirmEmail";
+                }
             }
         }).catch(error => {
             alert('Введен неверный email или пользователь с таким email уже зарегестрирован');
         });
-        //получаю токен с сервера
-        const token =  await fetch(
-            "/enter",
-            {
-                method: 'POST',
-                body: JSON.stringify({'email': email, 'password': password}),
-                headers: {'Content-Type': 'application/json'}
-            }
-        ).then(response => {
-            if (!response.ok){
-                throw new Error('Ошибка не сервере')
-            }else{
-                return response.json();
-            }
-        }).then(json => json.token).catch(error => {
-            alert('Введен неверный email или пароль');
-        })
-        if (token){
-            const bearerToken = 'Bearer ' + token
-            document.cookie = "token=" + bearerToken;
-            window.location.href = "/registration/confirmEmail";
-        }
     } else {
       alert('Пожалуйста, проверьте все поля и убедитесь, что пароль содержит минимум 8 символов и пароли совпадают.');
     }

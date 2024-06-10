@@ -4,194 +4,55 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6739e396-ac11-4e31-ad52-dbf32cb7f91c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/public/businessLayer/emailService/nodemailer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/routes/nodemailerRouter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/businessLayer/emailService/nodemailer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/ejsPages/allForms.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/ejsPages/errorPage.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/routes/nodemailerRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/allForms.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/errorPage.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/parts/footer.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/ejs-pages/parts/header.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/jest.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/MongoDbUsersRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/MongoDbUsersRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/jwtService/JwtPayload.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/JwtPayload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/jwtService/jwtMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/jwtMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/jwtService/jwtSecretKey.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/jwtSecretKey.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/jwtService/jwtService.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/jwtService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/routes/allFormsRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/allFormsRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/routes/enterRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/enterRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/routes/portfolioRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/portfolioRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/routes/registrationRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/registrationRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/MongoDbUsersRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/MongoDbUsersRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/jwtService/JwtPayload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/businessLayer/jwtService/JwtPayload.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/jwtService/jwtMiddleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/businessLayer/jwtService/jwtMiddleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/jwtService/jwtSecretKey.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/businessLayer/jwtService/jwtSecretKey.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/jwtService/jwtService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/businessLayer/jwtService/jwtService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/allFormsRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/allFormsRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/enterRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/enterRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/mainRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/mainRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/portfolioRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/portfolioRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/registrationRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/registrationRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="b7ca32c5-1ec5-4ec6-8de4-892661674b71" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="package.json" />
-        <option value="JavaScript File" />
-        <option value="HTML File" />
-        <option value="TypeScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 8
-}</component>
-  <component name="ProjectId" id="2g1E2t5iMNBHQRwQTho3Hrofcug" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2hgFhf0gqqOue7yrB7RMefzCe25" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Jest.myTest.test.ts.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "backend",
-    "last_opened_file_path": "C:/Users/Maksim/WebstormProjects/portfolio-project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "C:/Users/Maksim/WebstormProjects/portfolio-project/backend/node_modules/jest",
     "nodejs_package_manager_path": "yarn",
-    "npm.js_watch.executor": "Run",
-    "npm.start.executor": "Run",
-    "npm.ts_watch.executor": "Run",
-    "settings.editor.selected.configurable": "editor.preferences.tabs",
-    "ts.external.directory.path": "C:\\Users\\Maksim\\WebstormProjects\\portfolio-project\\backend\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\ejs-pages" />
-      <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\src\dataAccessLayer\formRepository" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\src\businessLayer" />
-      <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\src" />
-      <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\ejs-pages" />
-      <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\ejs-pages\errorPages" />
-      <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\backend\src\models" />
-    </key>
-  </component>
-  <component name="RunManager" selected="npm.js_watch">
-    <configuration name="myTest.test.ts" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/backend/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/backend" />
-      <envs />
-      <scope-kind value="TEST_FILE" />
-      <test-file value="$PROJECT_DIR$/backend/__test__/e2e/myTest.test.ts" />
-      <method v="2" />
-    </configuration>
-    <configuration name="js_watch" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/backend/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="js_watch" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="ts_watch" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/backend/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="ts_watch" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="npm.js_watch" />
-        <item itemvalue="npm.ts_watch" />
-        <item itemvalue="npm.start" />
-        <item itemvalue="Jest.myTest.test.ts" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6739e396-ac11-4e31-ad52-dbf32cb7f91c" name="Changes" comment="" />
-      <created>1714856481777</created>
+      <changelist id="b7ca32c5-1ec5-4ec6-8de4-892661674b71" name="Changes" comment="" />
+      <created>1718007935748</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1714856481777</updated>
-      <workItem from="1714856483451" duration="2329000" />
-      <workItem from="1714926026079" duration="1861000" />
-      <workItem from="1714981211581" duration="1579000" />
-      <workItem from="1714982806260" duration="1830000" />
-      <workItem from="1714984654628" duration="1184000" />
-      <workItem from="1714994132506" duration="23699000" />
-      <workItem from="1715066037095" duration="863000" />
-      <workItem from="1715067132974" duration="5695000" />
-      <workItem from="1715074065313" duration="1939000" />
-      <workItem from="1715184037209" duration="7616000" />
-      <workItem from="1715442187367" duration="1719000" />
-      <workItem from="1715533721710" duration="11944000" />
-      <workItem from="1715618276488" duration="13537000" />
-      <workItem from="1715702872666" duration="11450000" />
-      <workItem from="1715947900217" duration="3746000" />
-      <workItem from="1715955909591" duration="8038000" />
-      <workItem from="1716044058591" duration="446000" />
-      <workItem from="1716710926992" duration="17921000" />
-      <workItem from="1717000323393" duration="40000" />
-      <workItem from="1717663788834" duration="6068000" />
+      <updated>1718007935748</updated>
+      <workItem from="1718007937157" duration="598000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/backend/__test__/e2e/myTest.test.js" />
+      </list>
+    </option>
   </component>
 </project>
