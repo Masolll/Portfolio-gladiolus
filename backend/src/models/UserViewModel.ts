@@ -16,8 +16,15 @@ export type UserViewModel = {
         email: string,
         socialList: {
             vk: string,
+            tiktok: string,
             github: string,
             telegram: string
         }
+    }
+    projects: {
+        project1: string,
+        project2: string,
+        project3: string,
+        project4: string
     }
 };

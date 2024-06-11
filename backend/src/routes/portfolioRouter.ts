@@ -19,8 +19,8 @@ export const getPortfolioRouter = () => {
     })
     router.get('/contacts',
         jwtMiddleware,
-        (req, res) => {
-            res.sendFile(path.join(__dirname, "../../../portfolio/portfolioContacts.html"))
+        (req:RequestWithUser, res) => {
+            res.render(path.join(__dirname, "../../src/ejsPages/portfolioContacts.ejs"), {user: req.user})
         })
     router.get('/success',
         jwtMiddleware,
@@ -29,8 +29,8 @@ export const getPortfolioRouter = () => {
         })
     router.get('/projects',
         jwtMiddleware,
-        (req, res)=>{
-            res.sendFile(path.join(__dirname, "../../../portfolio/portfolioProjects.html"))
+        (req:RequestWithUser, res)=>{
+            res.render(path.join(__dirname, "../../src/ejsPages/portfolioProjects.ejs"), {user: req.user})
         })
     router.get('/description/edit',
         jwtMiddleware,
@@ -39,8 +39,8 @@ export const getPortfolioRouter = () => {
     })
     router.get('/contacts/edit',
         jwtMiddleware,
-        (req, res)=>{
-        res.sendFile(path.join(__dirname, "../../../portfolio/portfolioContactsEdit.html"));
+        (req:RequestWithUser, res)=>{
+            res.render(path.join(__dirname, "../../src/ejsPages/portfolioContactsEdit.ejs"), {user: req.user});
     })
     router.get('/success/edit',
         jwtMiddleware,
@@ -49,8 +49,8 @@ export const getPortfolioRouter = () => {
     })
     router.get('/projects/edit',
         jwtMiddleware,
-        (req, res)=>{
-            res.sendFile(path.join(__dirname, "../../../portfolio/portfolioProjectsEdit.html"));
+        (req:RequestWithUser, res)=>{
+            res.render(path.join(__dirname, "../../src/ejsPages/portfolioProjectsEdit.ejs"), {user: req.user})
         })
     router.put('/',
         jwtMiddleware,

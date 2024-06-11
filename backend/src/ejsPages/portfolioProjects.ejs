@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- Подключение внешнего CSS-файла -->
-    <link rel="stylesheet" href="/css/redactor.css" />
+    <link rel="stylesheet" href="/css/project.css" />
 </head>
 <body>
 <%- include('portfolioHeader'); -%>
@@ -26,40 +26,52 @@
                     <input type="tel" class="contact-input" style="display: none;" placeholder="+7">
                 </div>
                 <div class="item">
-                    <a href="#" class="item1 achievements-link">Достижения</a>
+                    <a href="/achievements.html" class="item1 achievements-link">Достижения</a>
                     <input type="file" class="achievements-input" style="display: none;">
                 </div>
                 <div class="item">
-                    <a href="#" class="item1 projects-link">Проекты</a>
+                    <a href="/project.html" class="item1 projects-link">Проекты</a>
                 </div>
-                <div class="line">
-                </div>
+                <div class="line"></div>
             </div>
+            <a href="/portfolio/projects/edit"><button class="redactor item" id="editButton" ><span>Редактировать</span></button></a>
+            <script src="/portfolio.js"></script>
         </div>
-        <div class="buttons">
-            <a href="#" class="save-item"><button class="save item" id="saveButton" ><span>Сохранить изменения</span></button></a>
-        </div>
-        <a href="/portfolio/description" class="cancel-item"><button class="cancel item" id="cancelButton" ><span>Отменить изменения</span></button></a>
+    </div>
+    </div>
+    <div class="container-sertificat">
         <style>
+            .inputText{
+                font-size: 24px;
+                border-color: #2D87D6;
+                border-width: 3px;
+                border-radius: 9px;
+            }
             ::placeholder {
                 opacity: 0.5;
             }
         </style>
-        <form>
-            <% if (user) { %>
-            <textarea class="description-input" id="story" name="story" placeholder="Напишите информацию о себе" rows="5" cols="33"><%=user.description.text%></textarea>
-            <% }%>
-        </form>
-
-        <div class="container1">
-            <a href="#" class="lang"><p class="txt item2">Ключевые навыки</p></a>
+        <div>
+            <form>
+                <input disabled class="ramka inputText" placeholder="Ссылка на проект 1" type="text" size="30" value="<%=user.projects.project1%>">
+            </form>
         </div>
-
-        <div class="container2">
-            <img src="/img/Plus.png" class="plus item3">
+        <div>
+            <form>
+                <input disabled class="ramka inputText" placeholder="Ссылка на проект 2" type="text" size="30" value="<%=user.projects.project2%>">
+            </form>
+        </div>
+        <div>
+            <form>
+                <input disabled class="ramka inputText" placeholder="Ссылка на проект 3" type="text" size="30" value="<%=user.projects.project3%>">
+            </form>
+        </div>
+        <div>
+            <form>
+                <input disabled class="ramka inputText" placeholder="Ссылка на проект 4" type="text" size="30" value="<%=user.projects.project4%>">
+            </form>
         </div>
     </div>
 </main>
 <%- include('portfolioFooter'); -%>
-<script src="/js/portfolioDescriptionEdit.js"></script>
 </body>

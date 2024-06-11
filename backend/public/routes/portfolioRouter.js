@@ -24,25 +24,25 @@ const getPortfolioRouter = () => {
         res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioDescription.ejs"), { user: req.user });
     });
     router.get('/contacts', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioContacts.html"));
+        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioContacts.ejs"), { user: req.user });
     });
     router.get('/success', jwtMiddleware_1.jwtMiddleware, (req, res) => {
         res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioSuccess.html"));
     });
     router.get('/projects', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioProjects.html"));
+        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioProjects.ejs"), { user: req.user });
     });
     router.get('/description/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
         res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioDescriptionEdit.ejs"), { user: req.user });
     });
     router.get('/contacts/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioContactsEdit.html"));
+        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioContactsEdit.ejs"), { user: req.user });
     });
     router.get('/success/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
         res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioSuccessEdit.html"));
     });
     router.get('/projects/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioProjectsEdit.html"));
+        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioProjectsEdit.ejs"), { user: req.user });
     });
     router.put('/', jwtMiddleware_1.jwtMiddleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         if (req.user) {

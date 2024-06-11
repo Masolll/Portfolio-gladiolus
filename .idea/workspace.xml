@@ -4,19 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7ca32c5-1ec5-4ec6-8de4-892661674b71" name="Changes" comment="" />
+    <list default="true" id="b7ca32c5-1ec5-4ec6-8de4-892661674b71" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioContacts.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioContactsEdit.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioProjects.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioProjectsEdit.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/js/portfolioContactsEdit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/js/portfolioProjectsEdit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/MongoDbUsersRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/MongoDbUsersRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/routes/portfolioRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/portfolioRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/MongoDbUsersRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/MongoDbUsersRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/ejsPages/portfolioDescription.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioDescription.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/models/UserViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/UserViewModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/portfolioRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/portfolioRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/portfolioContacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioContacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/portfolioContactsEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioContactsEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/portfolioProjects.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioProjects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/portfolioProjectsEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioProjectsEdit.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2hgFhf0gqqOue7yrB7RMefzCe25" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,9 +56,45 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
+    "npm.js_watch.executor": "Run",
+    "npm.ts_watch.executor": "Run",
+    "ts.external.directory.path": "C:\\Users\\Maksim\\WebstormProjects\\portfolio-project\\backend\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\portfolio\js" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.js_watch">
+    <configuration name="js_watch" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="js_watch" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="ts_watch" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="ts_watch" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.js_watch" />
+        <item itemvalue="npm.ts_watch" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -44,15 +104,11 @@
       <option name="presentableId" value="Default" />
       <updated>1718007935748</updated>
       <workItem from="1718007937157" duration="598000" />
+      <workItem from="1718026056628" duration="24052000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/backend/__test__/e2e/myTest.test.js" />
-      </list>
-    </option>
   </component>
 </project>

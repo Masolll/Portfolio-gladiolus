@@ -122,9 +122,16 @@ exports.UsersRepository = {
                     },
                     socialList: {
                         vk: "",
+                        tiktok: "",
                         github: "",
                         telegram: ""
                     }
+                },
+                projects: {
+                    project1: "",
+                    project2: "",
+                    project3: "",
+                    project4: "",
                 }
             });
         });

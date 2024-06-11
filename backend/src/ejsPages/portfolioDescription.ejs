@@ -19,27 +19,32 @@
             <img src="/img/users.png" alt="Profile Picture" id="profilePic" class="users item">
             <div class="container_1">
                 <div class="item">
-                    <a href="/description.html" class="item1 description">Описание</a>
+                    <a href="/portfolio/description" class="item1 description">Описание</a>
                 </div>
                 <div class="item">
-                    <a href="/contactInfo.html" class="item1 contact-link">Контактная информация</a>
+                    <a href="/portfolio/contacts" class="item1 contact-link">Контактная информация</a>
                     <input type="tel" class="contact-input" style="display: none;" placeholder="+7">
                 </div>
                 <div class="item">
-                    <a href="#" class="item1 achievements-link">Достижения</a>
+                    <a href="/portfolio/success" class="item1 achievements-link">Достижения</a>
                     <input type="file" class="achievements-input" style="display: none;">
                 </div>
                 <div class="item">
-                    <a href="#" class="item1 projects-link">Проекты</a>
+                    <a href="/portfolio/projects" class="item1 projects-link">Проекты</a>
                 </div>
                 <div class="line"></div>
             </div>
             <a href="/portfolio/description/edit"><button class="redactor item" id="editButton" ><span>Редактировать</span></button></a>
             <script src="/discription.js"></script>
         </div>
+        <style>
+            ::placeholder {
+                opacity: 0.5;
+            }
+        </style>
         <div class="description-item">
             <% if (user) { %>
-            <textarea class="description-input " id="story" name="story" disabled rows="5" cols="33"><%=user.description.text%></textarea>
+            <textarea class="description-input " id="story" name="story" disabled placeholder="Напишите информацию о себе" rows="5" cols="33"><%=user.description.text%></textarea>
             <% }%>
         </div>
         <div class="container1">
