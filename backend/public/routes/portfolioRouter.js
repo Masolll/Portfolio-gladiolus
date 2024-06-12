@@ -18,11 +18,50 @@ const express_1 = __importDefault(require("express"));
 const jwtMiddleware_1 = require("../businessLayer/jwtService/jwtMiddleware");
 const MongoDbUsersRepository_1 = require("../dataAccessLayer/usersRepository/MongoDbUsersRepository");
 const codeMessage_1 = require("../models/codeMessage");
+const multer_1 = __importDefault(require("multer"));
+const storage = multer_1.default.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/avatars/');
+    },
+    filename(req, file, callback) {
+        callback(null, Math.random().toString() + file.originalname); //не любое имя файлу можно задать, иногда это причина ошибок
+        //имя должно быть уникальным
+    }
+});
+const upload = (0, multer_1.default)({
+    storage: storage,
+    fileFilter(req, file, callback) {
+        if (file.mimetype === 'image/jpeg') {
+            callback(null, true); //это позволит загрузить изображение в папку
+        }
+        else {
+            callback(null, false); //если расширение не то, то ошибки не будет, просто изображение не загрузиться в папку
+        }
+    }
+});
 const getPortfolioRouter = () => {
     const router = express_1.default.Router();
+    router.put('/', jwtMiddleware_1.jwtMiddleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        if (req.user) {
+            let isUpdate = yield MongoDbUsersRepository_1.UsersRepository.updateUser(req.user.id, req.body);
+            return isUpdate ? res.sendStatus(codeMessage_1.codeMessage.NoContent) : res.sendStatus(codeMessage_1.codeMessage.BadRequest);
+        }
+        else {
+            return res.sendStatus(codeMessage_1.codeMessage.BadRequest);
+        }
+    }));
     router.get('/description', jwtMiddleware_1.jwtMiddleware, (req, res) => {
         res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioDescription.ejs"), { user: req.user });
     });
+    router.put('/description/avatar', jwtMiddleware_1.jwtMiddleware, upload.single("avatar"), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        if (req.user && req.file) {
+            yield MongoDbUsersRepository_1.UsersRepository.updateUser(req.user.id, { 'description.avatar': req.file.filename });
+            return res.json(req.file.filename);
+        }
+        else {
+            return res.status(400).send('Не удалось обновить(');
+        }
+    }));
     router.get('/contacts', jwtMiddleware_1.jwtMiddleware, (req, res) => {
         res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioContacts.ejs"), { user: req.user });
     });
@@ -44,15 +83,6 @@ const getPortfolioRouter = () => {
     router.get('/projects/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
         res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioProjectsEdit.ejs"), { user: req.user });
     });
-    router.put('/', jwtMiddleware_1.jwtMiddleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        if (req.user) {
-            let isUpdate = yield MongoDbUsersRepository_1.UsersRepository.updateUser(req.user.id, req.body);
-            return isUpdate ? res.sendStatus(codeMessage_1.codeMessage.NoContent) : res.sendStatus(codeMessage_1.codeMessage.BadRequest);
-        }
-        else {
-            return res.sendStatus(codeMessage_1.codeMessage.BadRequest);
-        }
-    }));
     return router;
 };
 exports.getPortfolioRouter = getPortfolioRouter;

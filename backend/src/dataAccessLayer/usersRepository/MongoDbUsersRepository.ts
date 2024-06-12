@@ -59,6 +59,7 @@ export const UsersRepository = {
                 name: body.name,
                 password: await bcrypt.hash(body.password, 7),
                 description: {
+                    avatar: "",
                     age: 0,
                     gender: "",
                     text: "",

@@ -9,12 +9,12 @@ import path from "path";
 import {codeMessage} from "./models/codeMessage";
 import {getNodemailerRouter} from "./routes/nodemailerRouter";
 
+
 export const app = express();
 
-//на этом шаге подключаем мидлвейер чтобы мы могли обрабатывать body у http запросов
+
 export const bodyMiddleWare = express.json();
 app.use(bodyMiddleWare);
-//подключаю шаблонизатор ejs
 app.set('view engine', 'ejs');
 app.use((req : Request, res : Response, next : NextFunction) => {
     if (req.path.endsWith('.html')) {
@@ -27,9 +27,8 @@ app.use((req : Request, res : Response, next : NextFunction) => {
     }
     next();
 });
-app.use(express.static(path.join(__dirname, "/../../portfolio")))
-
-//страницы доступные всем пользователям
+app.use(express.static(path.join(__dirname, "/../../portfolio")));
+app.use(express.static(path.join(__dirname, '../uploads')))
 
 app.use('/', getMainRouter());
 app.use('/registration', getRegistrationRouter());
@@ -38,7 +37,6 @@ app.use('/enter', getEnterRouter());
 app.use('/allForms', getAllFormsRouter());
 app.use('/users', getUsersRouter());
 app.use('/email', getNodemailerRouter());
-//ошибка если ни один маршрут не подошел
 app.use((req : Request, res : Response) => {
     return res
         .status(codeMessage.NotFound)

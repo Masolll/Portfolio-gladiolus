@@ -3,6 +3,7 @@ export type UserViewModel = {
     name: string,
     password: string,
     description: {
+        avatar: string,
         age: number,
         gender: string,
         text: string,
