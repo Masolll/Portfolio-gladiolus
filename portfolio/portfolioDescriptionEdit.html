@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/redactor.css" />
 </head>
 <body>
-    <header class="flow1">
+    <header class="flow1">    
         <nav  class="navbar">
             <div class="container">
                 <img src="/img/Logotype.svg" alt="Логотип ITConnect" class="logotype-1">
@@ -43,7 +43,7 @@
                         <a href="/description.html" class="item1 description">Описание</a>
                       </div>
                       <div class="item">
-                        <a href="/contactInfo.html" class="item1 contact-link">Контактная информация</a>
+                        <a href="/redactor-contact.html" class="item1 contact-link">Контактная информация</a>
                         <input type="tel" class="contact-input" style="display: none;" placeholder="+7">
                       </div>
                       <div class="item">
@@ -53,27 +53,46 @@
                       <div class="item">
                         <a href="#" class="item1 projects-link">Проекты</a>
                       </div>
-                      <div class="line">
-                      </div>
+                      <div class="line"></div>
                     </div>
                 </div>
-                <div class="buttons">
-                    <a href="#" class="save-item"><button class="save item" id="saveButton" ><span>Сохранить изменения</span></button></a>
+                <div class="name-old">
+                    <button class="name" id="name"><span>Имя</span></button>
+                    <button class="old" id="old"><span>25 лет</span></button>
+                </div> 
+                <div class="favorite">
+                    <button class="save item" id="editButton" ><span>Сохранить изменения</span></button>
+                    <button class="cancel item" id="editButton" ><span>Отменить изменения</span></button>
                 </div>
-                <a href="#" class="cancel-item"><button class="cancel item" id="cancelButton" ><span>Отменить изменения</span></button></a>
-
-                <form>
-                    <textarea class="description-input" id="story" name="story" rows="5" cols="33">Привет меня зовут ... </textarea>
-                </form>
-                
-                <div class="container1">
-                    <a href="#" class="lang"><p class="txt item2">Ключевые навыки</p></a>
-                </div>
-                
-                <div class="container2">
-                    <img src="/img/Plus.png" class="plus item3">
-                </div>
+                    <div class="description-item">
+                        <textarea class="description-input input-dsr" id="about-yourself" name="about-yourself" rows="4" cols="50" resize="none">Привет меня зовут ... </textarea>
+                    </div>
             </div> 
+            <div class="container2">
+                <div class="container1">
+                    <p>Ключевые навыки:</p>
+                </div>
+                <ul class="js-choice list-skills">
+                    <li class="list-skill"><button class="button-skills js-button">DevOps</button></li>
+                    <li class="list-skill"><button class="button-skills js-button">Backend</button></li>
+                    <li class="list-skill"><button class="button-skills js-button">Frontend</button></li>
+                    <li class="list-skill"><button class="button-skills js-button">Базы данных</button></li>
+                    <li class="list-skill"><button class="button-skills js-button">Тестирование</button></li>
+                    <li class="list-skill"><button class="button-skills js-button">Web разработка</button></li>
+                    <li class="list-skill"><button class="button-skills js-button">Машинное обучение</button></li>
+                    <li class="list-skill"><button class="button-skills js-button">Научные вычисления</button></li>
+                    <li class="list-skill"><button class="button-skills js-button">Цифровой маркетинг</button></li>
+                    <li class="list-skill"><button class="button-skills js-button">Сетевые технологии</button></li>
+                    <li class="list-skill"><button class="button-skills js-button">Облачные технологии</button></li>
+                    <li class="list-skill"><button class="button-skills js-button">Компьютерная графика</button></li>
+                    <li class="list-skill"><button class="button-skills js-button">Управление проектами</button></li>
+                    <li class="list-skill"><button class="button-skills js-button">Безопасность информации</button></li>
+                    <li class="list-skill"><button class="button-skills js-button">Хранение и обработка данных</button></li>                        
+                    <li class="list-skill"><button class="button-skills js-button">Системное администрирование</button></li>
+                    <li class="list-skill"><button class="button-skills js-button">Управление ИТ-инфраструктурой</button></li>
+                </ul>
+            </div>
+            
         </main>
     <footer class="container_5">
         <div class="flow1">
@@ -102,5 +121,4 @@
             </div>
         </div>
     </footer>
-    <script src="/js/portfolioDescriptionEdit.js"></script>
 </body> 

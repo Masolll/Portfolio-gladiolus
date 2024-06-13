@@ -124,12 +124,13 @@ body {
     width: 339px;
     height: 339px;
 }
-
 .save{
     outline: none;
     cursor: pointer;
     border: none;
-    padding: 15px 25px;
+    padding: 15px 15px;
+    width: 335px;
+    height: 60px;
     font-family: inherit;
     font-size: inherit;
     position: relative;
@@ -141,7 +142,7 @@ body {
     overflow: hidden;
     background: #008080;
     color: ghostwhite;
-    top: 300px;
+    top: 315px;
 }
    
 .save span{
@@ -166,7 +167,8 @@ body {
    
 .save::before{
     content: "";
-    background: #35C1CA;
+    background: 
+    #35C1CA;
     width: 120%;
     left: -10%;
     transform: skew(30deg);
@@ -177,15 +179,21 @@ body {
     transform: translate3d(100%, 0, 0);
 }
 
-.buttons{
-   margin-bottom: 15px;
+
+.cancel{
+    border: none;
+    font-family: 'Inher' , sans-serif;
+    position: relative;
+    bottom: 100px;
+    right: 340px;
 }
 
 .cancel{
     outline: none;
     cursor: pointer;
-    border: none;
-    padding: 15px 31px;
+    padding: 15px 2px;
+    width: 336px;
+    height: 60px;
     font-family: inherit;
     font-size: inherit;
     position: relative;
@@ -195,9 +203,9 @@ body {
     font-size: 20px;
     border-radius: 5px;
     overflow: hidden;
-    background: #8B0000;
+    background: #800000;
     color: ghostwhite;
-    top: 300px;
+    top: 390px;
 }
    
 .cancel span{
@@ -231,6 +239,33 @@ body {
    
 .cancel:hover::before{
     transform: translate3d(100%, 0, 0);
+}
+
+
+.name{
+    width: 300px;
+    border: none;
+    font-family: 'Inher' , sans-serif;
+    position: relative;
+    font-weight: 400;
+    font-size: 24px;
+    background: white;
+    color: black;
+    bottom: 121px;
+    left: 384px;
+}
+
+.old{
+    width: 300px;
+    border: none;
+    font-family: 'Inher' , sans-serif;
+    position: relative;
+    font-weight: 400;
+    font-size: 24px;
+    background: white;
+    color:#747474;
+    bottom: 80px;
+    left: 92px;
 }
 
 .container{
@@ -440,12 +475,15 @@ body {
     border: white;
 }
 
-.ramka{
+.txt-ramka{
     border: 2px solid #458ADB;
     width: 743px;
     height: 61px;
     border-radius: 10px;
-    
+    font-size: 24px;
+    font-family: 'Roboto',sans-serif;
+    position: relative;
+    bottom: 50px;
 }
 
 .container-sertificat{

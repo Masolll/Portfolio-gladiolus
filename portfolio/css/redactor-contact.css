@@ -75,6 +75,11 @@ body {
     margin-right: 110px;
 }
 
+.sex{
+    position: relative;
+    top: 100px;
+}
+
 .search-form{
     border: 2px solid #458ADB;
     display: inline-flex;
@@ -125,12 +130,45 @@ body {
     height: 339px;
 }
 
+.list-info{
+    position: relative;
+    bottom: 30px;
+}
+
+.name{
+    width: 300px;
+    border: none;
+    font-family: 'Inher' , sans-serif;
+    position: relative;
+    font-weight: 400;
+    font-size: 24px;
+    background: white;
+    color: black;
+    bottom: 121px;
+    left: 384px;
+}
+
+.old{
+    width: 300px;
+    border: none;
+    font-family: 'Inher' , sans-serif;
+    position: relative;
+    font-weight: 400;
+    font-size: 24px;
+    background: white;
+    color:#747474;
+    bottom: 80px;
+    left: 92px;
+}
+
 
 .save{
     outline: none;
     cursor: pointer;
     border: none;
-    padding: 15px 25px;
+    padding: 15px 15px;
+    width: 335px;
+    height: 60px;
     font-family: inherit;
     font-size: inherit;
     position: relative;
@@ -142,7 +180,7 @@ body {
     overflow: hidden;
     background: #008080;
     color: ghostwhite;
-    top: 300px;
+    top: 315px;
 }
    
 .save span{
@@ -167,7 +205,8 @@ body {
    
 .save::before{
     content: "";
-    background: #35C1CA;
+    background: 
+    #35C1CA;
     width: 120%;
     left: -10%;
     transform: skew(30deg);
@@ -178,15 +217,21 @@ body {
     transform: translate3d(100%, 0, 0);
 }
 
-.buttons{
-   margin-bottom: 15px;
+
+.cancel{
+    border: none;
+    font-family: 'Inher' , sans-serif;
+    position: relative;
+    bottom: 100px;
+    right: 340px;
 }
 
 .cancel{
     outline: none;
     cursor: pointer;
-    border: none;
-    padding: 15px 31px;
+    padding: 15px 2px;
+    width: 336px;
+    height: 60px;
     font-family: inherit;
     font-size: inherit;
     position: relative;
@@ -196,9 +241,9 @@ body {
     font-size: 20px;
     border-radius: 5px;
     overflow: hidden;
-    background: #8B0000;
+    background: #800000;
     color: ghostwhite;
-    top: 300px;
+    top: 390px;
 }
    
 .cancel span{
@@ -234,7 +279,6 @@ body {
     transform: translate3d(100%, 0, 0);
 }
 
-
 .container{
     display: grid;
     grid-template-columns: 1200px;
@@ -247,6 +291,290 @@ body {
   grid-column-gap: 17px;
   justify-content: end;
   margin-top: 66px;
+}
+
+.number-txt{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    border-color: #458ADB;
+    border-radius: 9px;
+    padding: 4px;
+}
+
+.button-sex{
+    position: relative;
+    bottom: 31px;
+    left: 35px; 
+}
+
+.button-sexw{
+    position: relative;
+    bottom: 30px;
+    left: 110px;
+}
+
+.sexm{
+    position: relative;
+    top: 75px;
+}
+
+.sexw{
+    position: relative;
+    left: 355px;
+    bottom: 45px;
+}
+
+
+.checkbox-container {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+  }
+  
+  .custom-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid #458ADB;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: relative;
+    display: none;
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+  
+  .custom-checkbox:checked ~ .checkmark {
+    background-color: #2196F3;
+    box-shadow: 0 3px 7px rgba(33, 150, 243, 0.3);
+  }
+  
+  .custom-checkbox:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  @keyframes checkAnim {
+    0% {
+      height: 0;
+    }
+  
+    100% {
+      height: 10px;
+    }
+  }
+  
+  .custom-checkbox:checked ~ .checkmark:after {
+    animation: checkAnim 0.2s forwards;
+}
+
+.checkbox-container1 {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+    
+  }
+  
+  .custom-checkbox1 {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid #458ADB;
+  }
+  
+  .checkmark1:after {
+    content: "";
+    position: relative;
+    display: none;
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: 1px solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+  
+  .custom-checkbox1:checked ~ .checkmark1 {
+    background-color: #2196F3;
+    box-shadow: 0 3px 7px rgba(33, 150, 243, 0.3);
+  }
+  
+  .custom-checkbox1:checked ~ .checkmark1:after {
+    display: block;
+  }
+  
+  @keyframes checkAnim1 {
+    0% {
+      height: 0;
+    }
+  
+    100% {
+      height: 10px;
+    }
+  }
+  
+  .custom-checkbox1:checked ~ .checkmark1:after {
+    animation: checkAnim 0.2s forwards;
+}
+
+.street-address{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+    border-color: #458ADB;
+    border-radius: 9px;
+    padding: 4px;
+}
+
+.city{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    border-color: #458ADB;
+    border-radius: 9px;
+    padding: 4px;
+    margin-bottom: 10px;
+
+}
+
+.state{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    border-color: #458ADB;
+    border-radius: 9px;
+    padding: 4px;
+}
+
+.site{
+    position: relative;
+    bottom:  180px;
+}
+
+.email-adress{
+    position: relative;
+    bottom: 80px;
+}
+
+.email{
+    margin-top: 45px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    border-color: #458ADB;
+    border-radius: 9px;
+    padding: 4px;
+    position: relative;
+    right: 2px;
+    bottom: 90px;
+}
+
+.vk{
+    position: relative;
+    bottom: 200px;
+    right: 50px;
+}
+
+.vkontakte-link{
+    position: relative;
+    bottom: 230px;
+    right: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    border-color: #458ADB;
+    border-radius: 9px;
+    padding: 4px;
+}
+
+.img-tiktok{
+    position: relative;
+    right: 45px;
+    bottom: 220px;
+}
+
+.tiktok-link{
+    position: relative;
+    right: 17px;
+    bottom: 248px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    border-color: #458ADB;
+    border-radius: 9px;
+    padding: 4px;
+}
+
+.github{
+    position: relative;
+    right: 40px;
+    bottom: 230px;
+}
+
+.github-link{
+    position: relative;
+    right: 5px;
+    bottom: 250px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    border-color: #458ADB;
+    border-radius: 9px;
+    padding: 4px;
+}
+
+.telegram{
+    position: relative;
+    right: 40px;
+    bottom: 235px;
+}
+
+.telega{
+    position: relative;
+    right: 7px;
+    bottom: 260px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    border-color: #458ADB;
+    border-radius: 9px;
+    padding: 4px;
 }
 
 .item{
@@ -416,10 +744,6 @@ body {
     margin-left: 525px;
 }
 
-.container-info{
-
-}
-
 .itemlist{
     list-style-type: none;
 }
@@ -478,10 +802,6 @@ body {
     display: grid;
     grid-template-columns: 200px 1fr;
     gap: 46px;
-}
-
-.container-info{
-    
 }
 
 .itemlist2{
