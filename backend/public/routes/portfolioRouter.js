@@ -27,11 +27,11 @@ const storage = multer_1.default.diskStorage({
         callback(null, Math.random().toString() + file.originalname); //не любое имя файлу можно задать, иногда это причина ошибок
         //имя должно быть уникальным
     }
-});
+}); //это нужно для хранения документов в локальной папке "uploads/avatars/" (можно назвать как угодно, но я так делал)
 const upload = (0, multer_1.default)({
-    storage: storage,
+    storage: multer_1.default.memoryStorage(),
     fileFilter(req, file, callback) {
-        if (file.mimetype === 'image/jpeg') {
+        if (file.mimetype === 'image/jpeg' || file.mimetype === "image/png") {
             callback(null, true); //это позволит загрузить изображение в папку
         }
         else {
@@ -55,8 +55,10 @@ const getPortfolioRouter = () => {
     });
     router.put('/description/avatar', jwtMiddleware_1.jwtMiddleware, upload.single("avatar"), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         if (req.user && req.file) {
-            yield MongoDbUsersRepository_1.UsersRepository.updateUser(req.user.id, { 'description.avatar': req.file.filename });
-            return res.json(req.file.filename);
+            yield MongoDbUsersRepository_1.UsersRepository.updateUser(req.user.id, {
+                'description.avatar': req.file.buffer.toString('base64')
+            });
+            return res.send(yield MongoDbUsersRepository_1.UsersRepository.findUserById(req.user.id));
         }
         else {
             return res.status(400).send('Не удалось обновить(');

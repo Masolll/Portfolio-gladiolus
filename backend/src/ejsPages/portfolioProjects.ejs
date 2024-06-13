@@ -16,7 +16,16 @@
 <main class="page-main">
     <div class="flow1">
         <div class="container">
-            <img src="/img/users.png" alt="Profile Picture" id="profilePic" class="users item">
+            <% let dataUri = '/img/users.png'%>
+            <%if(user.description.avatar.length > 0) { %>
+                <%dataUri = `data:image/jpeg;base64,${user.description.avatar}`;%>
+            <% }%>
+            <img src="<%=dataUri%>" alt="Profile Picture" id="profilePic" class="users item avatar">
+            <style>
+                 .avatar{
+                    border-radius: 55px;
+                }
+            </style>
             <div class="container_1">
                 <div class="item">
                     <a href="/description.html" class="item1 description">Описание</a>

@@ -16,11 +16,11 @@ const storage = multer.diskStorage({
         callback(null, Math.random().toString()+file.originalname);//не любое имя файлу можно задать, иногда это причина ошибок
                                                                                 //имя должно быть уникальным
     }
-})
+})//это нужно для хранения документов в локальной папке "uploads/avatars/" (можно назвать как угодно, но я так делал)
 const upload = multer({
-    storage: storage,
+    storage: multer.memoryStorage(),
     fileFilter(req: Request, file: Express.Multer.File, callback: multer.FileFilterCallback) {
-        if (file.mimetype==='image/jpeg'){
+        if (file.mimetype==='image/jpeg' || file.mimetype==="image/png"){
             callback(null, true);//это позволит загрузить изображение в папку
         }else{
             callback(null, false);//если расширение не то, то ошибки не будет, просто изображение не загрузиться в папку
@@ -52,8 +52,10 @@ export const getPortfolioRouter = () => {
         upload.single("avatar"),
         async (req:RequestWithUser, res)=>{
             if (req.user && req.file){
-                await UsersRepository.updateUser(req.user.id, {'description.avatar': req.file.filename});
-                return res.json(req.file.filename);
+                await UsersRepository.updateUser(req.user.id, {
+                    'description.avatar': req.file.buffer.toString('base64')
+                });
+                return res.send(await UsersRepository.findUserById(req.user.id));
             }else{
                 return res.status(400).send('Не удалось обновить(');
             }

@@ -13,5 +13,8 @@
   "private": true,
   "devDependencies": {
     "@types/nodemailer": "^6.4.15"
+  },
+  "dependencies": {
+    "mongoose": "^8.4.1"
   }
 }

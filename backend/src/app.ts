@@ -12,7 +12,6 @@ import {getNodemailerRouter} from "./routes/nodemailerRouter";
 
 export const app = express();
 
-
 export const bodyMiddleWare = express.json();
 app.use(bodyMiddleWare);
 app.set('view engine', 'ejs');

@@ -5,22 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7ca32c5-1ec5-4ec6-8de4-892661674b71" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioContacts.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioContactsEdit.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioProjects.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioProjectsEdit.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/js/portfolioContactsEdit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/js/portfolioProjectsEdit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/MongoDbUsersRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/MongoDbUsersRepository.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/public/routes/portfolioRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/portfolioRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/MongoDbUsersRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/MongoDbUsersRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/ejsPages/portfolioDescription.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioDescription.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/models/UserViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/UserViewModel.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/routes/portfolioRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/portfolioRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/portfolioContacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioContacts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/portfolioContactsEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioContactsEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/portfolioProjects.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioProjects.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/portfolioProjectsEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioProjectsEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,22 +41,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "npm.js_watch.executor": "Run",
-    "npm.ts_watch.executor": "Run",
-    "ts.external.directory.path": "C:\\Users\\Maksim\\WebstormProjects\\portfolio-project\\backend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;npm.js_watch.executor&quot;: &quot;Run&quot;,
+    &quot;npm.ts_watch.executor&quot;: &quot;Run&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Maksim\\WebstormProjects\\portfolio-project\\backend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\portfolio\js" />
@@ -105,6 +100,8 @@
       <updated>1718007935748</updated>
       <workItem from="1718007937157" duration="598000" />
       <workItem from="1718026056628" duration="24052000" />
+      <workItem from="1718208670579" duration="13386000" />
+      <workItem from="1718225833737" duration="48000" />
     </task>
     <servers />
   </component>

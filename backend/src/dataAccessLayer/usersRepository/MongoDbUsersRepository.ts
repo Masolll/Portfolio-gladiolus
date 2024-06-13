@@ -1,11 +1,10 @@
 import {client} from "./claster";
 import {UserViewModel} from "../../models/UserViewModel";
-import {UserCreatureModel} from "../../models/UserCreatureModel";
-import {UserUpdateModel} from "../../models/UserUpdateModel";
 import * as bcrypt from "bcrypt";
-import {RequestWithQuery} from "../../models/requestTypes";
 import {GetUserQueryModel} from "../../models/GetUserQueryModel";
-
+import {Buffer} from "buffer";
+import * as buffer from "buffer";
+import {UserCreatureModel} from "../../models/UserCreatureModel";
 
 const db = client.db("usersbox").collection<UserViewModel>("users");
 export const UsersRepository = {
