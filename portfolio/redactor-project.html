@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- Подключение внешнего CSS-файла -->
     <link rel="stylesheet" href="/css/redactor-project.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 <body>
     <header class="flow1">
@@ -66,19 +68,45 @@
                             <button class="save item" id="editButton" ><span>Сохранить изменения</span></button>
                             <button class="cancel item" id="editButton" ><span>Отменить изменения</span></button>
                             <script>
+                                $('#imageInput').change(function() {
+                                var reader = new FileReader();
+    
+                                reader.onload = function(e) {
+                                    $('#profilePic').attr('src', e.target.result);
+                                    $('#profilePic').show(); // Отображаем изображение
+                                    $('#profilePic').css('border-radius', '55px'); // Добавляем border-radius
+                                }
+    
+                                reader.readAsDataURL(this.files[0]);
+                                });
+    
                                 $(document).ready(function() {
+                                    // Кнопка "Изменить изображение"
                                     $('#editButton').click(function() {
                                         $('#imageInput').trigger('click');
                                     });
                         
+                                    // Обработка выбора файла
                                     $('#imageInput').change(function() {
                                         var reader = new FileReader();
                         
                                         reader.onload = function(e) {
                                             $('#profilePic').attr('src', e.target.result);
+                                            $('#profilePic').show(); // Отображаем изображение
                                         }
                         
                                         reader.readAsDataURL(this.files[0]);
+                                    });
+                        
+                                    // Кнопка "Сохранить изменения"
+                                    $('#saveButton').click(function() {
+                                        // Здесь вы можете добавить логику для сохранения изображения на сервере
+                                        // Например, с помощью AJAX-запроса отправить изображение на сервер
+                                    });
+                        
+                                    // Кнопка "Отменить изменения"
+                                    $('#cancelButton').click(function() {
+                                        $('#profilePic').attr('src', '').hide(); // Сбрасываем изображение и скрываем его
                                     });
                                 });
                             </script>
