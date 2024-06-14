@@ -5,15 +5,17 @@ export type UserViewModel = {
     description: {
         avatar: string,
         age: number,
-        gender: string,
         text: string,
         skills: string[]
     },
     contacts: {
         phone: string,
         address: {
-            city: string
+            street: string,
+            city: string,
+            state: string
         },
+        gender: string,
         email: string,
         socialList: {
             vk: string,

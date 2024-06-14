@@ -111,15 +111,17 @@ exports.UsersRepository = {
                 description: {
                     avatar: "",
                     age: 0,
-                    gender: "",
                     text: "",
                     skills: []
                 },
                 contacts: {
                     email: body.email,
                     phone: "",
+                    gender: "",
                     address: {
-                        city: ""
+                        street: "",
+                        city: "",
+                        state: ""
                     },
                     socialList: {
                         vk: "",

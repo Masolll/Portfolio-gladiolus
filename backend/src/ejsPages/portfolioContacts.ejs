@@ -40,38 +40,30 @@
         <div class="infor">
             <div class="container-info">
                 <ul class="list-info">
-                    <style>
-                        .inputText{
-                            font-size: 24px;
-                            border-color: #2D87D6;
-                            border-width: 3px;
-                            border-radius: 9px;
-                        }
-                    </style>
                     <li class="itemlist">Номер телефона:</li>
                     <li class="itemlist1 number">
-                        <form>
-                            <input disabled class="inputText" type="text" size="20" value="<%= user.contacts.phone%>">
-                        </form>
+                        <%= user.contacts.phone%>
                     </li>
-                    <li class="itemlist">Город:</li>
+                    <li class="itemlist">Адрес:</li>
                     <li class="itemlist1 adress">
-                        <form>
-                            <input disabled class="inputText" type="text" size="20" value="<%= user.contacts.address.city%>">
-                        </form>
+                        <% if (user.contacts.address.state) {%>
+                            <%= user.contacts.address.state%> область,
+                        <%}%><%if (user.contacts.address.city) {%>
+                            г. <%=user.contacts.address.city%>,
+                            <%}%><%if (user.contacts.address.street) {%>
+                                ул. <%=user.contacts.address.street%>
+                            <%}%>
                     </li>
                     <li class="itemlist">Почта:</li>
                     <li class="itemlist1 email">
-                        <form>
-                            <input disabled class="inputText" type="email" size="20" value="<%= user.contacts.email%>">
-                        </form>
+                        <%= user.contacts.email%>
                     </li>
                     <li class="itemlist site">Социальные сети:</li>
                     <div class="div-img">
-                        <a href=<%= user.contacts.socialList.vk%>><img src="/img/VK.png" class="vk"></a>
-                        <a href=<%= user.contacts.socialList.tiktok%>><img src="/img/TikTok.png" class="img-tiktok"></a>
-                        <a href=<%= user.contacts.socialList.github%>><img src="/img/GitHub.png" class="github"></a>
-                        <a href=<%= user.contacts.socialList.telegram%>><img src="/img/Telegram.png" class="telegram"></a>
+                        <a href="<%= user.contacts.socialList.vk%>"><img src="/img/VK.png" class="vk"></a>
+                        <a href="<%= user.contacts.socialList.tiktok%>"><img src="/img/TikTok.png" class="img-tiktok"></a>
+                        <a href="<%= user.contacts.socialList.github%>"><img src="/img/GitHub.png" class="github"></a>
+                        <a href="<%= user.contacts.socialList.telegram%>"><img src="/img/Telegram.png" class="telegram"></a>
                     </div>
                 </ul>
             </div>

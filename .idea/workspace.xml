@@ -5,17 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7ca32c5-1ec5-4ec6-8de4-892661674b71" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/businessLayer/emailService/nodemailer.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/businessLayer/emailService/nodemailer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/JwtPayload.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/JwtPayload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/jwtMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/jwtMiddleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/jwtSecretKey.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/jwtSecretKey.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/jwtService.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/jwtService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/MongoDbUsersRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/MongoDbUsersRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/claster.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/dataAccessLayer/usersRepository/claster.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/models/GetUserQueryModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/models/GetUserQueryModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/models/RequestWithUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/models/RequestWithUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/models/UserCreatureModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/models/UserCreatureModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/models/UserUpdateModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/models/UserUpdateModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/models/UserUriModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/models/UserUriModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/models/UserViewModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/models/UserViewModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/models/codeMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/models/codeMessage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/models/requestTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/models/requestTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/routes/allFormsRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/allFormsRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/routes/enterRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/enterRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/routes/mainRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/mainRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/routes/nodemailerRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/nodemailerRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/public/routes/portfolioRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/portfolioRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/MongoDbUsersRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/MongoDbUsersRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/UserViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/UserViewModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/portfolioRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/portfolioRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/routes/registrationRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/registrationRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/routes/usersRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/usersRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/ejsPages/portfolioContacts.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioContacts.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +45,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -62,7 +79,7 @@
       <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\portfolio\js" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.js_watch">
+  <component name="RunManager" selected="npm.ts_watch">
     <configuration name="js_watch" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/backend/package.json" />
       <command value="run" />
@@ -85,8 +102,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.js_watch" />
         <item itemvalue="npm.ts_watch" />
+        <item itemvalue="npm.js_watch" />
       </list>
     </recent_temporary>
   </component>
@@ -102,6 +119,7 @@
       <workItem from="1718026056628" duration="24052000" />
       <workItem from="1718208670579" duration="13386000" />
       <workItem from="1718225833737" duration="48000" />
+      <workItem from="1718268310360" duration="10045000" />
     </task>
     <servers />
   </component>

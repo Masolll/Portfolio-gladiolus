@@ -19,71 +19,84 @@
             <img src="/img/users.png" alt="Profile Picture" id="profilePic" class="users item">
             <div class="container_1">
                 <div class="item">
-                    <a href="/description.html" class="item1 description">Описание</a>
+                    <a href="/redactor-decription.html" class="item1 description">Описание</a>
                 </div>
                 <div class="item">
-                    <a href="/contactInfo.html" class="item1 contact-link">Контактная информация</a>
+                    <a href="/redactor-contact.html" class="item1 contact-link">Контактная информация</a>
                     <input type="tel" class="contact-input" style="display: none;" placeholder="+7">
                 </div>
                 <div class="item">
-                    <a href="/achievements.html" class="item1 achievements-link">Достижения</a>
-                    <input type="file" class="achievements-input" style="display: none;">
+                    <a href="/redactor-achievements.html" class="item1 achievements-link">Достижения</a>
                 </div>
                 <div class="item">
                     <a href="#" class="item1 projects-link">Проекты</a>
                 </div>
                 <div class="line"></div>
             </div>
-            <div class="buttons">
-                <a href="#" class="save-item"><button class="save item" id="saveButton" ><span>Сохранить изменения</span></button></a>
+            <div class="name-old">
+                <button class="name" id="name"><span>Имя</span></button>
+                <button class="old" id="old"><span>25 лет</span></button>
             </div>
-            <a href="#" class="cancel-item"><button class="cancel item" id="cancelButton" ><span>Отменить изменения</span></button></a>
-            <script src="/portfolio.js"></script>
+            <div class="favorite">
+                <button class="save item" id="editButton" ><span>Сохранить изменения</span></button>
+                <button class="cancel item" id="editButton" ><span>Отменить изменения</span></button>
+            </div>
+
         </div>
+
         <div class="infor">
             <div class="container-info">
                 <ul class="list-info">
-                    <style>
-                        .inputText{
-                            font-size: 24px;
-                            border-color: #2D87D6;
-                            border-width: 3px;
-                            border-radius: 9px;
-                            margin-bottom: 10px;
-                        }
-                        ::placeholder {
-                            opacity: 0.5;
-                        }
-                    </style>
                     <li class="itemlist">Номер телефона:</li>
-                    <li class="itemlist1 number">
-                        <form>
-                            <input class="inputText userPhone" type="text" size="20" value="<%= user.contacts.phone%>">
-                        </form>
-                    </li>
-                    <li class="itemlist">Город:</li>
+                    <li class="itemlist1 number"><input type="tel" value="<%=user.contacts.phone%>" id="phone-number" name="phone-number" placeholder="Введите свой номер" pattern="[0-9]{10}" required class="number-txt"></li>
+                    <li class="itemlist">Адрес:</li>
                     <li class="itemlist1 adress">
-                        <form>
-                            <input class="inputText userAddress" type="text" size="20" value="<%= user.contacts.address.city%>">
-                        </form>
+                        <input type="text" value="<%=user.contacts.address.street%>" id="street-address" name="street-address" placeholder="Улица" required class="street-address">
+                        <input type="text" value="<%=user.contacts.address.city%>" id="city" name="city" placeholder="Город" required class="city">
+                        <input type="text" value="<%=user.contacts.address.state%>" id="state" name="state" placeholder="Область" required class="state">
                     </li>
-                    <li class="itemlist">Почта:</li>
-                    <li class="itemlist1 email">
-                        <form>
-                            <input class="inputText userEmail" type="email" size="20" value="<%= user.contacts.email%>">
-                        </form>
-                    </li>
+                    <li class="itemlist sex">Пол</li>
+                    <p class="sexm">М</p>
+                    <p class="sexw">Ж</p>
+                    <div class="button-sex">
+                        <label class="checkbox-container">
+                            <input class="custom-checkbox" type="checkbox" <% if (user.contacts.gender==='m') { %> checked <% } %>>
+                            <span class="checkmark"></span>
+                        </label>
+                        <div class="button-sexw">
+                            <label class="checkbox-container1">
+                                <input class="custom-checkbox1" type="checkbox" <% if (user.contacts.gender==='w') { %> checked <% } %>>
+                                <span class="checkmark1"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <li class="itemlist email-adress">Почта:</li>
+                    <li class="itemlist1 email"><input type="email" value="<%=user.contacts.email%>" id="email" name="email" placeholder="Ваша почта" required class="email"></li>
                     <li class="itemlist site">Социальные сети:</li>
-                    <form>
-                        <input class="inputText vkLink" type="text" size="20" placeholder="Ссылка на ваш vk" value="<%= user.contacts.socialList.vk%>">
-                        <input class="inputText tiktokLink" type="text" size="20" placeholder="Ссылка на ваш tiktok" value="<%= user.contacts.socialList.tiktok%>">
-                        <input class="inputText githubLink" type="text" size="20" placeholder="Ссылка на ваш github" value="<%= user.contacts.socialList.github%>">
-                        <input class="inputText telegramLink" type="text" size="20" placeholder="Ссылка на ваш telegram" value="<%= user.contacts.socialList.telegram%>">
-                    </form>
-                </ul>
+                    <div class="div-img">
+                        <ul class="social-links" id="social-links-list">
+                            <form id="add-links-form">
+                                <div class="form-group">
+                                    <label for="vk-link" class="vkontakte"><img src="/img/VK.png" class="vk"></label>
+                                    <input type="url" value="<%=user.contacts.socialList.vk%>" id="vk-link" name="vk-link" placeholder="https://vk.com/your-page" class="vkontakte-link">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tiktok-link" class="TikTok"><img src="/img/TikTok.png" class="img-tiktok"></label>
+                                    <input type="url" value="<%=user.contacts.socialList.tiktok%>" id="tiktok-link" name="tiktok-link" placeholder="https://www.tiktok.com/@your-handle" class="tiktok-link">
+                                </div>
+                                <div class="form-group">
+                                    <label for="github-link" class="GitHub"><img src="/img/GitHub.png" class="github"></label>
+                                    <input type="url" value="<%=user.contacts.socialList.github%>" id="github-link" name="github-link" placeholder="https://github.com/your-username" class="github-link">
+                                </div>
+                                <div class="form-group">
+                                    <label for="telegram-link" class="Telegram"><img src="/img/Telegram.png" class="telegram"></label>
+                                    <input type="url" value="<%=user.contacts.socialList.telegram%>" id="telegram-link" name="telegram-link" placeholder="https://t.me/your-channel" class="telega">
+                                </div>
+                            </form>
+                        </ul>
+                    </div>
             </div>
         </div>
-    </div>
 </main>
 <script src="/js/portfolioContactsEdit.js"></script>
 <%- include('portfolioFooter'); -%>
