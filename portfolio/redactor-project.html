@@ -60,9 +60,29 @@
                         <button class="old" id="old"><span>25 лет</span></button>
                     </div> 
                     <div class="favorite">
-                        <button class="save item" id="editButton" ><span>Сохранить изменения</span></button>
-                        <button class="cancel item" id="editButton" ><span>Отменить изменения</span></button>
-                    </div> 
+                        <img src="" alt="Profile Picture" id="profilePic" class="users item" style="display: none;">
+                            <input type="file" id="imageInput" style="display: none;">
+                            <button class="change-images item" id="editButton" ><span>Изменить изображения</span></button>
+                            <button class="save item" id="editButton" ><span>Сохранить изменения</span></button>
+                            <button class="cancel item" id="editButton" ><span>Отменить изменения</span></button>
+                            <script>
+                                $(document).ready(function() {
+                                    $('#editButton').click(function() {
+                                        $('#imageInput').trigger('click');
+                                    });
+                        
+                                    $('#imageInput').change(function() {
+                                        var reader = new FileReader();
+                        
+                                        reader.onload = function(e) {
+                                            $('#profilePic').attr('src', e.target.result);
+                                        }
+                        
+                                        reader.readAsDataURL(this.files[0]);
+                                    });
+                                });
+                            </script>
+                    </div>    
                   </div>
                 </div>
             </div> 

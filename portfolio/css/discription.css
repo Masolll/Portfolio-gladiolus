@@ -112,196 +112,78 @@ body {
     cursor: pointer;
 }
 
-.container_4{
-    display: grid;
-    grid-template-columns: repeat(4, 250px);
-    grid-template-rows: 80px 50px 50px;
-    color:#000;
-    margin-top: 412px;
-}
-
 .users{
     width: 339px;
     height: 339px;
 }
 
+.list-skills {
+    display: grid; 
+    grid-template-columns: 200px 200px 200px ; 
+    list-style-type: none; 
+    padding: 0; 
+    gap: 15px;
+    text-align: center;
+}
 
+.button-skills {
+    pointer-events: none;
+    width: 200px;
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #ffffff; 
+    color: #000000; 
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    border-radius: 9px;
+    border-color: #2D87D6;
+    padding: 15px;
+}
 
-.change-images{
-    outline: none;
-    cursor: pointer;
-    border: none;
-    padding: 15px 15px;
-    width: 335px;
-    height: 60px;
-    font-family: inherit;
-    font-size: inherit;
-    position: relative;
-    display: inline-block;
-    letter-spacing: 0.05rem;
-    font-weight: 600;
-    font-size: 20px;
-    border-radius: 5px;
-    overflow: hidden;
-    background: #32CD32;
-    color: ghostwhite;
-    top: 250px;
-    right: px;
+.button-skills:active {
+    background-color: #2D87D6; 
+    color: #ffffff; 
 }
-   
-.change-images span{
-    position: relative;
-    z-index: 10;
-    transition: color 0.4s;
-}
-   
-.change-images:hover span{
-    color: white;
-}
-   
-.change-images::before,
-.change-images::after{
+
+.star{
+    width: 47px;
+    height: 47px;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-   
-.change-images::before{
-    content: "";
-    background: 
-    #00FF00;
-    width: 120%;
-    left: -10%;
-    transform: skew(30deg);
-    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
-}
-   
-.change-images:hover::before{
-    transform: translate3d(100%, 0, 0);
+    left: px;
 }
 
-.save{
-    outline: none;
-    cursor: pointer;
-    border: none;
-    padding: 15px 15px;
-    width: 335px;
-    height: 60px;
-    font-family: inherit;
-    font-size: inherit;
-    position: relative;
-    display: inline-block;
-    letter-spacing: 0.05rem;
-    font-weight: 600;
-    font-size: 20px;
-    border-radius: 5px;
-    overflow: hidden;
-    background: #008080;
-    color: ghostwhite;
-    top: 325px;
-    right: 340px;
-}
-   
-.save span{
-    position: relative;
-    z-index: 10;
-    transition: color 0.4s;
-}
-   
-.save:hover span{
-    color: white;
-}
-   
-.save::before,
-.save::after{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-   
-.save::before{
-    content: "";
-    background: 
-    #35C1CA;
-    width: 120%;
-    left: -10%;
-    transform: skew(30deg);
-    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
-}
-   
-.save:hover::before{
-    transform: translate3d(100%, 0, 0);
-}
-
-
-.cancel{
+.favor{
+    width: 300px;
     border: none;
     font-family: 'Inher' , sans-serif;
     position: relative;
-    bottom: 100px;
-    right: 340px;
+    font-weight: 400;
+    font-size: 24px;
+    background: white;
+    color: black;
+    top: 365px;
+    right: 285px;
 }
 
-.cancel{
+.star-img{
+    width: 47px;
+    height: 47px;
+}
+
+.star{
     outline: none;
-    cursor: pointer;
-    padding: 15px 2px;
-    width: 336px;
-    height: 60px;
-    font-family: inherit;
-    font-size: inherit;
+    border: none;
+    font-family: 'Inher' , sans-serif;
     position: relative;
     display: inline-block;
     letter-spacing: 0.05rem;
-    font-weight: 600;
-    font-size: 20px;
-    border-radius: 5px;
-    overflow: hidden;
-    background: #800000;
-    color: ghostwhite;
-    top: 400px;
-    right: 680px;
+    font-weight: 400;
+    font-size: 24px;
+    background: white;
+    color: black;
+    top: 377px;
+    right: px;
 }
-   
-.cancel span{
-    position: relative;
-    z-index: 10;
-    transition: color 0.4s;
-}
-   
-.cancel:hover span{
-    color: white;
-}
-   
-.cancel::before,
-.cancel::after{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-   
-.cancel::before{
-    content: "";
-    background: #D62D4B;
-    width: 120%;
-    left: -10%;
-    transform: skew(30deg);
-    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
-}
-   
-.cancel:hover::before{
-    transform: translate3d(100%, 0, 0);
-}
-
 
 .name{
     width: 300px;
@@ -312,8 +194,8 @@ body {
     font-size: 24px;
     background: white;
     color: black;
-    bottom: 121px;
-    left: 384px;
+    bottom: 130px;
+    left: 50px;
 }
 
 .old{
@@ -325,14 +207,72 @@ body {
     font-size: 24px;
     background: white;
     color:#747474;
-    bottom: 80px;
-    left: 92px;
+    right: 242px;
+    bottom: 90px;
+}
+
+.redactor{
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 15px 70px;
+    font-family: inherit;
+    font-size: inherit;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05rem;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #012d53;
+    color: ghostwhite;
+    top: 305px;
+}
+
+.redactor {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;  
+}
+   
+span{
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;  
+}
+
+.redactor:hover span{
+    color: white;
+}
+   
+.redactor::before,
+.redactor::after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+   
+.redactor::before{
+    content: "";
+    background: #2D87D6;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+   
+.redactor:hover::before{
+    transform: translate3d(100%, 0, 0);
 }
 
 .container{
     display: grid;
     grid-template-columns: 1200px;
-    grid-template-rows: 85px;
+    grid-template-rows: 80px;
 }
 
 .container_1 {
@@ -341,6 +281,16 @@ body {
     grid-column-gap: 17px;
     justify-content: end;
     margin-top: 66px;
+}
+
+.list-skills{
+    position: relative;
+    top: 25px;
+}
+
+.start{
+    height: 47px;
+    width: 47px;
 }
 
 .item{
@@ -365,18 +315,20 @@ body {
 }
 
 .container1{
+    position: relative; 
+    top: 35px;
     display: grid;
-    grid-template-columns: 295px ;
+    grid-template-columns: 285px ;
     justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: #747474;
+    padding-bottom: 0px;
 }
 
 .txt{
     font-family: 'Montserrat' , sans-serif;
     font-size: 24px; 
-}
-
-.lang{
-    text-decoration: none;
     color: #747474;
 }
 
@@ -384,21 +336,39 @@ body {
     display: grid;
     grid-template-columns: 295px ;
     justify-content: center;
+    position: relative;
+    bottom: 30px;
 }
 
 .description-input{
     width: 743px;
     height: 152px;
+    position: relative;
+    top: 35px;
     border-radius: 9px;
     border: 3px solid #458ADB;
     font-size: 24px;
     font-family: 'Inter', sans-serif;
     margin-left: 490px;
+    color: #747474;
+}
+
+.description-item{
+    position: relative;
+    bottom: 30px;
+}
+
+.description{
+    color: #6B90EE;
 }
 
 .users {
     margin-top: 120px;
     margin-bottom: 31px;
+}
+
+.redactor-a{
+    margin-bottom: 100px;
 }
 
 .line{
@@ -504,52 +474,10 @@ body {
     margin-left: 525px;
 }
 
-.container-info{
-
-}
-
-.itemlist{
-    list-style-type: none;
-}
-
-.container-sertificat{
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto; 
-}
-
-.img-sertificat{
+.container_4{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 23px;
+    grid-template-columns: repeat(4, 250px);
+    grid-template-rows: 80px 50px 50px;
+    color:#000;
+    margin-top: 412px;
 }
-
-.img-plus{
-    width: 120px;
-}
-
-.projects-link{
-    color: #6B90EE;
-}
-
-.button-img{
-    border: white;
-}
-
-.txt-ramka{
-    border: 2px solid #458ADB;
-    width: 743px;
-    height: 61px;
-    border-radius: 10px;
-    font-size: 24px;
-    font-family: 'Roboto',sans-serif;
-    position: relative;
-    bottom: 50px;
-}
-
-.container-sertificat{
-    display: grid;
-    gap: 52px;
-    padding-left: 40px;
-}
-  

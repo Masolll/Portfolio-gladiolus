@@ -39,9 +39,11 @@
                 <div class="div-filters">
                     <button id="filter-button" class="filters"><img src="/img/Filter.png" class="img-filter"><span>Фильтры</span></button>
                 </div>
-                
             </div>
                 <div class="users-filter filter-none">
+                    <div class="confirm">
+                        <a href=""><button class="Confirm"><span>Подтвердить</span></button></a>
+                    </div>
                     <ul class="users-filter-list">
                         <li class="old">Возраст</li>
                         <input class="ramka-old-start txt-filter" type="text" placeholder="от"></input>
@@ -65,6 +67,18 @@
                             <span class="checkmark1"></span>
                         </label>                         
                         <li class="skills">Ключевые навыки:</li>
+                        <div class="anketa-user">
+                            <div class="slills-anketa anketa1" type="text">
+                                <div class="txt-anketa">Backend</div>
+                            </div>
+                            <div class="slills-anketa anketa3" type="text">
+                               <div class="txt-anketa">Базы данных</div>
+                            </div>
+                            <div class="slills-anketa anketa4" type="text">
+                                <div class="txt-anketa">Управление ИТ-инфраструктурой</div>
+                            </div>
+                        </div>
+                        
                         <li class="Certificates-filter">Сертификаты</li>
                         <label class="checkbox-container3">
                             <input class="custom-checkbox3" checked="" type="checkbox">
@@ -82,10 +96,22 @@
                     </div>
                     <div class="">
                         <div class="item-list item-job">Ключевые навыки: </div>
-                        <div class="item-list"><div class="skill"></div></div>
-                        <div class="item-list"><div class="skill"></div></div>
-                        <div class="item-list"><div class="skill"></div></div>
-                        <div class="item-list"><div class="skill"></div></div>
+                        <select class="js-choice list-skills">
+                            <option class="list-skill">DevOps</option>
+                            <option class="list-skill">Backend</option>
+                            <option class="list-skill">Базы данных</option>
+                            <option class="list-skill">Тестирование</option>
+                            <option class="list-skill">Web разработка</option>
+                            <option class="list-skill">Машинное обучение</option>
+                            <option class="list-skill">Научные вычисления</option>
+                            <option class="list-skill">Цифровой маркетинг</option>
+                            <option class="list-skill">Сетевые технологии</option>
+                            <option class="list-skill">Облачные технологии</option>
+                            <option class="list-skill">Компьютерная графика</option>
+                            <option class="list-skill">Управление проектами</option>
+                            <option class="list-skill">Хранение и обработка данных</option>
+                            <option class="list-skill">Управление ИТ-инфраструктурой</option>
+                        </select>
                     </div>
                 </div>
         </main> 
