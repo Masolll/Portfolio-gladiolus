@@ -1,4 +1,5 @@
-const saveButton = document.querySelector('.save-item');
+const saveButton = document.querySelector('.save');
+const cancelButton = document.querySelector('.cancel');
 saveButton.onclick = function (evt){
     evt.preventDefault();
     let project1 = document.querySelector('.project1').value;
@@ -24,6 +25,8 @@ saveButton.onclick = function (evt){
             throw new Error();
         }
     }).catch(error => console.log('произошла ошибка'))
-
+}
+cancelButton.onclick = function(){
+    window.location.href='/portfolio/projects';
 }
 

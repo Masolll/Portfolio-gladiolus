@@ -1,8 +1,8 @@
-const saveButtom = document.querySelector('.save');
-const cancleButtom = document.querySelector('.cancel');
-saveButtom.onclick = function (){
+const saveButton = document.querySelector('.save');
+const cancleButton = document.querySelector('.cancel');
+saveButton.onclick = function (){
     window.location.href = '/portfolio/success'
 }
-cancleButtom.onclick=function (){
+cancleButton.onclick=function (){
     window.location.href='/portfolio/success'
 }
