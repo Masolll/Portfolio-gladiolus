@@ -256,6 +256,8 @@ h1{
     line-height: 17.97px;
     width: 595px;
     text-align: justify;
+    position: relative;
+    bottom: 40px;
 }
 
 .item1{
@@ -264,7 +266,7 @@ h1{
 
 .item2{
     padding: 10px;
-    border: 1px solid #6B90EE;
+   
 }
 
 h4{
@@ -284,8 +286,8 @@ h4{
 
 .join{
     display: grid;
-    grid-template-columns: 300px 300px;
-    grid-column-gap: 40px;
+    grid-template-columns: 300px 300px 300px;
+    grid-column-gap: 188px;
     grid-row-gap: 40px;
     padding-bottom: 175px;
 }

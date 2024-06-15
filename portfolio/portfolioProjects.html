@@ -15,7 +15,7 @@
     <header class="flow1">
         <nav  class="navbar">
             <div class="container">
-                <img src="/img/Logotype.svg" alt="Логотип ITConnect" class="logotype-1">
+                <a href=""><img src="/img/Logotype.svg" alt="Логотип ITConnect" class="logotype-1"></a>
                 <a href="/" class="navbar-brand">ITConnect</a>
                 <div class="search-form">
                     <button class="search-form_btn"><img class="search-form_img" src="/img/Search.svg" alt="Search" ></button>
@@ -47,7 +47,7 @@
                         <input type="tel" class="contact-input" style="display: none;" placeholder="+7">
                       </div>
                       <div class="item">
-                        <a href="/achievements.html" class="item1 achievements-link">Достижения</a>
+                        <a href="/display-achievements.html" class="item1 achievements-link">Достижения</a>
                         <input type="file" class="achievements-input" style="display: none;">
                       </div>
                       <div class="item">
@@ -55,40 +55,21 @@
                       </div>
                       <div class="line"></div>
                     </div>
-                    <a href="/portfolio/projects/edit"><button class="redactor item" id="editButton" ><span>Редактировать</span></button></a>
-                    <script src="/portfolio.js"></script>
+                    <div class="favorite">
+                        <button class="redactor item" id="editButton" ><span>Редактировать</span></button>
+                        <button class="favor item" id="editButton" style="display: none;"><span>В избранном</span></button>
+                        <button class="star item" id="editButton" style="display: none;"><span><img src="/img/Star1.png" alt="star-img" class="star-img"></span></button>
+                        <button class="name item" id="" ><span>Имя</span></button>
+                        <button class="old item" id="" ><span>25 лет</span></button>
+                    </div> 
                   </div>
                 </div>
             </div> 
             <div class="container-sertificat">
-                <style>
-                    .inputText{
-                        font-size: 24px;
-                        border-color: #2D87D6;
-                        border-width: 3px;
-                        border-radius: 9px;
-                    }
-                </style>
-                <div>
-                    <form>
-                        <input disabled class="ramka inputText" type="text" size="30" value="Ссылка на проект 1">
-                    </form>
-                </div>
-                <div>
-                    <form>
-                        <input disabled class="ramka inputText" type="text" size="30" value="Ссылка на проект 2">
-                    </form>
-                </div>
-                <div>
-                    <form>
-                        <input disabled class="ramka inputText" type="text" size="30" value="Ссылка на проект 3">
-                    </form>
-                </div>
-                <div>
-                    <form>
-                        <input disabled class="ramka inputText" type="text" size="30" value="Ссылка на проект 4">
-                    </form>
-                </div>
+                <div class="ramka"> </div>
+                <div class="ramka"> </div>
+                <div class="ramka"> </div>
+                <div class="ramka"> </div>
             </div>
         </main>
     <footer class="container_5">

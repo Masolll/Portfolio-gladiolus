@@ -1,12 +1,20 @@
-const saveButton = document.querySelector('.save-item');
+const saveButton = document.querySelector('.save');
 saveButton.onclick = function (evt){
     evt.preventDefault();
     let inputText = document.querySelector('.description-input').value;
+    let selectSkills = document.querySelectorAll('.selected');
+    let skills = []
+    for (let skill of selectSkills){
+        skills.push(skill.textContent)
+    }
     fetch(
         "/portfolio",
         {
             method: 'PUT',
-            body: JSON.stringify({'description.text': inputText}),
+            body: JSON.stringify({
+                'description.text': inputText,
+                'description.skills': skills
+            }),
             headers: {'Content-Type': 'application/json'}
         }
     ).then(response => {

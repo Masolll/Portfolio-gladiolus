@@ -23,6 +23,7 @@ body {
 }
 
 .filters{
+    cursor: pointer;
     position: relative;
     border: 1px solid #2D87D6;
     right: 52px;
@@ -34,12 +35,47 @@ body {
     font-size: 16px;
 }
 
-.filter-none{
-    display: none;
+.slills-anketa{
+    border-radius: 9px;
+    border: 1px solid#2D87D6;
+    width: 400px;
+    height: 50px;
+    position: relative;
+    bottom: 170px;
+    left: 700px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.txt-anketa{
+    position: relative;
+    top: 8px;
+}
+
+.anketa-user{
+    display: grid;
+    grid-template-columns: 400px;
+    gap: 10px;
+}
+
+.list-skills {
+    position: relative;
+    bottom: 324px;
+    left: 230px;
+    border-radius: 9px;
+    font-size: 24px;
+    width: 300px;
+}
+
+
+.button-skills:active {
+    background-color: #2D87D6; 
+    color: #ffffff; 
 }
 
 .old{
     position: relative;
+    bottom: 55px;
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -56,7 +92,7 @@ body {
     height: 35px;
     border-radius: 9px;
     position: relative;
-    bottom: 35px;
+    bottom: 92px;
     left: 125px;
 }
 
@@ -66,15 +102,15 @@ body {
     height: 35px;
     border-radius: 9px;
     position: relative;
-    bottom: 35px;
+    bottom: 92px;
     left: 135px;
 }
 
 .city{
     position: relative;
+    bottom: 80px;
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
-    bottom: 25px;
 }
 
 .city-input{
@@ -83,7 +119,7 @@ body {
     height: 35px;
     border-radius: 9px;
     position: relative;
-    bottom: 60px;
+    bottom: 120px;
     left: 125px
 }
 
@@ -91,14 +127,14 @@ body {
     position: relative;
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
-    bottom: 45px;
+    bottom: 105px;
 }
 
 .sexm{
     position: relative;
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
-    bottom: 75px;
+    bottom: 135px;
     left: 180px;
 }
 
@@ -106,7 +142,7 @@ body {
     display: inline-block;
     position: relative;
     left: 125px;
-    bottom: 115px;
+    bottom: 180px;
     padding-left: px;
     margin-bottom: 12px;
     cursor: pointer;
@@ -175,7 +211,7 @@ body {
     display: inline-block;
     position: relative;
     left: 125px;
-    bottom: 175px;
+    bottom: 235px;
     padding-left: px;
     margin-bottom: 12px;
     cursor: pointer;
@@ -244,7 +280,7 @@ body {
     display: inline-block;
     position: relative;
     left: 220px;
-    bottom: 172px;
+    bottom: 236px;
     padding-left: px;
     margin-bottom: 12px;
     cursor: pointer;
@@ -313,7 +349,7 @@ body {
     display: inline-block;
     position: relative;
     left: 730px;
-    bottom: 321px;
+    bottom: 600px;
     padding-left: px;
     margin-bottom: 12px;
     cursor: pointer;
@@ -382,7 +418,7 @@ body {
     position: relative;
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
-    bottom: 130px;
+    bottom: 193px;
     left: 280px;
 }
 
@@ -390,14 +426,14 @@ body {
     position: relative;
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
-    bottom: 140px;
+    bottom: 195px;
 }
 
 .skills{
     position: relative;
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
-    bottom: 355px;
+    bottom: 405px;
     left: 550px;
 }
 
@@ -405,7 +441,7 @@ body {
     position: relative;
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
-    bottom: 285px;
+    bottom: 560px;
     left: 550px;
 }
 
@@ -416,7 +452,7 @@ body {
 
 .Certificates{
     position: relative;
-    bottom: 385px;
+    bottom: 45px;
     left: 730px;
     width: 37px;
     height: 37px;
@@ -494,13 +530,6 @@ body {
 .img-filters{
     margin-top: 14px;
     margin-left: 14px;
-}
-
-.filters{
-    margin-left: 18px;
-    margin-top: 15px;
-    text-decoration: none;
-    color: #000;
 }
 
 .filters:hover{
@@ -596,6 +625,62 @@ body {
 .navbar-brand:hover{
    color: #458ADB;
    transition: all .0.7s ease-in-out;
+}
+.confirm{
+    position: relative;
+    top: 150px;
+    left: 590px;
+}
+
+.Confirm{
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 15px 20px;
+    font-family: inherit;
+    font-size: inherit;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #012d53;
+    color: ghostwhite;
+}
+   
+.Confirm span{
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+}
+   
+.Confirm:hover span{
+    color: white;
+}
+   
+.Confirm::before,
+.Confirm::after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+   
+.Confirm::before{
+    content: "";
+    background: #2D87D6;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+   
+.Confirm:hover::before{
+    transform: translate3d(100%, 0, 0);
 }
 
 .registr{

@@ -166,9 +166,164 @@ body {
     right: 600px;
 }
 
-.img-sertificat{
+
+.button-sexm{
     position: relative;
-    bottom: 48px;
+    bottom: 125px;
+    left: 35px; 
+}
+
+.button-sexw{
+    position: relative;
+    bottom: 30px;
+    left: 110px;
+}
+
+.sexm{
+    position: relative;
+    bottom: 20px;
+}
+
+.sexw{
+    position: relative;
+    left: 355px;
+    bottom: 140px;
+}
+
+
+.checkbox-container {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+  }
+  
+  .custom-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid #458ADB;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: relative;
+    display: none;
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+  
+  .custom-checkbox:checked ~ .checkmark {
+    background-color: #2196F3;
+    box-shadow: 0 3px 7px rgba(33, 150, 243, 0.3);
+  }
+  
+  .custom-checkbox:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  @keyframes checkAnim {
+    0% {
+      height: 0;
+    }
+  
+    100% {
+      height: 10px;
+    }
+  }
+  
+  .custom-checkbox:checked ~ .checkmark:after {
+    animation: checkAnim 0.2s forwards;
+}
+
+.checkbox-container1 {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+    
+  }
+  
+  .custom-checkbox1 {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid #458ADB;
+  }
+  
+  .checkmark1:after {
+    content: "";
+    position: relative;
+    display: none;
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: 1px solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+  
+  .custom-checkbox1:checked ~ .checkmark1 {
+    background-color: #2196F3;
+    box-shadow: 0 3px 7px rgba(33, 150, 243, 0.3);
+  }
+  
+  .custom-checkbox1:checked ~ .checkmark1:after {
+    display: block;
+  }
+  
+  @keyframes checkAnim1 {
+    0% {
+      height: 0;
+    }
+  
+    100% {
+      height: 10px;
+    }
+  }
+  
+  .custom-checkbox1:checked ~ .checkmark1:after {
+    animation: checkAnim 0.2s forwards;
 }
 
 .name{
@@ -193,8 +348,37 @@ body {
     font-size: 24px;
     background: white;
     color:#747474;
-    right: 240px;
+    right: 242px;
     bottom: 95px;
+}
+
+.site{
+    position: relative;
+    bottom:  220px;
+
+}
+
+.div-img{
+    position: relative; 
+    bottom: 240px;
+    right: 15px;
+}
+
+.email-adress{
+    position: relative;
+    bottom: 170px;
+}
+
+.email{
+    margin-top: 45px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    border-color: #458ADB;
+    border-radius: 9px;
+    padding: 4px;
+    position: relative;
+    right: 5px;
+    bottom: 220px;
 }
 
 .redactor{
@@ -235,67 +419,6 @@ body {
     height: 100%;
     z-index: 0;
 }
-
-/* Note that you only needs to edit the config to customize the button! */
-
-.plusButton {
-    /* Config start */
-    --plus_sideLength: 4rem;
-    --plus_topRightTriangleSideLength: 5rem;
-    /* Config end */
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #458ADB;
-    width: var(--plus_sideLength);
-    height: var(--plus_sideLength);
-    background-color: #2D87D6;
-    overflow: hidden;
-    width: auto;
-    height: auto;
-}
-  
-.plusButton::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 0;
-    border-width: 0 var(--plus_topRightTriangleSideLength) var(--plus_topRightTriangleSideLength) 0;
-    border-style: solid;
-    border-color: transparent white transparent transparent;
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.3s;
-}
-  
-.plusButton:hover {
-    cursor: pointer;
-}
-  
-.plusButton:hover::before {
-    --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 11);
-}
-  
-.plusButton:focus-visible::before {
-    --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 11);
-}
-  
-.plusButton>.plusIcon {
-    fill: white;
-    width: calc(var(--plus_sideLength) * 1);
-    height: calc(var(--plus_sideLength) * 1);
-    z-index: 1;
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.3s;
-}
-  
-.plusButton:hover>.plusIcon {
-    fill: #458ADB;
-    transform: rotate(180deg);
-}
-  
    
 .redactor::before{
     content: "";
@@ -317,11 +440,11 @@ body {
 }
 
 .container_1 {
-    display: grid;
-    grid-template-columns: 115px 280px 140px 100px;
-    grid-column-gap: 17px;
-    justify-content: end;
-    margin-top: 66px;
+  display: grid;
+  grid-template-columns: 115px 280px 140px 100px;
+  grid-column-gap: 17px;
+  justify-content: end;
+  margin-top: 66px;
 }
 
 .item{
@@ -348,6 +471,7 @@ body {
 .container1{
     display: grid;
     grid-template-columns: 295px ;
+    margin-top: 37px;
     justify-content: center;
 }
 
@@ -375,6 +499,10 @@ body {
     font-size: 24px;
     font-family: 'Inter', sans-serif;
     margin-left: 490px;
+}
+
+.contact-link{
+    color: #6B90EE;
 }
 
 .users {
@@ -489,30 +617,67 @@ body {
     list-style-type: none;
 }
 
-.container-sertificat{
+.infor{
     width: 100%;
     max-width: 320px;
     margin: 0 auto; 
-    position: relative; 
-    top: 50px;
 }
 
-.img-sertificat{
+.itemlist{
+    width: 220px;
+    /*height: 29px;*/
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29.26px;
+    color:  #747474;
+}
+
+.itemlist1{
+    list-style-type: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #4F5052;
+}
+
+.number{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+}
+
+.adress{
+    width: 440px;
+    height: 11px;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 24px;
+    line-height: 29.26px;
+}
+
+.email{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+}
+
+.site{
+    width: 160px;
+    height: 58px;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 24px;
+}
+
+.list-info{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 23px;
-    
+    grid-template-columns: 200px 1fr;
+    gap: 46px;
 }
 
-.img-plus{
-    width: 120px;
+.itemlist2{
+    list-style-type: none;
 }
 
-.achievements-link{
-    color: #6B90EE;
+.div-img{
+    display: flex;
+    align-items: center;
 }
-
-.button-img{
-    border: white;
-}
-  

@@ -19,42 +19,70 @@
             <img src="/img/users.png" alt="Profile Picture" id="profilePic" class="users item">
             <div class="container_1">
                 <div class="item">
-                    <a href="/portfolio/description" class="item1 description">Описание</a>
+                    <a href="/description.html" class="item1 description">Описание</a>
                 </div>
                 <div class="item">
-                    <a href="/portfolio/contacts" class="item1 contact-link">Контактная информация</a>
+                    <a href="/display-contactInfo.html" class="item1 contact-link">Контактная информация</a>
                     <input type="tel" class="contact-input" style="display: none;" placeholder="+7">
                 </div>
                 <div class="item">
-                    <a href="/portfolio/success" class="item1 achievements-link">Достижения</a>
+                    <a href="#" class="item1 achievements-link">Достижения</a>
                     <input type="file" class="achievements-input" style="display: none;">
                 </div>
                 <div class="item">
-                    <a href="/portfolio/projects" class="item1 projects-link">Проекты</a>
+                    <a href="#" class="item1 projects-link">Проекты</a>
                 </div>
                 <div class="line"></div>
             </div>
-            <a href="/portfolio/description/edit"><button class="redactor item" id="editButton" ><span>Редактировать</span></button></a>
-            <script src="/discription.js"></script>
         </div>
-        <style>
-            ::placeholder {
-                opacity: 0.5;
-            }
-        </style>
+        <div class="favorite">
+            <a href="/portfolio/description/edit"><button class="redactor item redactor1" id="editButton"><span>Редактировать</span></button></a>
+            <button class="favor item" id="editButton" style="display: none;"><span>Добавить в избранное</span></button>
+            <button class="star item" id="editButton" style="display: none;"><span><img src="/img/Star.png" alt="star-img" class="star-img"></span></button>
+            <button class="name item" id="" ><span><%=user.name%></span></button>
+            <button class="old item" id="" ><span>Возраст: <%=user.contacts.age%></span></button>
+        </div>
         <div class="description-item">
-            <% if (user) { %>
-            <textarea class="description-input " id="story" name="story" disabled placeholder="Напишите информацию о себе" rows="5" cols="33"><%=user.description.text%></textarea>
-            <% }%>
+            <div class="description-input" id="story" name="story" rows="5" cols="33"><%=user.description.text%></div>
         </div>
+    </div>
+    <div class="container2">
         <div class="container1">
-            <a href="#" class="lang"><p class="txt item2">Ключевые навыки</p></a>
+            <p>Ключевые навыки:</p>
         </div>
-        <div class="container2">
-            <img src="/img/Plus.png" class="plus item3">
-        </div>
-
+        <ul class="js-choice list-skills">
+            <li class="list-skill"><button class="button-skills js-button">DevOps</button></li>
+            <li class="list-skill"><button class="button-skills js-button">Backend</button></li>
+            <li class="list-skill"><button class="button-skills js-button">Frontend</button></li>
+            <li class="list-skill"><button class="button-skills js-button">Базы данных</button></li>
+            <li class="list-skill"><button class="button-skills js-button">Тестирование</button></li>
+            <li class="list-skill"><button class="button-skills js-button">Web разработка</button></li>
+            <li class="list-skill"><button class="button-skills js-button">Машинное обучение</button></li>
+            <li class="list-skill"><button class="button-skills js-button">Научные вычисления</button></li>
+            <li class="list-skill"><button class="button-skills js-button">Цифровой маркетинг</button></li>
+            <li class="list-skill"><button class="button-skills js-button">Сетевые технологии</button></li>
+            <li class="list-skill"><button class="button-skills js-button">Облачные технологии</button></li>
+            <li class="list-skill"><button class="button-skills js-button">Компьютерная графика</button></li>
+            <li class="list-skill"><button class="button-skills js-button">Управление проектами</button></li>
+            <li class="list-skill"><button class="button-skills js-button">Безопасность информации</button></li>
+            <li class="list-skill"><button class="button-skills js-button">Хранение и обработка данных</button></li>
+            <li class="list-skill"><button class="button-skills js-button">Системное администрирование</button></li>
+            <li class="list-skill"><button class="button-skills js-button">Управление ИТ-инфраструктурой</button></li>
+        </ul>
     </div>
 </main>
+<script src="/js/portfolioDescription.js"></script>
+<script>
+    let buttonsSkills = document.querySelectorAll(".button-skills");
+    let userSkills = <%- JSON.stringify(user.description.skills) %>;
+    for (let skill of userSkills){
+        for (let button of buttonsSkills){
+            if(button.textContent === skill){
+                button.classList.add('selected');
+                break;
+            }
+        }
+    }
+</script>
 <%- include('portfolioFooter'); -%>
 </body>

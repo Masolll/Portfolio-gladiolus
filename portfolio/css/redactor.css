@@ -56,6 +56,13 @@ body {
     
 }
 
+.selected {
+    background-color: #458ADB;
+    color: white;
+}
+
+
+
 .navbar-brand:hover{
    color: #458ADB;
    transition: all .0.7s ease-in-out;
@@ -168,6 +175,63 @@ body {
     left: 92px;
 }
 
+
+.change-images{
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 15px 15px;
+    width: 335px;
+    height: 60px;
+    font-family: inherit;
+    font-size: inherit;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05rem;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #32CD32;
+    color: ghostwhite;
+    top: 255px;
+    right: px;
+}
+   
+.change-images span{
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+}
+   
+.change-images:hover span{
+    color: white;
+}
+   
+.change-images::before,
+.change-images::after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+   
+.change-images::before{
+    content: "";
+    background: 
+    #00FF00;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+   
+.change-images:hover::before{
+    transform: translate3d(100%, 0, 0);
+}
+
 .save{
     outline: none;
     cursor: pointer;
@@ -186,7 +250,8 @@ body {
     overflow: hidden;
     background: #008080;
     color: ghostwhite;
-    top: 315px;
+    top: 330px;
+    right: 339px;
 }
    
 .save span{
@@ -223,6 +288,15 @@ body {
     transform: translate3d(100%, 0, 0);
 }
 
+.button-skills.selected {
+    background-color: #458ADB;
+    color: white;
+}
+
+.selected {
+    /* Стили для выбранной кнопки */
+    background-color: #458ADB;
+}
 
 .cancel{
     border: none;
@@ -249,7 +323,8 @@ body {
     overflow: hidden;
     background: #800000;
     color: ghostwhite;
-    top: 390px;
+    top: 405px;
+    right: 679px;
 }
    
 .cancel span{

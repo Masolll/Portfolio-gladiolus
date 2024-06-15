@@ -110,11 +110,11 @@ exports.UsersRepository = {
                 password: yield bcrypt.hash(body.password, 7),
                 description: {
                     avatar: "",
-                    age: 0,
                     text: "",
                     skills: []
                 },
                 contacts: {
+                    age: 0,
                     email: body.email,
                     phone: "",
                     gender: "",

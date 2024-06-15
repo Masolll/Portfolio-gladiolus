@@ -4,11 +4,11 @@ export type UserViewModel = {
     password: string,
     description: {
         avatar: string,
-        age: number,
         text: string,
         skills: string[]
     },
     contacts: {
+        age: number,
         phone: string,
         address: {
             street: string,
