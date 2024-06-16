@@ -152,9 +152,9 @@ exports.UsersRepository = {
             return result.matchedCount === 1;
         });
     },
-    cloneNotFixedCertificateInFixed(id, notFixedCertificate) {
+    cloneNotFixedCertificatesInFixedCertificates(id, notFixedCertificates) {
         return __awaiter(this, void 0, void 0, function* () {
-            const result = yield db.updateOne({ "id": id }, { $push: { 'success.fixedCertificates': { $each: notFixedCertificate } } });
+            const result = yield db.updateOne({ "id": id }, { $push: { 'success.fixedCertificates': { $each: notFixedCertificates } } });
             return result.matchedCount === 1;
         });
     },

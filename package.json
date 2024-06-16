@@ -11,10 +11,4 @@
     "url": "https://github.com/Masolll/Portfolio-gladiolus.git"
   },
   "private": true,
-  "devDependencies": {
-    "@types/nodemailer": "^6.4.15"
-  },
-  "dependencies": {
-    "mongoose": "^8.4.1"
-  }
 }

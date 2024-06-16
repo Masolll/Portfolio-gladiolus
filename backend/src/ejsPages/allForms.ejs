@@ -28,6 +28,7 @@
                     <li><a href="#">Контакты</a></li>
                     <li><a href="/allForms">Список портфолио</a></li>
                     <a href="/registration"><button class="registr"><span>Регистрация</span></button></a>
+<!--                    <a href="#"><img src="/img/users.png" width="57" height="57" class="users-lk"></a>-->
                 </ul>
             </div>
         </div>
@@ -38,9 +39,11 @@
         <div class="div-filters">
             <button id="filter-button" class="filters"><img src="/img/Filter.png" class="img-filter"><span>Фильтры</span></button>
         </div>
-
     </div>
     <div class="users-filter filter-none">
+        <div class="confirm">
+            <a href=""><button class="Confirm"><span>Подтвердить</span></button></a>
+        </div>
         <ul class="users-filter-list">
             <li class="old">Возраст</li>
             <input class="ramka-old-start txt-filter" type="text" placeholder="от"></input>
@@ -64,6 +67,18 @@
                 <span class="checkmark1"></span>
             </label>
             <li class="skills">Ключевые навыки:</li>
+            <div class="anketa-user">
+                <div class="slills-anketa anketa1" type="text">
+                    <div class="txt-anketa">Backend</div>
+                </div>
+                <div class="slills-anketa anketa3" type="text">
+                    <div class="txt-anketa">Базы данных</div>
+                </div>
+                <div class="slills-anketa anketa4" type="text">
+                    <div class="txt-anketa">Управление ИТ-инфраструктурой</div>
+                </div>
+            </div>
+
             <li class="Certificates-filter">Сертификаты</li>
             <label class="checkbox-container3">
                 <input class="custom-checkbox3" checked="" type="checkbox">
@@ -72,52 +87,37 @@
         </ul>
     </div>
     </div>
-    <%if (users.length > 0) {%>
-        <%for (let user of users) {%>
-        <div class="list-user">
-            <div class="item-list item-img"><img src="/img/Rectangle.png"></div>
-            <div class="">
-                <div class="item-list item-name"><%=user.name%></div>
-                <div class="item-list item-old"><%=user.description.age%></div>
-                <div class="item-list item-star"><img src="/img/Star.png" class="star"><div class="favorite">Добавить в избранное</div></div>
-            </div>
-            <div class="">
-                <div class="item-list item-job">Ключевые навыки: </div>
-                <div class="item-list"><div class="skill">здесь</div></div>
-                <div class="item-list"><div class="skill">здесь</div></div>
-                <div class="item-list"><div class="skill">здесь</div></div>
-                <div class="item-list"><div class="skill">Здесь</div></div>
-            </div>
+    <div class="list-user">
+        <div class="item-list item-img"><img src="/img/Rectangle.png"></div>
+        <div class="">
+            <div class="item-list item-name">Иван Иванов</div>
+            <div class="item-list item-old">25 лет</div>
+            <div class="item-list item-star"><img src="/img/Star.png" class="star"><div class="favorite">Добавить в избранное</div></div>
         </div>
-        <%}%>
-    <%}%>
+        <div class="">
+            <div class="item-list item-job">Ключевые навыки: </div>
+            <select class="js-choice list-skills">
+                <option class="list-skill">DevOps</option>
+                <option class="list-skill">Backend</option>
+                <option class="list-skill">Frontend</option>
+                <option class="list-skill">Базы данных</option>
+                <option class="list-skill">Тестирование</option>
+                <option class="list-skill">Web разработка</option>
+                <option class="list-skill">Машинное обучение</option>
+                <option class="list-skill">Научные вычисления</option>
+                <option class="list-skill">Цифровой маркетинг</option>
+                <option class="list-skill">Сетевые технологии</option>
+                <option class="list-skill">Облачные технологии</option>
+                <option class="list-skill">Компьютерная графика</option>
+                <option class="list-skill">Управление проектами</option>
+                <option class="list-skill">Безопасность информации</option>
+                <option class="list-skill">Хранение и обработка данных</option>
+                <option class="list-skill">Системное администрирование</option>
+                <option class="list-skill">Управление ИТ-инфраструктурой</option>
+            </select>
+        </div>
+    </div>
 </main>
-<script src="/allForms.js"></script>
-<footer class="container_5">
-    <div class="flow1">
-        <div class="container_4">
-            <div ><h3 class="infor">Информация</h3></div>
-            <div ><h3 class="help">Центр помощи</h3></div>
-            <div ><h3 class="ysl">Условия</h3></div>
-            <div ><h3 class="sos">Социальные сети</h3></div>
-            <div ><a href="/" class="txt-3">Главная</a></div>
-            <div ><a href="#" class="txt-3">Центр помощи</a></div>
-            <div ><a href="https://www.rbc.ru/politics/" class="txt-3">Политика</a></div>
-            <div ><a href="https://t.me/uhdsgggd" class="txt-3">Telegram</a></div>
-            <div ><a href="#" class="txt-3">О нас</a></div>
-            <div ><a href="https://t.me/rezoo000" class="txt-3">Обратная связь</a></div>
-            <div ><a href="https://digital.gov.ru/ru/documents/3069/" class="txt-3">Конфиденциальность</a></div>
-            <div ><a href="https://vk.com/iddanya_yashenko" class="txt-3">Вконтакте</a></div>
-            <div ><a href="#" class="txt-3">Блог</a></div>
-        </div>
-    </div>
-    <div class="flow1">
-        <div ><img src="img/Line 7.svg" class="line7">  </div>
-        <div class="container_6">
-            <div class="item3 itemlog"><img src="img/Logotype.svg" alt="Logotype" class="logotype-2"></div>
-            <div class="item3 itembrand"><h3 class="navbar-brand-1">ITConnect</h3></div>
-            <div class="item3 itemavtor"><p class="txt-4">Авторские права © ITConncect 2024. Все права защищены.</p></div>
-        </div>
-    </div>
-</footer>
+<script src="/js/allForms.js"></script>
+<%- include('portfolioFooter'); -%>
 </body>

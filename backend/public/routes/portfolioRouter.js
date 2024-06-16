@@ -74,7 +74,7 @@ const getPortfolioRouter = () => {
     }));
     router.put('/fixedCertificates', jwtMiddleware_1.jwtMiddleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         if (req.user) {
-            yield MongoDbUsersRepository_1.UsersRepository.cloneNotFixedCertificateInFixed(req.user.id, req.user.success.notFixedCertificates);
+            yield MongoDbUsersRepository_1.UsersRepository.cloneNotFixedCertificatesInFixedCertificates(req.user.id, req.user.success.notFixedCertificates);
             return res.send(yield MongoDbUsersRepository_1.UsersRepository.findUserById(req.user.id));
         }
         else {

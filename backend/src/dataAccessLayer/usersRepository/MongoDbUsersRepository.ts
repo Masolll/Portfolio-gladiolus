@@ -101,10 +101,10 @@ export const UsersRepository = {
             {$push: {'success.notFixedCertificates': body['certificate']}});
         return result.matchedCount === 1;
     },
-    async cloneNotFixedCertificateInFixed(id: number, notFixedCertificate : string[]){
+    async cloneNotFixedCertificatesInFixedCertificates(id: number, notFixedCertificates : string[]){
         const result = await db.updateOne(
             {"id": id},
-            { $push: { 'success.fixedCertificates': { $each: notFixedCertificate } } }
+            { $push: { 'success.fixedCertificates': { $each: notFixedCertificates } } }
         )
         return result.matchedCount === 1;
     },

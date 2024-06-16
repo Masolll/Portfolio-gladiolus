@@ -72,7 +72,7 @@ export const getPortfolioRouter = () => {
         jwtMiddleware,
         async(req:RequestWithUser, res)=>{
             if (req.user){
-                await UsersRepository.cloneNotFixedCertificateInFixed(req.user.id, req.user.success.notFixedCertificates);
+                await UsersRepository.cloneNotFixedCertificatesInFixedCertificates(req.user.id, req.user.success.notFixedCertificates);
                 return res.send(await UsersRepository.findUserById(req.user.id));
             }else{
                 return res.status(400).send('Не получилось обновить сертификаты(');
