@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- Подключение внешнего CSS-файла -->
-    <link rel="stylesheet" href="/css/project.css" />
+    <link rel="stylesheet" href="/css/achievements.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <%- include('portfolioHeader'); -%>
@@ -28,23 +29,23 @@
             </style>
             <div class="container_1">
                 <div class="item">
-                    <a href="/description.html" class="item1 description">Описание</a>
+                    <a href="/discription.html" class="item1 description">Описание</a>
                 </div>
                 <div class="item">
-                    <a href="/contactInfo.html" class="item1 contact-link">Контактная информация</a>
+                    <a href="/display-contactInfo.html" class="item1 contact-link">Контактная информация</a>
                     <input type="tel" class="contact-input" style="display: none;" placeholder="+7">
                 </div>
                 <div class="item">
-                    <a href="/display-achievements.html" class="item1 achievements-link">Достижения</a>
+                    <a href="#" class="item1 achievements-link">Достижения</a>
                     <input type="file" class="achievements-input" style="display: none;">
                 </div>
                 <div class="item">
-                    <a href="/project.html" class="item1 projects-link">Проекты</a>
+                    <a href="/display-project.html" class="item1 projects-link">Проекты</a>
                 </div>
                 <div class="line"></div>
             </div>
             <div class="favorite">
-                <a href="/portfolio/projects/edit"><button class="redactor item" id="editButton" ><span>Редактировать</span></button></a>
+                <a href="/portfolio/success/edit"><button class="redactor item" id="editButton" ><span>Редактировать</span></button></a>
                 <button class="favor item" id="editButton" style="display: none;"><span>В избранном</span></button>
                 <button class="star item" id="editButton" style="display: none;"><span><img src="/img/Star1.png" alt="star-img" class="star-img"></span></button>
                 <button class="name item" id="" ><span><%=user.name%></span></button>
@@ -54,11 +55,13 @@
     </div>
     </div>
     <div class="container-sertificat">
-        <div><input value="<%=user.projects.project1%>" disabled type="text" class="txt-ramka"></div>
-        <div><input value="<%=user.projects.project2%>" disabled type="text" class="txt-ramka"></div>
-        <div><input value="<%=user.projects.project3%>" disabled type="text" class="txt-ramka"></div>
-        <div><input value="<%=user.projects.project4%>" disabled type="text" class="txt-ramka"></div>
+        <div class="img-sertificat">
+            <%for(let certificate of user.success.fixedCertificates) {%>
+                <img src="data:image/jpeg;base64,<%= certificate %>" width="242" height="171" alt="Profile Picture" id="profilePic">
+            <%}%>
+        </div>
     </div>
+
 </main>
 <%- include('portfolioFooter'); -%>
 </body>

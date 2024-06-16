@@ -24,6 +24,10 @@ export type UserViewModel = {
             telegram: string
         }
     }
+    success: {
+        fixedCertificates: string[],
+        notFixedCertificates: string[]
+    }
     projects: {
         project1: string,
         project2: string,

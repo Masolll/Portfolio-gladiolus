@@ -10,91 +10,159 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- Подключение внешнего CSS-файла -->
     <link rel="stylesheet" href="/css/redactor-contact.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <%- include('portfolioHeader'); -%>
 <main class="page-main">
     <div class="flow1">
         <div class="container">
-            <img src="/img/users.png" alt="Profile Picture" id="profilePic" class="users item">
+            <% if(user.description.avatar) {%>
+                <img src="data:image/jpeg;base64,<%= user.description.avatar %>" alt="Profile Picture" id="profilePic" class="users item">
+            <% } else {%>
+                <img src="/img/users.png" alt="Profile Picture" id="profilePic" class="users item">
+            <% } %>
+            <style>
+                .users{
+                    border-radius: 55px;
+                }
+            </style>
             <div class="container_1">
                 <div class="item">
-                    <a href="/portfolio/description/edit" class="item1 description">Описание</a>
+                    <a href="/redactor-decription.html" class="item1 description">Описание</a>
                 </div>
                 <div class="item">
-                    <a href="/portfolio/contacts/edit" class="item1 contact-link">Контактная информация</a>
+                    <a href="/redactor-contact.html" class="item1 contact-link">Контактная информация</a>
                     <input type="tel" class="contact-input" style="display: none;" placeholder="+7">
                 </div>
                 <div class="item">
-                    <a href="/portfolio/success/edit" class="item1 achievements-link">Достижения</a>
+                    <a href="/redactor-achievements.html" class="item1 achievements-link">Достижения</a>
                 </div>
                 <div class="item">
-                    <a href="/portfolio/projects/edit" class="item1 projects-link">Проекты</a>
+                    <a href="#" class="item1 projects-link">Проекты</a>
                 </div>
                 <div class="line"></div>
             </div>
             <div class="name-old">
-                <button class="name" id="name"><span>Имя</span></button>
-                <button class="old" id="old"><span>25 лет</span></button>
+                <button class="name" id="name"><span><%=user.name%></span></button>
+                <button class="old" id="old"><span>Возраст: <%=user.contacts.age%></span></button>
             </div>
             <div class="favorite">
-                <button class="save item" id="editButton" ><span>Сохранить изменения</span></button>
+                <img src="" alt="Profile Picture" id="profilePic" class="users item" style="display: none;">
+                <input type="file" id="imageInput" style="display: none;">
+                <button class="change-images item" id="editButton" ><span>Изменить изображение</span></button>
+                <button class="save item" id="saveButton" ><span>Сохранить изменения</span></button>
                 <button class="cancel item" id="editButton" ><span>Отменить изменения</span></button>
+                <script>
+                    $('#imageInput').change(function() {
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            $('#profilePic').attr('src', e.target.result);
+                            $('#profilePic').show(); // Отображаем изображение
+                            $('#profilePic').css('border-radius', '55px'); // Добавляем border-radius
+                        }
+
+                        reader.readAsDataURL(this.files[0]);
+                    });
+
+                    $(document).ready(function() {
+                        // Кнопка "Изменить изображение"
+                        $('#editButton').click(function() {
+                            $('#imageInput').trigger('click');
+                        });
+
+                        // Обработка выбора файла
+                        $('#imageInput').change(function() {
+                            var reader = new FileReader();
+
+                            reader.onload = function(e) {
+                                $('#profilePic').attr('src', e.target.result);
+                                $('#profilePic').show(); // Отображаем изображение
+                            }
+
+                            reader.readAsDataURL(this.files[0]);
+                        });
+
+                        // Кнопка "Сохранить изменения"
+                        $('#saveButton').click(function() {
+                            var formData = new FormData();
+                            formData.append('avatar', $('#imageInput')[0].files[0]);
+
+                            fetch('/portfolio/avatar', {
+                                method: 'PUT',
+                                body: formData
+                            })
+                                .then(response => {
+                                    if (response.ok) {
+                                        console.log('super')
+                                    } else {
+                                        throw new Error('Server response was not ok');
+                                    }
+                                })
+                                .catch(error => {
+                                    console.log(error)
+                                });
+                        });
+                    });
+                </script>
             </div>
-
         </div>
-
         <div class="infor">
             <div class="container-info">
                 <ul class="list-info">
                     <li class="itemlist">Номер телефона:</li>
-                    <li class="itemlist1 number"><input type="tel" value="<%=user.contacts.phone%>" id="phone-number" name="phone-number" placeholder="Введите свой номер" pattern="[0-9]{10}" required class="number-txt"></li>
+                    <li class="itemlist1 number"><input value="<%=user.contacts.phone%>" type="tel" id="phone-number" name="phone-number" placeholder="Введите свой номер" pattern="[0-9]{10}" required class="number-txt"></li>
                     <li class="itemlist">Адрес:</li>
                     <li class="itemlist1 adress">
-                        <input type="text" value="<%=user.contacts.address.street%>" id="street-address" name="street-address" placeholder="Улица" required class="street-address">
-                        <input type="text" value="<%=user.contacts.address.city%>" id="city" name="city" placeholder="Город" required class="city">
-                        <input type="text" value="<%=user.contacts.address.state%>" id="state" name="state" placeholder="Область" required class="state">
+                        <input value="<%=user.contacts.address.street%>" type="text" id="street-address" name="street-address" placeholder="Адрес улицы" required class="street-address">
+                        <input value="<%=user.contacts.address.city%>" type="text" id="city" name="city" placeholder="Город" required class="city">
+                        <input value="<%=user.contacts.address.state%>" type="text" id="state" name="state" placeholder="Область" required class="state">
                     </li>
                     <li class="itemlist sex">Пол</li>
                     <p class="sexm">М</p>
                     <p class="sexw">Ж</p>
+
                     <div class="button-sex">
                         <label class="checkbox-container">
-                            <input class="custom-checkbox" type="checkbox" <% if (user.contacts.gender==='m') { %> checked <% } %>>
+                            <input class="custom-checkbox" type="checkbox" <%if(user.contacts.gender === 'm'){%>checked<%}%>>
                             <span class="checkmark"></span>
                         </label>
                         <div class="button-sexw">
                             <label class="checkbox-container1">
-                                <input class="custom-checkbox1" type="checkbox" <% if (user.contacts.gender==='w') { %> checked <% } %>>
+                                <input class="custom-checkbox1" type="checkbox" <%if(user.contacts.gender === 'w'){%>checked<%}%>>
                                 <span class="checkmark1"></span>
                             </label>
                         </div>
                     </div>
+                    <li class="itemlist age">Возраст:</li>
+                    <input type="text" id="age" name="age" value="<%=user.contacts.age%>" class="ramka-old-start">
                     <li class="itemlist email-adress">Почта:</li>
-                    <li class="itemlist1 email"><input type="email" value="<%=user.contacts.email%>" id="email" name="email" placeholder="Ваша почта" required class="email"></li>
+                    <li class="itemlist1 email"><input value="<%=user.contacts.email%>" type="email" id="email" name="email" placeholder="Ваша почта" required class="email"></li>
                     <li class="itemlist site">Социальные сети:</li>
                     <div class="div-img">
                         <ul class="social-links" id="social-links-list">
                             <form id="add-links-form">
                                 <div class="form-group">
                                     <label for="vk-link" class="vkontakte"><img src="/img/VK.png" class="vk"></label>
-                                    <input type="url" value="<%=user.contacts.socialList.vk%>" id="vk-link" name="vk-link" placeholder="https://vk.com/your-page" class="vkontakte-link">
+                                    <input value="<%=user.contacts.socialList.vk%>" type="url" id="vk-link" name="vk-link" placeholder="https://vk.com/your-page" class="vkontakte-link">
                                 </div>
                                 <div class="form-group">
                                     <label for="tiktok-link" class="TikTok"><img src="/img/TikTok.png" class="img-tiktok"></label>
-                                    <input type="url" value="<%=user.contacts.socialList.tiktok%>" id="tiktok-link" name="tiktok-link" placeholder="https://www.tiktok.com/@your-handle" class="tiktok-link">
+                                    <input value="<%=user.contacts.socialList.tiktok%>" type="url" id="tiktok-link" name="tiktok-link" placeholder="https://www.tiktok.com/@your-handle" class="tiktok-link">
                                 </div>
                                 <div class="form-group">
                                     <label for="github-link" class="GitHub"><img src="/img/GitHub.png" class="github"></label>
-                                    <input type="url" value="<%=user.contacts.socialList.github%>" id="github-link" name="github-link" placeholder="https://github.com/your-username" class="github-link">
+                                    <input value="<%=user.contacts.socialList.github%>" type="url" id="github-link" name="github-link" placeholder="https://github.com/your-username" class="github-link">
                                 </div>
                                 <div class="form-group">
                                     <label for="telegram-link" class="Telegram"><img src="/img/Telegram.png" class="telegram"></label>
-                                    <input type="url" value="<%=user.contacts.socialList.telegram%>" id="telegram-link" name="telegram-link" placeholder="https://t.me/your-channel" class="telega">
+                                    <input value="<%=user.contacts.socialList.telegram%>" type="url" id="telegram-link" name="telegram-link" placeholder="https://t.me/your-channel" class="telega">
                                 </div>
                             </form>
                         </ul>
                     </div>
+                </ul>
             </div>
         </div>
 </main>

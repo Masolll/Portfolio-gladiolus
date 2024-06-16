@@ -42,12 +42,7 @@ export const getPortfolioRouter = () => {
             }
 
         })
-    router.get('/description',
-        jwtMiddleware,
-        (req:RequestWithUser, res) => {
-        res.render(path.join(__dirname, "../../src/ejsPages/portfolioDescription.ejs"), {user: req.user})
-    })
-    router.put('/description/avatar',
+    router.put('/avatar',
         jwtMiddleware,
         upload.single("avatar"),
         async (req:RequestWithUser, res)=>{
@@ -57,9 +52,47 @@ export const getPortfolioRouter = () => {
                 });
                 return res.send(await UsersRepository.findUserById(req.user.id));
             }else{
-                return res.status(400).send('Не удалось обновить(');
+                return res.status(400).send('Не удалось обновить аватар(');
             }
         })
+    router.post('/notFixedCertificate',
+        jwtMiddleware,
+        upload.single("certificate"),
+        async (req:RequestWithUser, res)=>{
+            if (req.user && req.file){
+                await UsersRepository.uploadNotFixedCertificate(req.user.id, {
+                    'certificate': req.file.buffer.toString('base64')
+                });
+                return res.send(await UsersRepository.findUserById(req.user.id));
+            }else{
+                return res.status(400).send('Не удалось загрузить сертификат(');
+            }
+        })
+    router.put('/fixedCertificates',
+        jwtMiddleware,
+        async(req:RequestWithUser, res)=>{
+            if (req.user){
+                await UsersRepository.cloneNotFixedCertificateInFixed(req.user.id, req.user.success.notFixedCertificates);
+                return res.send(await UsersRepository.findUserById(req.user.id));
+            }else{
+                return res.status(400).send('Не получилось обновить сертификаты(');
+            }
+    })
+    router.delete('/notFixedCertificates',
+        jwtMiddleware,
+        async (req:RequestWithUser, res)=>{
+            if (req.user){
+                await UsersRepository.updateUser(req.user.id, {"success.notFixedCertificates": []});
+                return res.send(await UsersRepository.findUserById(req.user.id));
+            }else{
+                return res.status(400).send('Не получилось удалить сертификаты(');
+            }
+        })
+    router.get('/description',
+        jwtMiddleware,
+        (req:RequestWithUser, res) => {
+        res.render(path.join(__dirname, "../../src/ejsPages/portfolioDescription.ejs"), {user: req.user})
+    })
     router.get('/contacts',
         jwtMiddleware,
         (req:RequestWithUser, res) => {
@@ -67,8 +100,8 @@ export const getPortfolioRouter = () => {
         })
     router.get('/success',
         jwtMiddleware,
-        (req, res)=>{
-            res.sendFile(path.join(__dirname, "../../../portfolio/portfolioSuccess.html"))
+        (req:RequestWithUser, res)=>{
+            res.render(path.join(__dirname, "../../src/ejsPages/portfolioSuccess.ejs"), {user: req.user})
         })
     router.get('/projects',
         jwtMiddleware,
@@ -87,8 +120,8 @@ export const getPortfolioRouter = () => {
     })
     router.get('/success/edit',
         jwtMiddleware,
-        (req, res)=>{
-        res.sendFile(path.join(__dirname, "../../../portfolio/portfolioSuccessEdit.html"));
+        (req:RequestWithUser, res)=>{
+        res.render(path.join(__dirname, "../../src/ejsPages/portfolioSuccessEdit.ejs"), {user: req.user})
     })
     router.get('/projects/edit',
         jwtMiddleware,

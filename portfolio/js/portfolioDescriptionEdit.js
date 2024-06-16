@@ -24,6 +24,5 @@ saveButton.onclick = function (evt){
             throw new Error();
         }
     }).catch(error => console.log('произошла ошибка'))
-
 }
 

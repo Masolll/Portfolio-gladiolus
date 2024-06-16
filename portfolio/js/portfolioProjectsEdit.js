@@ -1,12 +1,12 @@
 const saveButton = document.querySelector('.save');
 const cancelButton = document.querySelector('.cancel');
-saveButton.onclick = function (evt){
+saveButton.onclick = async function (evt){
     evt.preventDefault();
     let project1 = document.querySelector('.project1').value;
     let project2 = document.querySelector('.project2').value;
     let project3 = document.querySelector('.project3').value;
     let project4 = document.querySelector('.project4').value;
-    fetch(
+    await fetch(
         "/portfolio",
         {
             method: 'PUT',

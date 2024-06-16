@@ -5,6 +5,7 @@ import {GetUserQueryModel} from "../../models/GetUserQueryModel";
 import {Buffer} from "buffer";
 import * as buffer from "buffer";
 import {UserCreatureModel} from "../../models/UserCreatureModel";
+import {CertificateUploadModel} from "../../models/CertificateUploadModel";
 
 const db = client.db("usersbox").collection<UserViewModel>("users");
 export const UsersRepository = {
@@ -79,13 +80,33 @@ export const UsersRepository = {
                         telegram: ""
                     }
                 },
+                success: {
+                    fixedCertificates: [],
+                    notFixedCertificates: []
+                },
                 projects: {
                     project1: "",
                     project2: "",
                     project3: "",
-                    project4: "",
+                    project4: ""
                 }
             });
+    },
+    async uploadNotFixedCertificate(id: number, body: CertificateUploadModel) : Promise<boolean>{
+        if (!body['certificate']){
+            return false;
+        }
+        const result = await db.updateOne(
+            {"id": id},
+            {$push: {'success.notFixedCertificates': body['certificate']}});
+        return result.matchedCount === 1;
+    },
+    async cloneNotFixedCertificateInFixed(id: number, notFixedCertificate : string[]){
+        const result = await db.updateOne(
+            {"id": id},
+            { $push: { 'success.fixedCertificates': { $each: notFixedCertificate } } }
+        )
+        return result.matchedCount === 1;
     },
     async updateUser(id: number, body: any) : Promise<boolean>{
         if (!body){

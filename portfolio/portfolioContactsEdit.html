@@ -65,19 +65,45 @@
                         <button class="save item" id="editButton" ><span>Сохранить изменения</span></button>
                         <button class="cancel item" id="editButton" ><span>Отменить изменения</span></button>
                         <script>
+                            $('#imageInput').change(function() {
+                            var reader = new FileReader();
+
+                            reader.onload = function(e) {
+                                $('#profilePic').attr('src', e.target.result);
+                                $('#profilePic').show(); // Отображаем изображение
+                                $('#profilePic').css('border-radius', '55px'); // Добавляем border-radius
+                            }
+
+                            reader.readAsDataURL(this.files[0]);
+                            });
+
                             $(document).ready(function() {
+                                // Кнопка "Изменить изображение"
                                 $('#editButton').click(function() {
                                     $('#imageInput').trigger('click');
                                 });
                     
+                                // Обработка выбора файла
                                 $('#imageInput').change(function() {
                                     var reader = new FileReader();
                     
                                     reader.onload = function(e) {
                                         $('#profilePic').attr('src', e.target.result);
+                                        $('#profilePic').show(); // Отображаем изображение
                                     }
                     
                                     reader.readAsDataURL(this.files[0]);
+                                });
+                    
+                                // Кнопка "Сохранить изменения"
+                                $('#saveButton').click(function() {
+                                    // Здесь вы можете добавить логику для сохранения изображения на сервере
+                                    // Например, с помощью AJAX-запроса отправить изображение на сервер
+                                });
+                    
+                                // Кнопка "Отменить изменения"
+                                $('#cancelButton').click(function() {
+                                    $('#profilePic').attr('src', '').hide(); // Сбрасываем изображение и скрываем его
                                 });
                             });
                         </script>

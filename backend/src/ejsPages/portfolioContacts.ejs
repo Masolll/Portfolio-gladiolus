@@ -9,61 +9,80 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- Подключение внешнего CSS-файла -->
-    <link rel="stylesheet" href="/css/info.css" />
+    <link rel="stylesheet" href="/css/contact-info.css" />
 </head>
 <body>
 <%- include('portfolioHeader'); -%>
 <main class="page-main">
     <div class="flow1">
         <div class="container">
-            <img src="/img/users.png" alt="Profile Picture" id="profilePic" class="users item">
+            <% if(user.description.avatar) {%>
+                <img src="data:image/jpeg;base64,<%= user.description.avatar %>" alt="Profile Picture" id="profilePic" class="users item">
+            <% } else {%>
+                <img src="/img/users.png" alt="Profile Picture" id="profilePic" class="users item">
+            <% } %>
+            <style>
+                .users{
+                    border-radius: 55px;
+                }
+            </style>
             <div class="container_1">
                 <div class="item">
-                    <a href="/portfolio/description" class="item1 description">Описание</a>
+                    <a href="/discription.html" class="item1 description">Описание</a>
                 </div>
                 <div class="item">
-                    <a href="/portfolio/contacts" class="item1 contact-link">Контактная информация</a>
+                    <a href="/contactInfo.html" class="item1 contact-link">Контактная информация</a>
                     <input type="tel" class="contact-input" style="display: none;" placeholder="+7">
                 </div>
                 <div class="item">
-                    <a href="/portfolio/success" class="item1 achievements-link">Достижения</a>
+                    <a href="/display-achievements.html" class="item1 achievements-link">Достижения</a>
                     <input type="file" class="achievements-input" style="display: none;">
                 </div>
                 <div class="item">
-                    <a href="/portfolio/projects" class="item1 projects-link">Проекты</a>
+                    <a href="/display-project.html" class="item1 projects-link">Проекты</a>
                 </div>
                 <div class="line"></div>
             </div>
-            <a href="/portfolio/contacts/edit"><button class="redactor item" id="editButton" ><span>Редактировать</span></button></a>
-            <script src="/portfolio.js"></script>
+            <div class="favorite">
+                <a href="/portfolio/contacts/edit"><button class="redactor item" id="editButton"><span>Редактировать</span></button></a>
+                <button class="favor item" id="editButton" style="display: none;"><span>В избранном</span></button>
+                <button class="star item" id="editButton" style="display: none;"><span><img src="/img/Star1.png" alt="star-img" class="star-img"></span></button>
+                <button class="name item" id="" ><span><%=user.name%></span></span></button>
+                <button class="old item" id="" ><span>Возраст: <%=user.contacts.age%></span></button>
+            </div>
         </div>
         <div class="infor">
             <div class="container-info">
                 <ul class="list-info">
                     <li class="itemlist">Номер телефона:</li>
-                    <li class="itemlist1 number">
-                        <%= user.contacts.phone%>
-                    </li>
+                    <li class="itemlist1 number"><%=user.contacts.phone%></li>
                     <li class="itemlist">Адрес:</li>
                     <li class="itemlist1 adress">
-                        <% if (user.contacts.address.state) {%>
-                            <%= user.contacts.address.state%> область,
-                        <%}%><%if (user.contacts.address.city) {%>
-                            г. <%=user.contacts.address.city%>,
-                            <%}%><%if (user.contacts.address.street) {%>
-                                ул. <%=user.contacts.address.street%>
-                            <%}%>
+                        <%=user.contacts.address.state%>, <%=user.contacts.address.city%>, <%=user.contacts.address.street%>
                     </li>
-                    <li class="itemlist">Почта:</li>
-                    <li class="itemlist1 email">
-                        <%= user.contacts.email%>
-                    </li>
+                    <li class="itemlist sex">Пол</li>
+                    <p class="sexm">М</p>
+                    <p class="sexw">Ж</p>
+                    <div class="button-sexm">
+                        <label class="checkbox-container">
+                            <input class="custom-checkbox" <%if(user.contacts.gender === 'm'){%>checked<%}%> type="checkbox" disabled>
+                            <span class="checkmark"></span>
+                        </label>
+                        <div class="button-sexw">
+                            <label class="checkbox-container1">
+                                <input class="custom-checkbox1" <%if(user.contacts.gender === 'w'){%>checked<%}%> type="checkbox" disabled>
+                                <span class="checkmark1"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <li class="itemlist email-adress">Почта:</li>
+                    <li class="itemlist1 email"><%=user.contacts.email%></li>
                     <li class="itemlist site">Социальные сети:</li>
                     <div class="div-img">
-                        <a href="<%= user.contacts.socialList.vk%>"><img src="/img/VK.png" class="vk"></a>
-                        <a href="<%= user.contacts.socialList.tiktok%>"><img src="/img/TikTok.png" class="img-tiktok"></a>
-                        <a href="<%= user.contacts.socialList.github%>"><img src="/img/GitHub.png" class="github"></a>
-                        <a href="<%= user.contacts.socialList.telegram%>"><img src="/img/Telegram.png" class="telegram"></a>
+                        <a href="<%=user.contacts.socialList.vk%>"><img src="/img/VK.png" class="vk"> </a>
+                        <a href="<%=user.contacts.socialList.tiktok%>"><img src="/img/TikTok.png" class="img-tiktok"> </a>
+                        <a href="<%=user.contacts.socialList.github%>"><img src="/img/GitHub.png" class="github"> </a>
+                        <a href="<%=user.contacts.socialList.telegram%>"><img src="/img/Telegram.png" class="telegram"></a>
                     </div>
                 </ul>
             </div>

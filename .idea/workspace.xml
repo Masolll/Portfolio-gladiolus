@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7ca32c5-1ec5-4ec6-8de4-892661674b71" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioSuccessEdit.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/public/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/public/businessLayer/emailService/nodemailer.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/businessLayer/emailService/nodemailer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/JwtPayload.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/businessLayer/jwtService/JwtPayload.js" afterDir="false" />
@@ -29,28 +30,24 @@
       <change beforePath="$PROJECT_DIR$/backend/public/routes/portfolioRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/portfolioRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/public/routes/registrationRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/registrationRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/public/routes/usersRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/usersRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/MongoDbUsersRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/dataAccessLayer/usersRepository/MongoDbUsersRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/ejsPages/portfolioContacts.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioContacts.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/ejsPages/portfolioContactsEdit.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioContactsEdit.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/ejsPages/portfolioDescription.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioDescription.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/ejsPages/portfolioDescriptionEdit.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioDescriptionEdit.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/UserViewModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/UserViewModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/allForms.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/allForms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/ejsPages/portfolioProjects.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioProjects.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/ejsPages/portfolioProjectsEdit.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioProjectsEdit.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/portfolioRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/portfolioRouter.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/css/achievements.css" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/css/achievements.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/css/description.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/css/portfolio-edit.css" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/css/portfolio-edit.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/css/project.css" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/css/project.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/css/display-achievements.css" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/css/display-achievements.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/css/redactor-achievements.css" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/css/redactor-achievements.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/css/redactor-contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/css/redactor-contact.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/css/redactor-project.css" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/css/redactor-project.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/css/redactor.css" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/css/redactor.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/display-achievements.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/display-achievements.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/js/portfolioContactsEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/js/portfolioContactsEdit.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/js/portfolioDescriptionEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/js/portfolioDescriptionEdit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/portfolioContacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioContacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/portfolio.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/ejsPages/portfolioSuccess.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/portfolioContactsEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioContactsEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/portfolioDescription.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioDescription.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/portfolioDescriptionEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioDescriptionEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/portfolioProjects.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioProjects.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/portfolioProjectsEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioProjectsEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/portfolioSuccess.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioSuccess.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/portfolioSuccessEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/portfolioSuccessEdit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,23 +74,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;npm.js_watch.executor&quot;: &quot;Run&quot;,
-    &quot;npm.ts_watch.executor&quot;: &quot;Run&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Maksim\\WebstormProjects\\portfolio-project\\backend\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "backend",
+    "last_opened_file_path": "C:/Users/Maksim/WebstormProjects/portfolio-project/portfolio",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "npm.js_watch.executor": "Run",
+    "npm.ts_watch.executor": "Run",
+    "ts.external.directory.path": "C:\\Users\\Maksim\\WebstormProjects\\portfolio-project\\backend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\portfolio" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Maksim\WebstormProjects\portfolio-project\portfolio\js" />
     </key>
@@ -140,6 +141,7 @@
       <workItem from="1718225833737" duration="48000" />
       <workItem from="1718268310360" duration="10045000" />
       <workItem from="1718364454841" duration="21641000" />
+      <workItem from="1718471865526" duration="11186000" />
     </task>
     <servers />
   </component>

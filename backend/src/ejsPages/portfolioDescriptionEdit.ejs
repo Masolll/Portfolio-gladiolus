@@ -17,7 +17,16 @@
 <main class="page-main">
     <div class="flow1">
         <div class="container">
-            <img src="/img/users.png" alt="Profile Picture" id="profilePic" class="users item">
+            <% if(user.description.avatar) {%>
+                <img src="data:image/jpeg;base64,<%= user.description.avatar %>" alt="Profile Picture" id="profilePic" class="users item">
+            <% } else {%>
+                <img src="/img/users.png" alt="Profile Picture" id="profilePic" class="users item">
+            <% } %>
+            <style>
+                .users{
+                    border-radius: 55px;
+                }
+            </style>
             <div class="container_1">
                 <div class="item">
                     <a href="/description.html" class="item1 description">Описание</a>
@@ -43,29 +52,65 @@
         <div class="favorite">
             <img src="" alt="Profile Picture" id="profilePic" class="users item" style="display: none;">
             <input type="file" id="imageInput" style="display: none;">
-            <button class="change-images item" id="editButton" ><span>Изменить изображения</span></button>
-            <button class="save item" id="editButton" ><span>Сохранить изменения</span></button>
-            <a href="/portfolio/description"><button class="cancel item" id="editButton" ><span>Отменить изменения</span></button></a>
+            <button class="change-images item" id="editButton" ><span>Изменить изображение</span></button>
+            <button class="save item" id="saveButton" ><span>Сохранить изменения</span></button>
+            <a href="/portfolio/description"><button class="cancel item" id="cancelButton" ><span>Отменить изменения</span></button></a>
             <script>
+                $('#imageInput').change(function() {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#profilePic').attr('src', e.target.result);
+                        $('#profilePic').show(); // Отображаем изображение
+                        $('#profilePic').css('border-radius', '55px'); // Добавляем border-radius
+                    }
+
+                    reader.readAsDataURL(this.files[0]);
+                });
+
                 $(document).ready(function() {
+                    // Кнопка "Изменить изображение"
                     $('#editButton').click(function() {
                         $('#imageInput').trigger('click');
                     });
 
+                    // Обработка выбора файла
                     $('#imageInput').change(function() {
                         var reader = new FileReader();
 
                         reader.onload = function(e) {
                             $('#profilePic').attr('src', e.target.result);
+                            $('#profilePic').show(); // Отображаем изображение
                         }
 
                         reader.readAsDataURL(this.files[0]);
+                    });
+
+                    // Кнопка "Сохранить изменения"
+                    $('#saveButton').click(async function() {
+                        let formData = new FormData();
+                        formData.append('avatar', $('#imageInput')[0].files[0]);
+
+                        await fetch('/portfolio/avatar', {
+                            method: 'PUT',
+                            body: formData
+                        })
+                            .then(response => {
+                                if (response.ok) {
+                                    console.log('super')
+                                } else {
+                                    throw new Error('Server response was not ok');
+                                }
+                            })
+                            .catch(error => {
+                                console.log(error)
+                            });
                     });
                 });
             </script>
         </div>
         <div class="description-item">
-            <textarea class="description-input input-dsr" id="about-yourself" name="about-yourself" rows="4" cols="50" resize="none"><%=user.description.text%></textarea>
+            <textarea class="description-input input-dsr" id="about-yourself" name="about-yourself" rows="4" cols="50" resize="none"><%=user.description.text%> </textarea>
         </div>
     </div>
     <div class="container2">
@@ -101,5 +146,15 @@
             $(this).toggleClass('selected');
         });
     });
+    let buttonsSkills = document.querySelectorAll(".button-skills");
+    let userSkills = <%- JSON.stringify(user.description.skills) %>;
+    for (let skill of userSkills){
+        for (let button of buttonsSkills){
+            if(button.textContent === skill){
+                button.classList.add('selected');
+                break;
+            }
+        }
+    }
 </script>
 </body>

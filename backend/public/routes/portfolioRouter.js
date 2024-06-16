@@ -50,10 +50,7 @@ const getPortfolioRouter = () => {
             return res.sendStatus(codeMessage_1.codeMessage.BadRequest);
         }
     }));
-    router.get('/description', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioDescription.ejs"), { user: req.user });
-    });
-    router.put('/description/avatar', jwtMiddleware_1.jwtMiddleware, upload.single("avatar"), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    router.put('/avatar', jwtMiddleware_1.jwtMiddleware, upload.single("avatar"), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         if (req.user && req.file) {
             yield MongoDbUsersRepository_1.UsersRepository.updateUser(req.user.id, {
                 'description.avatar': req.file.buffer.toString('base64')
@@ -61,14 +58,46 @@ const getPortfolioRouter = () => {
             return res.send(yield MongoDbUsersRepository_1.UsersRepository.findUserById(req.user.id));
         }
         else {
-            return res.status(400).send('Не удалось обновить(');
+            return res.status(400).send('Не удалось обновить аватар(');
         }
     }));
+    router.post('/notFixedCertificate', jwtMiddleware_1.jwtMiddleware, upload.single("certificate"), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        if (req.user && req.file) {
+            yield MongoDbUsersRepository_1.UsersRepository.uploadNotFixedCertificate(req.user.id, {
+                'certificate': req.file.buffer.toString('base64')
+            });
+            return res.send(yield MongoDbUsersRepository_1.UsersRepository.findUserById(req.user.id));
+        }
+        else {
+            return res.status(400).send('Не удалось загрузить сертификат(');
+        }
+    }));
+    router.put('/fixedCertificates', jwtMiddleware_1.jwtMiddleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        if (req.user) {
+            yield MongoDbUsersRepository_1.UsersRepository.cloneNotFixedCertificateInFixed(req.user.id, req.user.success.notFixedCertificates);
+            return res.send(yield MongoDbUsersRepository_1.UsersRepository.findUserById(req.user.id));
+        }
+        else {
+            return res.status(400).send('Не получилось обновить сертификаты(');
+        }
+    }));
+    router.delete('/notFixedCertificates', jwtMiddleware_1.jwtMiddleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        if (req.user) {
+            yield MongoDbUsersRepository_1.UsersRepository.updateUser(req.user.id, { "success.notFixedCertificates": [] });
+            return res.send(yield MongoDbUsersRepository_1.UsersRepository.findUserById(req.user.id));
+        }
+        else {
+            return res.status(400).send('Не получилось удалить сертификаты(');
+        }
+    }));
+    router.get('/description', jwtMiddleware_1.jwtMiddleware, (req, res) => {
+        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioDescription.ejs"), { user: req.user });
+    });
     router.get('/contacts', jwtMiddleware_1.jwtMiddleware, (req, res) => {
         res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioContacts.ejs"), { user: req.user });
     });
     router.get('/success', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioSuccess.html"));
+        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioSuccess.ejs"), { user: req.user });
     });
     router.get('/projects', jwtMiddleware_1.jwtMiddleware, (req, res) => {
         res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioProjects.ejs"), { user: req.user });
@@ -80,7 +109,7 @@ const getPortfolioRouter = () => {
         res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioContactsEdit.ejs"), { user: req.user });
     });
     router.get('/success/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/portfolioSuccessEdit.html"));
+        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioSuccessEdit.ejs"), { user: req.user });
     });
     router.get('/projects/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
         res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioProjectsEdit.ejs"), { user: req.user });

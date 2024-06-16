@@ -16,7 +16,16 @@
 <main class="page-main">
     <div class="flow1">
         <div class="container">
-            <img src="/img/users.png" alt="Profile Picture" id="profilePic" class="users item">
+            <% if(user.description.avatar) {%>
+                <img src="data:image/jpeg;base64,<%= user.description.avatar %>" alt="Profile Picture" id="profilePic" class="users item">
+            <% } else {%>
+                <img src="/img/users.png" alt="Profile Picture" id="profilePic" class="users item">
+            <% } %>
+            <style>
+                .users{
+                    border-radius: 55px;
+                }
+            </style>
             <div class="container_1">
                 <div class="item">
                     <a href="/description.html" class="item1 description">Описание</a>
@@ -71,7 +80,6 @@
         </ul>
     </div>
 </main>
-<script src="/js/portfolioDescription.js"></script>
 <script>
     let buttonsSkills = document.querySelectorAll(".button-skills");
     let userSkills = <%- JSON.stringify(user.description.skills) %>;

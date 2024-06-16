@@ -123,6 +123,7 @@ body {
 .users{
     width: 339px;
     height: 339px;
+    
 }
 
 
@@ -347,67 +348,42 @@ body {
     top: 300px;
 }
 
-/* Note that you only needs to edit the config to customize the button! */
+.txt-btn{
+    font-size: 24px;
 
-.plusButton {
-    /* Config start */
-    --plus_sideLength: 4rem;
-    --plus_topRightTriangleSideLength: 5rem;
-    /* Config end */
+}
+
+.img-sertificat{
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #458ADB;
-    width: var(--plus_sideLength);
-    height: var(--plus_sideLength);
-    background-color: #2D87D6;
-    overflow: hidden;
-    width: auto;
-    height: auto;
+    bottom: 50px;
+    left: 20px;
 }
-  
-.plusButton::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 0;
-    border-width: 0 var(--plus_topRightTriangleSideLength) var(--plus_topRightTriangleSideLength) 0;
-    border-style: solid;
-    border-color: transparent white transparent transparent;
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.3s;
+
+.btn-srt{
+    position: relative;
+    bottom: 40px;
+    left: 20px;
 }
-  
-.plusButton:hover {
-    cursor: pointer;
+
+.btn-new {
+    border: none;
+    width: 150px;
+    height: 80px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    background: #0B63F6;
+    box-shadow: 0 5px 0 #003CC5;
 }
-  
-.plusButton:hover::before {
-    --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 11);
+
+.btn-new:hover {
+    background: #003CC5;
+    box-shadow: none;
+    position: relative;
+    top: 5px;
 }
+
   
-.plusButton:focus-visible::before {
-    --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 11);
-}
-  
-.plusButton>.plusIcon {
-    fill: white;
-    width: calc(var(--plus_sideLength) * 1);
-    height: calc(var(--plus_sideLength) * 1);
-    z-index: 1;
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.3s;
-}
-  
-.plusButton:hover>.plusIcon {
-    fill: #458ADB;
-    transform: rotate(180deg);
-}
-  
-   
 .redactor::before{
     content: "";
     background: #2D87D6;
@@ -425,8 +401,13 @@ body {
     display: grid;
     grid-template-columns: 1200px;
     grid-template-rows: 85px;
+    
 }
 
+#profilePic {
+    border-radius: 55px;
+}
+  
 .container_1 {
     display: grid;
     grid-template-columns: 115px 280px 140px 100px;

@@ -130,13 +130,32 @@ exports.UsersRepository = {
                         telegram: ""
                     }
                 },
+                success: {
+                    fixedCertificates: [],
+                    notFixedCertificates: []
+                },
                 projects: {
                     project1: "",
                     project2: "",
                     project3: "",
-                    project4: "",
+                    project4: ""
                 }
             });
+        });
+    },
+    uploadNotFixedCertificate(id, body) {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (!body['certificate']) {
+                return false;
+            }
+            const result = yield db.updateOne({ "id": id }, { $push: { 'success.notFixedCertificates': body['certificate'] } });
+            return result.matchedCount === 1;
+        });
+    },
+    cloneNotFixedCertificateInFixed(id, notFixedCertificate) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield db.updateOne({ "id": id }, { $push: { 'success.fixedCertificates': { $each: notFixedCertificate } } });
+            return result.matchedCount === 1;
         });
     },
     updateUser(id, body) {

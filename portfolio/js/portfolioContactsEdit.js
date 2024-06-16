@@ -21,6 +21,7 @@ saveButton.onclick = function (evt){
     }else if(checkboxW.checked){
         gender = 'w'
     }
+    let age=document.getElementById('age').value;
     let phone = document.getElementById('phone-number').value;
     let street = document.getElementById('street-address').value;
     let city = document.getElementById('city').value;
@@ -36,6 +37,7 @@ saveButton.onclick = function (evt){
             method: 'PUT',
             body: JSON.stringify({
                 contacts: {
+                    age: age,
                     phone: phone,
                     email: email,
                     gender: gender,
