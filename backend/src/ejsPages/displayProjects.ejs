@@ -9,8 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- Подключение внешнего CSS-файла -->
-    <link rel="stylesheet" href="/css/display-description.css" />
-    <script src="/discription.js"></script>
+    <link rel="stylesheet" href="/css/display-project.css" />
 </head>
 <body>
 <header class="flow1">
@@ -28,7 +27,6 @@
                     <li><a href="#">О нас</a></li>
                     <li><a href="#">Контакты</a></li>
                     <li class="list-port"><a href="/allForms">Список портфолио</a></li>
-
                 </ul>
                 <% if(myUser) {%>
                 <%if(myUser.description.avatar) {%>
@@ -78,54 +76,22 @@
                 </div>
                 <div class="line"></div>
             </div>
-        </div>
-        <div class="favorite">
-            <button class="redactor item redactor1" id="editButton"><span>Написать</span></button>
-            <button class="favor item" id="editButton" ><span>Добавить в избранное</span></button>
-            <button class="star item" id="editButton" ><span><img src="/img/Star.png" alt="star-img" class="star-img"></span></button>
-            <button class="name item" id="" ><span><%=user.name%></span></button>
-            <button class="old item" id="" ><span>Возраст: <%=user.contacts.age%></span></button>
-        </div>
-        <div class="description-item">
-            <div class="description-input" id="story" name="story" rows="5" cols="33"><%=user.description.text%></div>
+            <div class="favorite">
+                <button class="redactor item" id="editButton" ><span>Написать</span></button>
+                <button class="favor item" id="editButton" ><span>В избранном</span></button>
+                <button class="star item" id="editButton" ><span><img src="/img/Star1.png" alt="star-img" class="star-img"></span></button>
+                <button class="name item" id="" ><span><%=user.name%></span></button>
+                <button class="old item" id="" ><span>Возраст: <%=user.contacts.age%></span></button>
+            </div>
         </div>
     </div>
-    <div class="container2">
-        <div class="container1">
-            <p>Ключевые навыки:</p>
-        </div>
-        <ul class="js-choice list-skills">
-            <li class="list-skill"><button class="button-skills js-button">DevOps</button></li>
-            <li class="list-skill"><button class="button-skills js-button">Backend</button></li>
-            <li class="list-skill"><button class="button-skills js-button">Frontend</button></li>
-            <li class="list-skill"><button class="button-skills js-button">Базы данных</button></li>
-            <li class="list-skill"><button class="button-skills js-button">Тестирование</button></li>
-            <li class="list-skill"><button class="button-skills js-button">Web разработка</button></li>
-            <li class="list-skill"><button class="button-skills js-button">Машинное обучение</button></li>
-            <li class="list-skill"><button class="button-skills js-button">Научные вычисления</button></li>
-            <li class="list-skill"><button class="button-skills js-button">Цифровой маркетинг</button></li>
-            <li class="list-skill"><button class="button-skills js-button">Сетевые технологии</button></li>
-            <li class="list-skill"><button class="button-skills js-button">Облачные технологии</button></li>
-            <li class="list-skill"><button class="button-skills js-button">Компьютерная графика</button></li>
-            <li class="list-skill"><button class="button-skills js-button">Управление проектами</button></li>
-            <li class="list-skill"><button class="button-skills js-button">Безопасность информации</button></li>
-            <li class="list-skill"><button class="button-skills js-button">Хранение и обработка данных</button></li>
-            <li class="list-skill"><button class="button-skills js-button">Системное администрирование</button></li>
-            <li class="list-skill"><button class="button-skills js-button">Управление ИТ-инфраструктурой</button></li>
-        </ul>
+    </div>
+    <div class="container-sertificat">
+        <div><input value="<%=user.projects.project1%>" disabled type="text" class="txt-ramka"></div>
+        <div><input value="<%=user.projects.project2%>" disabled type="text" class="txt-ramka"></div>
+        <div><input value="<%=user.projects.project3%>" disabled type="text" class="txt-ramka"></div>
+        <div><input value="<%=user.projects.project4%>" disabled type="text" class="txt-ramka"></div>
     </div>
 </main>
-<script>
-    let buttonsSkills = document.querySelectorAll(".button-skills");
-    let userSkills = <%- JSON.stringify(user.description.skills) %>;
-    for (let skill of userSkills){
-        for (let button of buttonsSkills){
-            if(button.textContent === skill){
-                button.classList.add('selected');
-                break;
-            }
-        }
-    }
-</script>
 <%- include('portfolioFooter'); -%>
 </body>

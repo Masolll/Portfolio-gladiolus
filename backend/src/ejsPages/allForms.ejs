@@ -32,8 +32,12 @@
                             border-radius: 55px;
                         }
                     </style>
-                    <%if(user) {%>
-                        <a href="/portfolio/description"><img class="avatar-img" src="data:image/jpeg;base64,<%=user.description.avatar%>" width="57" height="57"></a>
+                    <%if(myUser) {%>
+                        <%if(myUser.description.avatar) {%>
+                            <a href="/portfolio/description"><img width="57" height="57" src="data:image/jpeg;base64,<%=myUser.description.avatar%>" class="avatar-img"></a>
+                        <%} else {%>
+                            <a href="/portfolio/description"><img width="57" height="57" src="/img/users.png" class="avatar-img"></a>
+                        <%}%>
                     <%} else {%>
                         <a href="/registration"><button class="registr"><span>Регистрация</span></button></a>
                     <% } %>
@@ -121,7 +125,7 @@
                     text-decoration: none;
                 }
             </style>
-            <a class='user-link' href="profile/id">
+            <a class='user-link' href="/display/description/<%=user.id%>">
                 <div class="list-user">
                     <% if(user.description.avatar) {%>
                         <div><img width="184" height="184" src="data:image/jpeg;base64,<%= user.description.avatar %>" class="item-list item-img"></div>

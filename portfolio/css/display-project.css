@@ -5,7 +5,14 @@ body {
     color: #000;
     line-height: 1.4;
 }
-
+.txt-ramka{
+    border: 2px solid #458ADB;
+    width: 743px;
+    height: 61px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-family: 'Roboto',sans-serif;
+}
 .flow1{
     width: 100%;
     max-width: 1274px;

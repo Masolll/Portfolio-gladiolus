@@ -472,3 +472,7 @@ span{
     color:#000;
     margin-top: 412px;
 }
+.selected{
+    background-color: #458ADB;
+    color: white;
+}

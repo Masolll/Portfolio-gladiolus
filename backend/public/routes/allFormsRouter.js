@@ -26,7 +26,7 @@ const getAllFormsRouter = () => {
             return users
                 ? res.render(path_1.default.join(__dirname, "../../src/ejsPages/allForms.ejs"), {
                     users: users,
-                    user: req.user
+                    myUser: req.user
                 })
                 : res.sendStatus(codeMessage_1.codeMessage.BadRequest);
         }
@@ -34,7 +34,7 @@ const getAllFormsRouter = () => {
             let users = yield MongoDbUsersRepository_1.UsersRepository.findAllUsers();
             res.render(path_1.default.join(__dirname, "../../src/ejsPages/allForms.ejs"), {
                 users: users,
-                user: req.user
+                myUser: req.user
             });
         }
         //передаю req.user в ejs для того чтобы на странице либо сгенерировать кнопку регистрации либо кнопку для перехода в профиль

@@ -14,6 +14,7 @@ const allFormsRouter_1 = require("./routes/allFormsRouter");
 const path_1 = __importDefault(require("path"));
 const codeMessage_1 = require("./models/codeMessage");
 const nodemailerRouter_1 = require("./routes/nodemailerRouter");
+const displayPortfolioRoutes_1 = require("./routes/displayPortfolioRoutes");
 exports.app = (0, express_1.default)();
 exports.bodyMiddleWare = express_1.default.json();
 exports.app.use(exports.bodyMiddleWare);
@@ -38,6 +39,7 @@ exports.app.use('/enter', (0, enterRoutes_1.getEnterRouter)());
 exports.app.use('/allForms', (0, allFormsRouter_1.getAllFormsRouter)());
 exports.app.use('/users', (0, usersRoutes_1.getUsersRouter)());
 exports.app.use('/email', (0, nodemailerRouter_1.getNodemailerRouter)());
+exports.app.use('/display', (0, displayPortfolioRoutes_1.getDisplayPortfolioRouter)());
 exports.app.use((req, res) => {
     return res
         .status(codeMessage_1.codeMessage.NotFound)

@@ -18,14 +18,14 @@ export const getAllFormsRouter = () => {
             return users
                 ? res.render(path.join(__dirname, "../../src/ejsPages/allForms.ejs"), {
                     users: users,
-                    user: req.user
+                    myUser: req.user
                 })
                 : res.sendStatus(codeMessage.BadRequest);
         }else{
             let users = await UsersRepository.findAllUsers();
             res.render(path.join(__dirname, "../../src/ejsPages/allForms.ejs"), {
                 users: users,
-                user: req.user
+                myUser: req.user
             });
         }
         //передаю req.user в ejs для того чтобы на странице либо сгенерировать кнопку регистрации либо кнопку для перехода в профиль

@@ -9,18 +9,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllFormsRouter = void 0;
+exports.getDisplayPortfolioRouter = void 0;
 const path = require('path');
 const express = require('express');
 const MongoDbUsersRepository_1 = require("../dataAccessLayer/usersRepository/MongoDbUsersRepository");
 const codeMessage_1 = require("../models/codeMessage");
-const getAllFormsRouter = () => {
+const jwtMiddleware_1 = require("../businessLayer/jwtService/jwtMiddleware");
+const getDisplayPortfolioRouter = () => {
     const router = express.Router();
-    router.get('description/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const findUser = MongoDbUsersRepository_1.UsersRepository.findUserById(+req.params.id);
+    router.get('/description/:id', jwtMiddleware_1.jwtMiddleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        const findUser = yield MongoDbUsersRepository_1.UsersRepository.findUserById(+req.params.id);
         if (findUser) {
-            return findUser;
-            res.render(path.join(__dirname, "../../src/ejsPages/displayDescription.ejs"), { user: findUser });
+            res.render(path.join(__dirname, "../../src/ejsPages/displayDescription.ejs"), {
+                user: findUser,
+                myUser: req.user
+            });
         }
         else {
             return res
@@ -31,10 +34,13 @@ const getAllFormsRouter = () => {
             });
         }
     }));
-    router.get('contacts/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const findUser = MongoDbUsersRepository_1.UsersRepository.findUserById(+req.params.id);
+    router.get('/contacts/:id', jwtMiddleware_1.jwtMiddleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        const findUser = yield MongoDbUsersRepository_1.UsersRepository.findUserById(+req.params.id);
         if (findUser) {
-            res.render(path.join(__dirname, "../../src/ejsPages/displayContacts.ejs"), { user: findUser });
+            res.render(path.join(__dirname, "../../src/ejsPages/displayContacts.ejs"), {
+                user: findUser,
+                myUser: req.user
+            });
         }
         else {
             return res
@@ -45,10 +51,13 @@ const getAllFormsRouter = () => {
             });
         }
     }));
-    router.get('success/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const findUser = MongoDbUsersRepository_1.UsersRepository.findUserById(+req.params.id);
+    router.get('/success/:id', jwtMiddleware_1.jwtMiddleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        const findUser = yield MongoDbUsersRepository_1.UsersRepository.findUserById(+req.params.id);
         if (findUser) {
-            res.render(path.join(__dirname, "../../src/ejsPages/displaySuccess.ejs"), { user: findUser });
+            res.render(path.join(__dirname, "../../src/ejsPages/displaySuccess.ejs"), {
+                user: findUser,
+                myUser: req.user
+            });
         }
         else {
             return res
@@ -59,10 +68,13 @@ const getAllFormsRouter = () => {
             });
         }
     }));
-    router.get('projects/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const findUser = MongoDbUsersRepository_1.UsersRepository.findUserById(+req.params.id);
+    router.get('/projects/:id', jwtMiddleware_1.jwtMiddleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        const findUser = yield MongoDbUsersRepository_1.UsersRepository.findUserById(+req.params.id);
         if (findUser) {
-            res.render(path.join(__dirname, "../../src/ejsPages/displayProjects.ejs"), { user: findUser });
+            res.render(path.join(__dirname, "../../src/ejsPages/displayProjects.ejs"), {
+                user: findUser,
+                myUser: req.user
+            });
         }
         else {
             return res
@@ -75,4 +87,4 @@ const getAllFormsRouter = () => {
     }));
     return router;
 };
-exports.getAllFormsRouter = getAllFormsRouter;
+exports.getDisplayPortfolioRouter = getDisplayPortfolioRouter;

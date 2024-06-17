@@ -8,6 +8,7 @@ import {getAllFormsRouter} from "./routes/allFormsRouter";
 import path from "path";
 import {codeMessage} from "./models/codeMessage";
 import {getNodemailerRouter} from "./routes/nodemailerRouter";
+import {getDisplayPortfolioRouter} from "./routes/displayPortfolioRoutes";
 
 
 export const app = express();
@@ -36,6 +37,7 @@ app.use('/enter', getEnterRouter());
 app.use('/allForms', getAllFormsRouter());
 app.use('/users', getUsersRouter());
 app.use('/email', getNodemailerRouter());
+app.use('/display', getDisplayPortfolioRouter())
 app.use((req : Request, res : Response) => {
     return res
         .status(codeMessage.NotFound)
