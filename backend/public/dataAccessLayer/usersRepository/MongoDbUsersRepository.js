@@ -71,33 +71,57 @@ exports.UsersRepository = {
     findUsersByQueryParams(params) {
         return __awaiter(this, void 0, void 0, function* () {
             let filter = {};
-            let resultRest = params;
-            if (resultRest.maxAge && resultRest.minAge) {
-                const { minAge, maxAge } = resultRest, rest = __rest(resultRest, ["minAge", "maxAge"]);
-                resultRest = rest;
+            if (params.maxAge !== "" && params.maxAge && params.minAge !== "" && params.minAge) {
+                const { minAge, maxAge } = params;
                 Object.assign(filter, {
                     $and: [
-                        { "description.age": { $gte: parseInt(minAge) } }, //gte это больше или равно
-                        { "description.age": { $lte: parseInt(maxAge) } },
+                        { "contacts.age": { $gte: parseInt(minAge) } }, //gte это больше или равно
+                        { "contacts.age": { $lte: parseInt(maxAge) } },
                     ]
                 });
             }
-            if (resultRest.skills) {
-                const { skills } = resultRest, rest = __rest(resultRest, ["skills"]);
-                resultRest = rest;
+            else if (params.maxAge && params.maxAge !== "") {
+                const { maxAge, minAge } = params;
+                Object.assign(filter, {
+                    'contacts.age': { $lte: parseInt(maxAge) }
+                });
+            }
+            else if (params.minAge && params.minAge !== "") {
+                const { minAge, maxAge } = params;
+                Object.assign(filter, {
+                    'contacts.age': { $gte: parseInt(minAge) }
+                });
+            }
+            if (params.skills && params.skills !== "Любые") {
+                const { skills } = params;
                 Object.assign(filter, { "description.skills": { $all: skills.split(',') } });
             }
-            if (resultRest.city) {
-                const { city } = resultRest, rest = __rest(resultRest, ["city"]);
-                resultRest = rest;
+            if (params.city && params.city !== "") {
+                const { city } = params, rest = __rest(params, ["city"]);
                 Object.assign(filter, { "contacts.address.city": city });
             }
-            if (resultRest.gender) {
-                const { gender } = resultRest, rest = __rest(resultRest, ["gender"]);
-                resultRest = rest;
-                Object.assign(filter, { "description.gender": gender });
+            if (params.gender === "m" || params.gender === "w") {
+                const { gender } = params, rest = __rest(params, ["gender"]);
+                Object.assign(filter, { "contacts.gender": gender });
             }
-            Object.assign(filter, resultRest); //копирую в объект filter все оставшиеся пары ключ-значение
+            else if (params.gender === "none") {
+                return [];
+            }
+            if (params.projects === "true") {
+                Object.assign(filter, {
+                    $or: [
+                        { 'projects.project1': { $ne: "" } },
+                        { 'projects.project2': { $ne: "" } },
+                        { 'projects.project3': { $ne: "" } },
+                        { 'projects.project4': { $ne: "" } }
+                    ]
+                });
+            }
+            if (params.certificates === "true") {
+                Object.assign(filter, {
+                    'success.fixedCertificates': { $ne: [] }
+                });
+            }
             return db.find(filter).toArray();
         });
     },

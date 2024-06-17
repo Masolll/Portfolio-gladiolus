@@ -38,7 +38,13 @@ const getRegistrationRouter = () => {
         return res.sendStatus(codeMessage_1.codeMessage.NoContent);
     }));
     router.get('/confirmEmail', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/registrationConfirmEmail.html"));
+        if (req.user) {
+            res.sendFile(path_1.default.join(__dirname, "../../../portfolio/registrationConfirmEmail.html"));
+        }
+        else {
+            return res.status(codeMessage_1.codeMessage.Unauthorized).render(path_1.default.join(__dirname, "../../src/ejsPages/errorPage"), { error: codeMessage_1.codeMessage.Unauthorized,
+                message: `Эта страница доступна толлько авторизованным пользователям)` });
+        }
     });
     return router;
 };

@@ -5,7 +5,9 @@ body {
     color: #000;
     line-height: 1.4;
 }
-
+.filter-none{
+    display: none;
+}
 .flow1{
     width: 100%;
     max-width: 1274px;
@@ -41,8 +43,8 @@ body {
     width: 400px;
     height: 50px;
     position: relative;
-    bottom: 170px;
-    left: 700px;
+    bottom: 210px;  
+    right: 20px;
     text-align: center;
     font-size: 24px;
 }
@@ -60,13 +62,12 @@ body {
 
 .list-skills {
     position: relative;
-    bottom: 324px;
-    left: 230px;
+    bottom: 435px;
+    left: 780px;
     border-radius: 9px;
     font-size: 24px;
     width: 300px;
 }
-
 
 .button-skills:active {
     background-color: #2D87D6; 
@@ -349,7 +350,7 @@ body {
     display: inline-block;
     position: relative;
     left: 730px;
-    bottom: 600px;
+    bottom: 440px;
     padding-left: px;
     margin-bottom: 12px;
     cursor: pointer;
@@ -441,7 +442,7 @@ body {
     position: relative;
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
-    bottom: 560px;
+    bottom: 400px;
     left: 550px;
 }
 
@@ -467,17 +468,17 @@ body {
 
 .item-name{
     position: relative;
-    left: 15px;
+    right: 555px;
 }
 
 .item-old{
     position: relative;
-    left: 15px;
+    right: 555px;
 }
 
 .item-star{
     position: relative;
-    left: 15px;
+    right: 555px;
 }
 
 .favorite{
@@ -545,6 +546,15 @@ body {
     line-height: 39.01px;
 }
 
+.skills-anketausers{
+    list-style-type: none;
+    position: relative;
+    right: 250px;
+    bottom: 170px;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+}
+
 .item-img{
     margin: 17px 0px 19px 31px;
 }
@@ -571,11 +581,6 @@ body {
     font-size: 24px;
     line-height: 29.26px;
     color: #747474;
-}
-
-.item-list{
-    height: fit-content;
-    width: fit-content;
 }
 
 .navbar .container{
@@ -626,6 +631,7 @@ body {
    color: #458ADB;
    transition: all .0.7s ease-in-out;
 }
+
 .confirm{
     position: relative;
     top: 150px;
@@ -780,12 +786,10 @@ body {
     grid-template-columns: repeat(4, 250px);
     grid-template-rows: 80px 50px 50px;
     color:#000;
-    
 }
 
 .container_5{
     background: #EEF5FC;
-    
 }
 
 .infor{

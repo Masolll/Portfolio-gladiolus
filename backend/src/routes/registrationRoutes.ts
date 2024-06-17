@@ -4,6 +4,7 @@ import {UsersRepository} from "../dataAccessLayer/usersRepository/MongoDbUsersRe
 import {codeMessage} from "../models/codeMessage";
 import {body, validationResult} from 'express-validator';
 import {jwtMiddleware} from "../businessLayer/jwtService/jwtMiddleware";
+import {RequestWithUser} from "../models/RequestWithUser";
 
 export const getRegistrationRouter = () => {
     const router = express.Router();
@@ -31,8 +32,14 @@ export const getRegistrationRouter = () => {
     })
     router.get('/confirmEmail',
         jwtMiddleware,
-        (req, res)=>{
-        res.sendFile(path.join(__dirname, "../../../portfolio/registrationConfirmEmail.html"));
+        (req:RequestWithUser, res)=>{
+        if(req.user){
+            res.sendFile(path.join(__dirname, "../../../portfolio/registrationConfirmEmail.html"));
+        }else{
+            return res.status(codeMessage.Unauthorized).render(path.join(__dirname, "../../src/ejsPages/errorPage"),
+                {error: codeMessage.Unauthorized,
+                    message: `Эта страница доступна толлько авторизованным пользователям)`});
+        }
     })
 
     return router;

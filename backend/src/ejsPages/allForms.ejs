@@ -15,7 +15,7 @@
 <header class="flow1">
     <nav  class="navbar">
         <div class="container">
-            <img src="img/Logotype.svg" alt="Логотип ITConnect" class="logotype-1">
+            <a href="/"><img src="img/Logotype.svg" alt="Логотип ITConnect" class="logotype-1"></a>
             <a href="/" class="navbar-brand">ITConnect</a>
             <div class="search-form">
                 <button class="search-form_btn"><img class="search-form_img" src="img/Search.svg" alt="Search" ></button>
@@ -27,8 +27,16 @@
                     <li><a href="#">О нас</a></li>
                     <li><a href="#">Контакты</a></li>
                     <li><a href="/allForms">Список портфолио</a></li>
-                    <a href="/registration"><button class="registr"><span>Регистрация</span></button></a>
-<!--                    <a href="#"><img src="/img/users.png" width="57" height="57" class="users-lk"></a>-->
+                    <style>
+                        .avatar-img{
+                            border-radius: 55px;
+                        }
+                    </style>
+                    <%if(user) {%>
+                        <a href="/portfolio/description"><img class="avatar-img" src="data:image/jpeg;base64,<%=user.description.avatar%>" width="57" height="57"></a>
+                    <%} else {%>
+                        <a href="/registration"><button class="registr"><span>Регистрация</span></button></a>
+                    <% } %>
                 </ul>
             </div>
         </div>
@@ -42,7 +50,7 @@
     </div>
     <div class="users-filter filter-none">
         <div class="confirm">
-            <a href=""><button class="Confirm"><span>Подтвердить</span></button></a>
+            <button class="Confirm"><span>Подтвердить</span></button>
         </div>
         <ul class="users-filter-list">
             <li class="old">Возраст</li>
@@ -50,6 +58,11 @@
             <input class="ramka-old-end txt-filter" type="text" placeholder="до"></input>
             <li class="city">Город</li>
             <input class="city-input" type="text"></input>
+            <style>
+                .city-input{
+                    font-size: 24px;
+                }
+            </style>
             <li class="sex-filter">Пол</li>
             <div class="sexm">M</div>
             <label class="checkbox-container">
@@ -63,60 +76,86 @@
             </label>
             <li class="project-filter">Проекты</li>
             <label class="checkbox-container1">
-                <input class="custom-checkbox1" checked="" type="checkbox">
+                <input class="custom-checkbox1" type="checkbox">
                 <span class="checkmark1"></span>
             </label>
-            <li class="skills">Ключевые навыки:</li>
-            <div class="anketa-user">
-                <div class="slills-anketa anketa1" type="text">
-                    <div class="txt-anketa">Backend</div>
-                </div>
-                <div class="slills-anketa anketa3" type="text">
-                    <div class="txt-anketa">Базы данных</div>
-                </div>
-                <div class="slills-anketa anketa4" type="text">
-                    <div class="txt-anketa">Управление ИТ-инфраструктурой</div>
-                </div>
+            <div class="">
+                <li class="skills">Ключевые навыки:</li>
+                <select class="js-choice list-skills">
+                    <option class="list-skill">Любые</option>
+                    <option class="list-skill">DevOps</option>
+                    <option class="list-skill">Frontend</option>
+                    <option class="list-skill">Системное администрирование</option>
+                    <option class="list-skill">Безопасность информации</option>
+                    <option class="list-skill">Backend</option>
+                    <option class="list-skill">Базы данных</option>
+                    <option class="list-skill">Тестирование</option>
+                    <option class="list-skill">Web разработка</option>
+                    <option class="list-skill">Машинное обучение</option>
+                    <option class="list-skill">Научные вычисления</option>
+                    <option class="list-skill">Цифровой маркетинг</option>
+                    <option class="list-skill">Сетевые технологии</option>
+                    <option class="list-skill">Облачные технологии</option>
+                    <option class="list-skill">Компьютерная графика</option>
+                    <option class="list-skill">Управление проектами</option>
+                    <option class="list-skill">Хранение и обработка данных</option>
+                    <option class="list-skill">Управление ИТ-инфраструктурой</option>
+                </select>
             </div>
-
             <li class="Certificates-filter">Сертификаты</li>
             <label class="checkbox-container3">
-                <input class="custom-checkbox3" checked="" type="checkbox">
+                <input class="custom-checkbox3" type="checkbox">
                 <span class="checkmark3"></span>
             </label>
         </ul>
     </div>
     </div>
-    <div class="list-user">
-        <div class="item-list item-img"><img src="/img/Rectangle.png"></div>
-        <div class="">
-            <div class="item-list item-name">Иван Иванов</div>
-            <div class="item-list item-old">25 лет</div>
-            <div class="item-list item-star"><img src="/img/Star.png" class="star"><div class="favorite">Добавить в избранное</div></div>
-        </div>
-        <div class="">
-            <div class="item-list item-job">Ключевые навыки: </div>
-            <select class="js-choice list-skills">
-                <option class="list-skill">DevOps</option>
-                <option class="list-skill">Backend</option>
-                <option class="list-skill">Frontend</option>
-                <option class="list-skill">Базы данных</option>
-                <option class="list-skill">Тестирование</option>
-                <option class="list-skill">Web разработка</option>
-                <option class="list-skill">Машинное обучение</option>
-                <option class="list-skill">Научные вычисления</option>
-                <option class="list-skill">Цифровой маркетинг</option>
-                <option class="list-skill">Сетевые технологии</option>
-                <option class="list-skill">Облачные технологии</option>
-                <option class="list-skill">Компьютерная графика</option>
-                <option class="list-skill">Управление проектами</option>
-                <option class="list-skill">Безопасность информации</option>
-                <option class="list-skill">Хранение и обработка данных</option>
-                <option class="list-skill">Системное администрирование</option>
-                <option class="list-skill">Управление ИТ-инфраструктурой</option>
-            </select>
-        </div>
-    </div>
+    <%if(users.length > 0) {%>
+        <%for(let user of users){%>
+            <style>
+                .user-link:active{
+                    color: black;
+                }
+                .user-link{
+                    color: black;
+                    text-decoration: none;
+                }
+            </style>
+            <a class='user-link' href="profile/id">
+                <div class="list-user">
+                    <% if(user.description.avatar) {%>
+                        <div><img width="184" height="184" src="data:image/jpeg;base64,<%= user.description.avatar %>" class="item-list item-img"></div>
+                    <% } else {%>
+                        <div><img src="/img/users.png" width="184" height="184"></div>
+                    <% } %>
+                    <style>
+                        .item-img{
+                            border-radius: 92px;
+                        }
+                    </style>
+                    <div class="">
+                        <div class="item-list item-name"><%=user.name%></div>
+                        <div class="item-list item-old">Возраст: <%=user.contacts.age%></div>
+                        <div class="item-list item-star"><img src="/img/Star.png" class="star"><div class="favorite">Добавить в избранное</div></div>
+                        <li class="skills-anketausers">Ключевые навыки:</li>
+                        <div class="anketa-user">
+                            <div class="slills-anketa anketa1" type="text">
+                                <div class="txt-anketa"><%=user.description.skills[0]%></div>
+                            </div>
+                            <div class="slills-anketa anketa3" type="text">
+                                <div class="txt-anketa"><%=user.description.skills[1]%></div>
+                            </div>
+                            <div class="slills-anketa anketa4" type="text">
+                                <div class="txt-anketa"><%=user.description.skills[2]%></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        <%}%>
+    <%} else {%>
+        <h1>По вашему запросу не найдено ни одного пользователя</h1>
+    <%}%>
 </main>
 <script src="/js/allForms.js"></script>
 <%- include('portfolioFooter'); -%>

@@ -8,14 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.jwtMiddleware = void 0;
 const jwtService_1 = require("./jwtService");
-const codeMessage_1 = require("../../models/codeMessage");
-const path_1 = __importDefault(require("path"));
 function jwtMiddleware(req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
         if (req.method === "OPTIONS") {
@@ -42,8 +37,10 @@ function jwtMiddleware(req, res, next) {
             next();
         }
         catch (error) {
-            return res.status(codeMessage_1.codeMessage.Unauthorized).render(path_1.default.join(__dirname, "../../../src/ejsPages/errorPage"), { error: codeMessage_1.codeMessage.Unauthorized,
-                message: `Эта страница доступна толлько авторизованным пользователям)` });
+            next();
+            //передаю управление потому что на некоторых страницах нужно смотреть авторизован пользователь или нет
+            //и на основании этого генерировать страницу либо с кнопкой "регистрация" либо с кнопкой ведущей в лк
+            //поэтому здесь не стоит возвращать ошибку
         }
     });
 }

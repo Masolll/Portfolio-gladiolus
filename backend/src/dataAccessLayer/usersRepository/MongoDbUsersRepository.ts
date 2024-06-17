@@ -23,33 +23,54 @@ export const UsersRepository = {
     },
     async findUsersByQueryParams(params:Partial<GetUserQueryModel>):Promise<UserViewModel[]>{
         let filter:any = {};
-        let resultRest = params;
-        if (resultRest.maxAge && resultRest.minAge){
-            const {minAge, maxAge, ...rest} = resultRest;
-            resultRest = rest;
+        if (params.maxAge!=="" && params.maxAge && params.minAge!=="" && params.minAge){
+            const {minAge, maxAge} = params;
             Object.assign(filter, {
                 $and: [
-                    {"description.age": {$gte:parseInt(minAge)}},//gte это больше или равно
-                    {"description.age": {$lte: parseInt(maxAge)}},
+                    {"contacts.age": {$gte:parseInt(minAge)}},//gte это больше или равно
+                    {"contacts.age": {$lte: parseInt(maxAge)}},
+                ]
+            })
+        }else if(params.maxAge && params.maxAge!==""){
+            const {maxAge, minAge} = params;
+            Object.assign(filter, {
+                'contacts.age': {$lte: parseInt(maxAge)}
+            })
+        }else if(params.minAge && params.minAge!==""){
+            const {minAge, maxAge} = params;
+            Object.assign(filter, {
+                'contacts.age': {$gte:parseInt(minAge)}
+            })
+        }
+        if(params.skills && params.skills !== "Любые"){
+            const {skills} = params;
+            Object.assign(filter, {"description.skills": {$all: skills.split(',')}});
+        }
+        if(params.city && params.city!==""){
+            const {city, ...rest} = params;
+            Object.assign(filter, {"contacts.address.city": city});
+        }
+        if(params.gender === "m" || params.gender === "w"){
+            const {gender, ...rest} = params;
+            Object.assign(filter, {"contacts.gender": gender});
+        }else if(params.gender === "none"){
+            return [];
+        }
+        if(params.projects === "true"){
+            Object.assign(filter, {
+                $or: [
+                    {'projects.project1': {$ne:""}},
+                    {'projects.project2': {$ne:""}},
+                    {'projects.project3': {$ne:""}},
+                    {'projects.project4': {$ne:""}}
                 ]
             })
         }
-        if(resultRest.skills){
-            const {skills, ...rest} = resultRest;
-            resultRest = rest;
-            Object.assign(filter, {"description.skills": {$all: skills.split(',')}});
+        if(params.certificates === "true"){
+            Object.assign(filter, {
+                'success.fixedCertificates': {$ne:[]}
+            })
         }
-        if(resultRest.city){
-            const {city, ...rest} = resultRest;
-            resultRest = rest;
-            Object.assign(filter, {"contacts.address.city": city});
-        }
-        if(resultRest.gender){
-            const {gender, ...rest} = resultRest;
-            resultRest = rest;
-            Object.assign(filter, {"description.gender": gender});
-        }
-        Object.assign(filter, resultRest); //копирую в объект filter все оставшиеся пары ключ-значение
         return db.find(filter).toArray();
     },
     async creatureUser(body: UserCreatureModel) : Promise<void>{

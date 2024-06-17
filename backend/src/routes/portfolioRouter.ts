@@ -91,44 +91,92 @@ export const getPortfolioRouter = () => {
     router.get('/description',
         jwtMiddleware,
         (req:RequestWithUser, res) => {
-        res.render(path.join(__dirname, "../../src/ejsPages/portfolioDescription.ejs"), {user: req.user})
+        if(req.user){
+            res.render(path.join(__dirname, "../../src/ejsPages/portfolioDescription.ejs"), {user: req.user})
+        }else{
+            return res.status(codeMessage.Unauthorized).render(path.join(__dirname, "../../src/ejsPages/errorPage"),
+                {error: codeMessage.Unauthorized,
+                    message: `Эта страница доступна толлько авторизованным пользователям)`});
+        }
+
     })
     router.get('/contacts',
         jwtMiddleware,
         (req:RequestWithUser, res) => {
-            res.render(path.join(__dirname, "../../src/ejsPages/portfolioContacts.ejs"), {user: req.user})
+            if(req.user){
+                res.render(path.join(__dirname, "../../src/ejsPages/portfolioContacts.ejs"), {user: req.user})
+            }else{
+                return res.status(codeMessage.Unauthorized).render(path.join(__dirname, "../../src/ejsPages/errorPage"),
+                    {error: codeMessage.Unauthorized,
+                        message: `Эта страница доступна толлько авторизованным пользователям)`});
+            }
         })
     router.get('/success',
         jwtMiddleware,
         (req:RequestWithUser, res)=>{
-            res.render(path.join(__dirname, "../../src/ejsPages/portfolioSuccess.ejs"), {user: req.user})
+            if(req.user){
+                res.render(path.join(__dirname, "../../src/ejsPages/portfolioSuccess.ejs"), {user: req.user})
+            }else{
+                return res.status(codeMessage.Unauthorized).render(path.join(__dirname, "../../src/ejsPages/errorPage"),
+                    {error: codeMessage.Unauthorized,
+                        message: `Эта страница доступна толлько авторизованным пользователям)`});
+            }
         })
     router.get('/projects',
         jwtMiddleware,
         (req:RequestWithUser, res)=>{
-            res.render(path.join(__dirname, "../../src/ejsPages/portfolioProjects.ejs"), {user: req.user})
+            if(req.user){
+                res.render(path.join(__dirname, "../../src/ejsPages/portfolioProjects.ejs"), {user: req.user})
+            }else{
+                return res.status(codeMessage.Unauthorized).render(path.join(__dirname, "../../src/ejsPages/errorPage"),
+                    {error: codeMessage.Unauthorized,
+                        message: `Эта страница доступна толлько авторизованным пользователям)`});
+            }
         })
     router.get('/description/edit',
         jwtMiddleware,
         (req:RequestWithUser, res) => {
-        res.render(path.join(__dirname, "../../src/ejsPages/portfolioDescriptionEdit.ejs"), {user: req.user})
+        if(req.user){
+            res.render(path.join(__dirname, "../../src/ejsPages/portfolioDescriptionEdit.ejs"), {user: req.user})
+        }else{
+            return res.status(codeMessage.Unauthorized).render(path.join(__dirname, "../../src/ejsPages/errorPage"),
+                {error: codeMessage.Unauthorized,
+                    message: `Эта страница доступна толлько авторизованным пользователям)`});
+        }
     })
     router.get('/contacts/edit',
         jwtMiddleware,
         (req:RequestWithUser, res)=>{
+        if(req.user){
             res.render(path.join(__dirname, "../../src/ejsPages/portfolioContactsEdit.ejs"), {user: req.user});
+        }else{
+            return res.status(codeMessage.Unauthorized).render(path.join(__dirname, "../../src/ejsPages/errorPage"),
+                {error: codeMessage.Unauthorized,
+                    message: `Эта страница доступна толлько авторизованным пользователям)`});
+        }
     })
     router.get('/success/edit',
         jwtMiddleware,
         (req:RequestWithUser, res)=>{
-        res.render(path.join(__dirname, "../../src/ejsPages/portfolioSuccessEdit.ejs"), {user: req.user})
+        if (req.user){
+            res.render(path.join(__dirname, "../../src/ejsPages/portfolioSuccessEdit.ejs"), {user: req.user})
+        }else{
+            return res.status(codeMessage.Unauthorized).render(path.join(__dirname, "../../src/ejsPages/errorPage"),
+                {error: codeMessage.Unauthorized,
+                    message: `Эта страница доступна толлько авторизованным пользователям)`});
+        }
     })
     router.get('/projects/edit',
         jwtMiddleware,
         (req:RequestWithUser, res)=>{
+        if(req.user){
             res.render(path.join(__dirname, "../../src/ejsPages/portfolioProjectsEdit.ejs"), {user: req.user})
-        })
-
-
+        }else{
+            return res.status(codeMessage.Unauthorized).render(path.join(__dirname, "../../src/ejsPages/errorPage"),
+                {error: codeMessage.Unauthorized,
+                    message: `Эта страница доступна толлько авторизованным пользователям)`});
+        }
+    })
+    
     return router;
 }

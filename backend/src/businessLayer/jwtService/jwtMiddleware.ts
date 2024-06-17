@@ -28,8 +28,9 @@ export async function jwtMiddleware(req : RequestWithUser, res : Response, next 
         req.user = findUser;
         next()
     }catch(error){
-        return res.status(codeMessage.Unauthorized).render(path.join(__dirname, "../../../src/ejsPages/errorPage"),
-            {error: codeMessage.Unauthorized,
-                message: `Эта страница доступна толлько авторизованным пользователям)`});
+        next();
+        //передаю управление потому что на некоторых страницах нужно смотреть авторизован пользователь или нет
+        //и на основании этого генерировать страницу либо с кнопкой "регистрация" либо с кнопкой ведущей в лк
+        //поэтому здесь не стоит возвращать ошибку
     }
 }

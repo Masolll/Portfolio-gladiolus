@@ -6,6 +6,7 @@ import {body, validationResult} from 'express-validator';
 import * as bcrypt from 'bcrypt';
 import {jwtService} from "../businessLayer/jwtService/jwtService";
 import {jwtMiddleware} from "../businessLayer/jwtService/jwtMiddleware";
+import {RequestWithUser} from "../models/RequestWithUser";
 
 export const getEnterRouter = () => {
     const router = express.Router();
@@ -34,8 +35,14 @@ export const getEnterRouter = () => {
     })
     router.get('/confirmEmail',
         jwtMiddleware,
-        (req, res) =>{
+        (req:RequestWithUser, res) =>{
+        if(req.user){
             res.sendFile(path.join(__dirname, "../../../portfolio/enterConfirmEmail.html"))
+        }else{
+            return res.status(codeMessage.Unauthorized).render(path.join(__dirname, "../../src/ejsPages/errorPage"),
+                {error: codeMessage.Unauthorized,
+                    message: `Эта страница доступна толлько авторизованным пользователям)`});
+        }
     })
 
     return router;

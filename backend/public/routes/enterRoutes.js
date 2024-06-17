@@ -66,7 +66,13 @@ const getEnterRouter = () => {
         return res.json({ token: token });
     }));
     router.get('/confirmEmail', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/enterConfirmEmail.html"));
+        if (req.user) {
+            res.sendFile(path_1.default.join(__dirname, "../../../portfolio/enterConfirmEmail.html"));
+        }
+        else {
+            return res.status(codeMessage_1.codeMessage.Unauthorized).render(path_1.default.join(__dirname, "../../src/ejsPages/errorPage"), { error: codeMessage_1.codeMessage.Unauthorized,
+                message: `Эта страница доступна толлько авторизованным пользователям)` });
+        }
     });
     return router;
 };

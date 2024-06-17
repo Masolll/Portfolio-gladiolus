@@ -37,7 +37,7 @@ saveButton.onclick = function (evt){
             method: 'PUT',
             body: JSON.stringify({
                 contacts: {
-                    age: age,
+                    age: parseInt(age),
                     phone: phone,
                     email: email,
                     gender: gender,

@@ -5,5 +5,7 @@ export type GetUserQueryModel = {
     city: string,
     minAge:string,
     maxAge: string,
+    projects: string,
+    certificates: string
 }
 // & {[key: string]: string};//объединение с индексным типом, чтобы ts не ругался в методе findUserByQueryParams

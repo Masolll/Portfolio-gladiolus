@@ -91,28 +91,76 @@ const getPortfolioRouter = () => {
         }
     }));
     router.get('/description', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioDescription.ejs"), { user: req.user });
+        if (req.user) {
+            res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioDescription.ejs"), { user: req.user });
+        }
+        else {
+            return res.status(codeMessage_1.codeMessage.Unauthorized).render(path_1.default.join(__dirname, "../../src/ejsPages/errorPage"), { error: codeMessage_1.codeMessage.Unauthorized,
+                message: `Эта страница доступна толлько авторизованным пользователям)` });
+        }
     });
     router.get('/contacts', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioContacts.ejs"), { user: req.user });
+        if (req.user) {
+            res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioContacts.ejs"), { user: req.user });
+        }
+        else {
+            return res.status(codeMessage_1.codeMessage.Unauthorized).render(path_1.default.join(__dirname, "../../src/ejsPages/errorPage"), { error: codeMessage_1.codeMessage.Unauthorized,
+                message: `Эта страница доступна толлько авторизованным пользователям)` });
+        }
     });
     router.get('/success', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioSuccess.ejs"), { user: req.user });
+        if (req.user) {
+            res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioSuccess.ejs"), { user: req.user });
+        }
+        else {
+            return res.status(codeMessage_1.codeMessage.Unauthorized).render(path_1.default.join(__dirname, "../../src/ejsPages/errorPage"), { error: codeMessage_1.codeMessage.Unauthorized,
+                message: `Эта страница доступна толлько авторизованным пользователям)` });
+        }
     });
     router.get('/projects', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioProjects.ejs"), { user: req.user });
+        if (req.user) {
+            res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioProjects.ejs"), { user: req.user });
+        }
+        else {
+            return res.status(codeMessage_1.codeMessage.Unauthorized).render(path_1.default.join(__dirname, "../../src/ejsPages/errorPage"), { error: codeMessage_1.codeMessage.Unauthorized,
+                message: `Эта страница доступна толлько авторизованным пользователям)` });
+        }
     });
     router.get('/description/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioDescriptionEdit.ejs"), { user: req.user });
+        if (req.user) {
+            res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioDescriptionEdit.ejs"), { user: req.user });
+        }
+        else {
+            return res.status(codeMessage_1.codeMessage.Unauthorized).render(path_1.default.join(__dirname, "../../src/ejsPages/errorPage"), { error: codeMessage_1.codeMessage.Unauthorized,
+                message: `Эта страница доступна толлько авторизованным пользователям)` });
+        }
     });
     router.get('/contacts/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioContactsEdit.ejs"), { user: req.user });
+        if (req.user) {
+            res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioContactsEdit.ejs"), { user: req.user });
+        }
+        else {
+            return res.status(codeMessage_1.codeMessage.Unauthorized).render(path_1.default.join(__dirname, "../../src/ejsPages/errorPage"), { error: codeMessage_1.codeMessage.Unauthorized,
+                message: `Эта страница доступна толлько авторизованным пользователям)` });
+        }
     });
     router.get('/success/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioSuccessEdit.ejs"), { user: req.user });
+        if (req.user) {
+            res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioSuccessEdit.ejs"), { user: req.user });
+        }
+        else {
+            return res.status(codeMessage_1.codeMessage.Unauthorized).render(path_1.default.join(__dirname, "../../src/ejsPages/errorPage"), { error: codeMessage_1.codeMessage.Unauthorized,
+                message: `Эта страница доступна толлько авторизованным пользователям)` });
+        }
     });
     router.get('/projects/edit', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioProjectsEdit.ejs"), { user: req.user });
+        if (req.user) {
+            res.render(path_1.default.join(__dirname, "../../src/ejsPages/portfolioProjectsEdit.ejs"), { user: req.user });
+        }
+        else {
+            return res.status(codeMessage_1.codeMessage.Unauthorized).render(path_1.default.join(__dirname, "../../src/ejsPages/errorPage"), { error: codeMessage_1.codeMessage.Unauthorized,
+                message: `Эта страница доступна толлько авторизованным пользователям)` });
+        }
     });
     return router;
 };
