@@ -34,7 +34,7 @@ const getAllFormsRouter = () => {
     router.get('contacts/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const findUser = MongoDbUsersRepository_1.UsersRepository.findUserById(+req.params.id);
         if (findUser) {
-            res.render(path.join(__dirname, "../../src/ejsPages/displayContacts.ejs"), { user: findUser });
+            res.render(path.join(__dirname, "../../src/ejsPages/displayContacts.ejs.ejs"), { user: findUser });
         }
         else {
             return res
