@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7ca32c5-1ec5-4ec6-8de4-892661674b71" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/public/routes/displayOtherPortfolio.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/displayOtherPortfolio.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/routes/displayPortfolioRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/routes/displayPortfolioRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/allForms.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/allForms.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/enter.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/enter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/businessLayer/emailService/nodemailer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/businessLayer/emailService/nodemailer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +16,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -102,6 +100,7 @@
       <workItem from="1718268310360" duration="10045000" />
       <workItem from="1718364454841" duration="21641000" />
       <workItem from="1718471865526" duration="11186000" />
+      <workItem from="1718796631966" duration="15028000" />
     </task>
     <servers />
   </component>

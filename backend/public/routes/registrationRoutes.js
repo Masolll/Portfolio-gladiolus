@@ -18,7 +18,6 @@ const express_1 = __importDefault(require("express"));
 const MongoDbUsersRepository_1 = require("../dataAccessLayer/usersRepository/MongoDbUsersRepository");
 const codeMessage_1 = require("../models/codeMessage");
 const express_validator_1 = require("express-validator");
-const jwtMiddleware_1 = require("../businessLayer/jwtService/jwtMiddleware");
 const getRegistrationRouter = () => {
     const router = express_1.default.Router();
     router.get('/', (req, res) => {
@@ -37,14 +36,8 @@ const getRegistrationRouter = () => {
         yield MongoDbUsersRepository_1.UsersRepository.creatureUser(req.body);
         return res.sendStatus(codeMessage_1.codeMessage.NoContent);
     }));
-    router.get('/confirmEmail', jwtMiddleware_1.jwtMiddleware, (req, res) => {
-        if (req.user) {
-            res.sendFile(path_1.default.join(__dirname, "../../../portfolio/registrationConfirmEmail.html"));
-        }
-        else {
-            return res.status(codeMessage_1.codeMessage.Unauthorized).render(path_1.default.join(__dirname, "../../src/ejsPages/errorPage"), { error: codeMessage_1.codeMessage.Unauthorized,
-                message: `Эта страница доступна толлько авторизованным пользователям)` });
-        }
+    router.get('/confirmEmail', (req, res) => {
+        res.sendFile(path_1.default.join(__dirname, "../../../portfolio/registrationConfirmEmail.html"));
     });
     return router;
 };

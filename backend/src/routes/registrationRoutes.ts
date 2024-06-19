@@ -31,15 +31,8 @@ export const getRegistrationRouter = () => {
 
     })
     router.get('/confirmEmail',
-        jwtMiddleware,
         (req:RequestWithUser, res)=>{
-        if(req.user){
-            res.sendFile(path.join(__dirname, "../../../portfolio/registrationConfirmEmail.html"));
-        }else{
-            return res.status(codeMessage.Unauthorized).render(path.join(__dirname, "../../src/ejsPages/errorPage"),
-                {error: codeMessage.Unauthorized,
-                    message: `Эта страница доступна толлько авторизованным пользователям)`});
-        }
+        res.sendFile(path.join(__dirname, "../../../portfolio/registrationConfirmEmail.html"));
     })
 
     return router;

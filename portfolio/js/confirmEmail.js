@@ -30,6 +30,8 @@ confirmPasswordButton = document.querySelector('.confirmPasswordButton');
 confirmPasswordButton.onclick = function (){
     const inputCode = document.getElementById('userCodeInput').value;
     if (inputCode == code){
+        document.cookie = "token=" + localStorage.getItem('bearerToken')+";path=/";
+        localStorage.removeItem('bearerToken');
         window.location.href = '/portfolio/description'
     }else{
         alert('Введен неверный код')

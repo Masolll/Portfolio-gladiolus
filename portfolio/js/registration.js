@@ -1,3 +1,4 @@
+import {getToken} from "/js/getToken.js";
 document.getElementById('registerButton').addEventListener('click', async function(e) {
     e.preventDefault();
     const username = document.getElementById('username').value;
@@ -52,25 +53,10 @@ document.getElementById('registerButton').addEventListener('click', async functi
                 throw new Error('Ошибка не сервере')
             }else{
                 //получаю токен с сервера
-                const token =  await fetch(
-                    "/enter",
-                    {
-                        method: 'POST',
-                        body: JSON.stringify({'email': email, 'password': password}),
-                        headers: {'Content-Type': 'application/json'}
-                    }
-                ).then(response => {
-                    if (!response.ok){
-                        throw new Error('Ошибка не сервере')
-                    }else{
-                        return response.json();
-                    }
-                }).then(json => json.token).catch(error => {
-                    alert('Введен неверный email или пароль');
-                })
+                const token =  await getToken(email, password);
                 if (token){
                     const bearerToken = 'Bearer ' + token
-                    document.cookie = "token=" + bearerToken;
+                    localStorage.setItem('bearerToken', bearerToken);
                     window.location.href = "/registration/confirmEmail";
                 }
             }

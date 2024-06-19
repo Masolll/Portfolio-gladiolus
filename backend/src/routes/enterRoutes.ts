@@ -34,15 +34,8 @@ export const getEnterRouter = () => {
         return res.json({token: token});
     })
     router.get('/confirmEmail',
-        jwtMiddleware,
         (req:RequestWithUser, res) =>{
-        if(req.user){
-            res.sendFile(path.join(__dirname, "../../../portfolio/enterConfirmEmail.html"))
-        }else{
-            return res.status(codeMessage.Unauthorized).render(path.join(__dirname, "../../src/ejsPages/errorPage"),
-                {error: codeMessage.Unauthorized,
-                    message: `Эта страница доступна толлько авторизованным пользователям)`});
-        }
+        res.sendFile(path.join(__dirname, "../../../portfolio/enterConfirmEmail.html"))
     })
 
     return router;
