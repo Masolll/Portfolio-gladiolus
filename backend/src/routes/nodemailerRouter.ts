@@ -1,6 +1,4 @@
-import path from "path";
 import express, {Request, Response} from "express";
-import {body, validationResult} from "express-validator";
 import {sendMessage} from "../businessLayer/emailService/nodemailer";
 import {codeMessage} from "../models/codeMessage";
 export const getNodemailerRouter = () => {
@@ -8,8 +6,9 @@ export const getNodemailerRouter = () => {
 
     router.post('/',
         async (req : Request, res : Response) => {
-        await sendMessage();
-        return res.sendStatus(codeMessage.OK);
+        const enterPassword = Math.trunc(Math.random() * 10**6)
+        await sendMessage(req.body.email, enterPassword);
+        return res.status(codeMessage.OK).json(enterPassword);
     })
 
     return router;

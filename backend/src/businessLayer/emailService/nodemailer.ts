@@ -1,23 +1,28 @@
 import nodemailer from "nodemailer";
+import {emailPass} from "./emailPass";
 
-// async await is not allowed in global scope, must use a wrapper
-export async function sendMessage() {
-    let testAccount = await nodemailer.createTestAccount();
-    const transporter = nodemailer.createTransport({
-        host: 'smtp.ethereal.email',
-        port: 465,
-        secure: true,
-        auth: {
-            user: testAccount.user,
-            pass: testAccount.pass
-        }
-    })
-    await transporter.sendMail({
-        from: '"ITConnect" <toni.ward87@ethereal.email>', // sender address
-        to: "<fritz.lebsack49@ethereal.email>", // list of receivers
-        subject: "Hello ✔", // Subject line
-        text: 'яхай', // plain text body
-        html: "<b>ваш код</b>", // html body
-    });
-    console.log('отправлено!');
+export async function sendMessage(receiverEmail: string, enterPassword: number) {
+    try{
+        const transporter = nodemailer.createTransport({
+            host: 'smtp.yandex.ru',
+            port: 465,
+            secure: true,
+            auth: {
+                user: "yastey637@ya.ru",
+                pass: emailPass
+            }
+        })
+        await transporter.sendMail({
+            from: 'yastey637@ya.ru', // sender address
+            to: receiverEmail, // list of receivers
+            subject: "ITConnect подтверждение почты", // Subject line
+            html: `<h2>Здравствуйте!</h2>
+                   <h2>Ваш код подтверждения:</h2>
+                   <h1> ${enterPassword}</h1>
+                   <h3>Если возникли ошибки или есть вопросы можете написать нам на почту yastey637@ya.ru</h3>`
+        });
+    }catch (error){
+        console.log(error);
+    }
+
 }

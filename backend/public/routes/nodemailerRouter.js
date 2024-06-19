@@ -19,8 +19,9 @@ const codeMessage_1 = require("../models/codeMessage");
 const getNodemailerRouter = () => {
     const router = express_1.default.Router();
     router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, nodemailer_1.sendMessage)();
-        return res.sendStatus(codeMessage_1.codeMessage.OK);
+        const enterPassword = Math.trunc(Math.random() * 10 ** 6);
+        yield (0, nodemailer_1.sendMessage)(req.body.email, enterPassword);
+        return res.status(codeMessage_1.codeMessage.OK).json(enterPassword);
     }));
     return router;
 };

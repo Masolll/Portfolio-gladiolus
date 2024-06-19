@@ -10,5 +10,8 @@
     "type": "git",
     "url": "https://github.com/Masolll/Portfolio-gladiolus.git"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.15"
+  }
 }

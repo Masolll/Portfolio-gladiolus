@@ -14,27 +14,32 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendMessage = void 0;
 const nodemailer_1 = __importDefault(require("nodemailer"));
-// async await is not allowed in global scope, must use a wrapper
-function sendMessage() {
+const emailPass_1 = require("./emailPass");
+function sendMessage(receiverEmail, enterPassword) {
     return __awaiter(this, void 0, void 0, function* () {
-        let testAccount = yield nodemailer_1.default.createTestAccount();
-        const transporter = nodemailer_1.default.createTransport({
-            host: 'smtp.ethereal.email',
-            port: 465,
-            secure: true,
-            auth: {
-                user: testAccount.user,
-                pass: testAccount.pass
-            }
-        });
-        yield transporter.sendMail({
-            from: '"ITConnect" <toni.ward87@ethereal.email>', // sender address
-            to: "<fritz.lebsack49@ethereal.email>", // list of receivers
-            subject: "Hello ✔", // Subject line
-            text: 'яхай', // plain text body
-            html: "<b>ваш код</b>", // html body
-        });
-        console.log('отправлено!');
+        try {
+            const transporter = nodemailer_1.default.createTransport({
+                host: 'smtp.yandex.ru',
+                port: 465,
+                secure: true,
+                auth: {
+                    user: "yastey637@ya.ru",
+                    pass: emailPass_1.emailPass
+                }
+            });
+            yield transporter.sendMail({
+                from: 'yastey637@ya.ru', // sender address
+                to: receiverEmail, // list of receivers
+                subject: "ITConnect подтверждение почты", // Subject line
+                html: `<h2>Здравствуйте!</h2>
+                   <h2>Ваш код подтверждения:</h2>
+                   <h1> ${enterPassword}</h1>
+                   <h3>Если возникли ошибки или есть вопросы можете написать нам на почту yastey637@ya.ru</h3>`
+            });
+        }
+        catch (error) {
+            console.log(error);
+        }
     });
 }
 exports.sendMessage = sendMessage;
