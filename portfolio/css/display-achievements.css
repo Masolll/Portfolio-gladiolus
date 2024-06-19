@@ -125,15 +125,8 @@ body {
     height: 339px;
 }
 
-
-.star{
-    width: 47px;
-    height: 47px;
-    position: absolute;
-    left: px;
-}
-
 .favor{
+    display: none;
     width: 300px;
     border: none;
     font-family: 'Inher' , sans-serif;
@@ -152,18 +145,7 @@ body {
 }
 
 .star{
-    outline: none;
-    border: none;
-    font-family: 'Inher' , sans-serif;
-    position: relative;
-    display: inline-block;
-    letter-spacing: 0.05rem;
-    font-weight: 400;
-    font-size: 24px;
-    background: white;
-    color: black;
-    top: 377px;
-    right: 600px;
+    display: none;
 }
 
 .img-sertificat{
@@ -181,7 +163,7 @@ body {
     background: white;
     color: black;
     bottom: 146px;
-    right: 305px;
+    left: 80px;
 }
 
 .old{
@@ -193,8 +175,8 @@ body {
     font-size: 24px;
     background: white;
     color:#747474;
-    left: 395px;
-    bottom: 142px;
+    right: 205px;
+    bottom: 100px;
 }
 
 .redactor{

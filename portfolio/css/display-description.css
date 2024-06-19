@@ -153,6 +153,7 @@ body {
 }
 
 .favor{
+    display: none;
     width: 300px;
     border: none;
     font-family: 'Inher' , sans-serif;
@@ -161,8 +162,8 @@ body {
     font-size: 24px;
     background: white;
     color: black;
-    top: 365px;
-    right: 285px;
+    top: 300px;
+    right: 50px;
 }
 
 .star-img{
@@ -171,18 +172,7 @@ body {
 }
 
 .star{
-    outline: none;
-    border: none;
-    font-family: 'Inher' , sans-serif;
-    position: relative;
-    display: inline-block;
-    letter-spacing: 0.05rem;
-    font-weight: 400;
-    font-size: 24px;
-    background: white;
-    color: black;
-    top: 377px;
-    right: 635px;
+    display: none;
 }
 
 .name{
@@ -195,7 +185,7 @@ body {
     background: white;
     color: black;
     bottom: 140px;
-    right: 305px;
+    left: 75px;
 }
 
 .old{
@@ -207,8 +197,8 @@ body {
     font-size: 24px;
     background: white;
     color:#747474;
-    left: 395px;
-    bottom: 137px;
+    right: 205px;
+    bottom: 100px;
 }
 
 .redactor{

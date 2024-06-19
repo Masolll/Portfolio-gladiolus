@@ -5,9 +5,11 @@ body {
     color: #000;
     line-height: 1.4;
 }
+
 .filter-none{
     display: none;
 }
+
 .flow1{
     width: 100%;
     max-width: 1274px;
@@ -43,7 +45,7 @@ body {
     width: 400px;
     height: 50px;
     position: relative;
-    bottom: 210px;  
+    bottom: 130px;  
     right: 20px;
     text-align: center;
     font-size: 24px;
@@ -72,6 +74,10 @@ body {
 .button-skills:active {
     background-color: #2D87D6; 
     color: #ffffff; 
+}
+
+.item-star{
+    display: none;
 }
 
 .old{
@@ -550,7 +556,7 @@ body {
     list-style-type: none;
     position: relative;
     right: 250px;
-    bottom: 170px;
+    bottom: 100px;  
     font-family: 'Inter', sans-serif;
     font-size: 24px;
 }
